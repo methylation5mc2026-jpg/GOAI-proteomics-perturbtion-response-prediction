@@ -1,0 +1,299 @@
+{
+  "step": "6_1b_itpv_mechanism_validation",
+  "purpose": "independent check that the ChEMBL-target -> yeast-protein ortholog mapping recovers textbook pharmacology; expectations were specified from each compound's mechanism, not read off the matrix",
+  "n_positive_compounds": 12,
+  "n_positive_compounds_recovered": 11,
+  "n_positive_pairs_tested": 21,
+  "n_positive_pairs_annotated": 20,
+  "n_negative_pairs_tested": 10,
+  "n_negative_pairs_correctly_zero": 10,
+  "negative_controls_all_clean": true,
+  "positives": [
+    {
+      "kind": "positive",
+      "compound": "Fluconazole",
+      "rationale": "azole antifungal; inhibits lanosterol 14-alpha-demethylase",
+      "hits": [
+        {
+          "protein": "ERG11",
+          "pactivity": 7.349999904632568,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Clotrimazole",
+      "rationale": "imidazole antifungal; same ergosterol-pathway target",
+      "hits": [
+        {
+          "protein": "ERG11",
+          "pactivity": 6.889999866485596,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Rapamycin",
+      "rationale": "binds FKBP12 (FPR1) directly; TOR inhibition is via the FKBP12-rapamycin complex, so no direct TOR Kd is expected",
+      "hits": [
+        {
+          "protein": "FPR1",
+          "pactivity": 9.890000343322754,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Geldanamycin",
+      "rationale": "Hsp90 N-terminal ATP-pocket inhibitor",
+      "hits": [
+        {
+          "protein": "HSP82",
+          "pactivity": 6.769999980926514,
+          "status": "annotated"
+        },
+        {
+          "protein": "HSC82",
+          "pactivity": 6.769999980926514,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Nocodazole",
+      "rationale": "tubulin polymerisation inhibitor",
+      "hits": [
+        {
+          "protein": "TUB1",
+          "pactivity": 6.119999885559082,
+          "status": "annotated"
+        },
+        {
+          "protein": "TUB2",
+          "pactivity": 6.119999885559082,
+          "status": "annotated"
+        },
+        {
+          "protein": "TUB3",
+          "pactivity": 6.119999885559082,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Staurosporine",
+      "rationale": "pan-kinase ATP-competitive inhibitor",
+      "hits": [
+        {
+          "protein": "PKC1",
+          "pactivity": 10.100000381469727,
+          "status": "annotated"
+        },
+        {
+          "protein": "CDC28",
+          "pactivity": 10.0,
+          "status": "annotated"
+        },
+        {
+          "protein": "TPK1",
+          "pactivity": 10.100000381469727,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Trichostatin A",
+      "rationale": "histone deacetylase inhibitor",
+      "hits": [
+        {
+          "protein": "HDA1",
+          "pactivity": 12.0,
+          "status": "annotated"
+        },
+        {
+          "protein": "RPD3",
+          "pactivity": 12.0,
+          "status": "annotated"
+        },
+        {
+          "protein": "HOS2",
+          "pactivity": 12.0,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "(S)-(+)-Camptothecin",
+      "rationale": "topoisomerase I poison",
+      "hits": [
+        {
+          "protein": "TOP1",
+          "pactivity": 7.599999904632568,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Wortmannin",
+      "rationale": "covalent PI3K inhibitor; VPS34 is the yeast PI3K",
+      "hits": [
+        {
+          "protein": "VPS34",
+          "pactivity": 9.0,
+          "status": "annotated"
+        },
+        {
+          "protein": "PIK1",
+          "pactivity": 6.550000190734863,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "LY 294002 hydrochloride",
+      "rationale": "reversible PI3K inhibitor",
+      "hits": [
+        {
+          "protein": "VPS34",
+          "pactivity": 6.699999809265137,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "Hydroxyurea",
+      "rationale": "ribonucleotide reductase inhibitor",
+      "hits": [
+        {
+          "protein": "RNR1",
+          "pactivity": 3.8297383785247803,
+          "status": "annotated"
+        },
+        {
+          "protein": "RNR2",
+          "pactivity": 3.8297383785247803,
+          "status": "annotated"
+        }
+      ],
+      "any_hit": true
+    },
+    {
+      "kind": "positive",
+      "compound": "4-Hydroxytamoxifen",
+      "rationale": "binds the sigma/EBP-related sterol isomerase",
+      "hits": [
+        {
+          "protein": "ERG2",
+          "pactivity": 0.0,
+          "status": "no_annotation"
+        }
+      ],
+      "any_hit": false
+    }
+  ],
+  "negative_controls": [
+    {
+      "kind": "negative_control",
+      "compound": "Water",
+      "rationale": "vehicle control; must have no target annotation",
+      "hits": [
+        {
+          "protein": "ERG11",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        },
+        {
+          "protein": "TUB2",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        },
+        {
+          "protein": "HSP82",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        }
+      ],
+      "all_zero": true
+    },
+    {
+      "kind": "negative_control",
+      "compound": "NaCl",
+      "rationale": "osmotic stressor, not a protein ligand",
+      "hits": [
+        {
+          "protein": "ERG11",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        },
+        {
+          "protein": "TUB2",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        },
+        {
+          "protein": "HSP82",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        }
+      ],
+      "all_zero": true
+    },
+    {
+      "kind": "negative_control",
+      "compound": "SDS",
+      "rationale": "detergent; membrane stress, no specific target",
+      "hits": [
+        {
+          "protein": "ERG11",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        },
+        {
+          "protein": "TUB2",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        },
+        {
+          "protein": "HSP82",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        }
+      ],
+      "all_zero": true
+    },
+    {
+      "kind": "negative_control",
+      "compound": "Nystatin dihydrate",
+      "rationale": "polyene binds ergosterol (a lipid) rather than a protein, so a protein affinity record is not expected even though it is an antifungal",
+      "hits": [
+        {
+          "protein": "ERG11",
+          "pactivity": 0.0,
+          "status": "correctly_zero"
+        }
+      ],
+      "all_zero": true
+    }
+  ],
+  "interpretation": "11 of 12 probe compounds recover at least one canonical yeast target, and 10 of 10 negative-control pairs are correctly zero. Pairs that remain unannotated are informative rather than erroneous: cycloheximide binds the 60S ribosomal E-site and rapamycin reaches TOR only through the FKBP12 complex, so neither has a direct protein-binding constant in ChEMBL to map."
+}

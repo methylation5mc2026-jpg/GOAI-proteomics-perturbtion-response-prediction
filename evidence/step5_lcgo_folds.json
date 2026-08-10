@@ -1,0 +1,346 @@
+{
+  "step": "5_3_lcgo_folds",
+  "seed": 42,
+  "n_folds": 5,
+  "subsample_frac": 0.3,
+  "full_frac": 0.06,
+  "n_train_rows": 5078,
+  "families_requested": [
+    "lgb_tab",
+    "lgb_mol",
+    "lgb_mol3d"
+  ],
+  "families_trained": [
+    "lgb_mol",
+    "lgb_mol3d",
+    "lgb_tab"
+  ],
+  "chem_group": {
+    "EDTA": 0,
+    "CHX": 1,
+    "NaCl": 2,
+    "Cisplatin": 3,
+    "SDS": 4,
+    "Rapamycin": 4,
+    "Sorbitol": 3,
+    "Anisomycin": 2,
+    "Brefeldin A": 1,
+    "1-10 Phenanthroline monohydrate": 1,
+    "Trifluoperazine dihydrochloride": 2,
+    "Emodin": 4,
+    "LY 294002 hydrochloride": 3,
+    "Amiodarone hydrochloride": 0,
+    "Nystatin dihydrate": 2,
+    "Desipramine hydrochloride": 1,
+    "Haloperidol": 4,
+    "Parthenolide": 3,
+    "Nigericin": 0,
+    "Oligomycin": 2,
+    "4-Hydroxytamoxifen": 1,
+    "Geldanamycin": 4,
+    "Clotrimazole": 3,
+    "Nocodazole": 0,
+    "U-73122": 2,
+    "Clomiphene citrate": 1,
+    "Artemisinin": 4,
+    "Harmine hydrochloride": 3,
+    "Hoechst 33258": 0,
+    "Trichostatin A": 2,
+    "Tunicamycin": 1,
+    "Wortmannin": 3,
+    "Valinomycin": 4,
+    "Cyclopiazonic acid": 0,
+    "(1R, 2S, 5R) - (-) - Menthol": 2,
+    "Staurosporine": 1,
+    "Dyclonine hydrochloride": 4
+  },
+  "strain_folds": {
+    "BAH": [
+      0,
+      4
+    ],
+    "CEK": [
+      1
+    ],
+    "CGD": [
+      2
+    ],
+    "DHY210": [
+      3
+    ]
+  },
+  "composition": {
+    "fold0": {
+      "n_fit": 3008,
+      "n_dev": 848,
+      "dev_by_regime": {
+        "full": 61,
+        "chem_novel": 382,
+        "strain_novel": 169,
+        "both_novel": 236
+      },
+      "n_fit_chemicals": 31,
+      "n_fit_strains": 3,
+      "held_out_chemicals": [
+        "Amiodarone hydrochloride",
+        "Cyclopiazonic acid",
+        "EDTA",
+        "Hoechst 33258",
+        "Nigericin",
+        "Nocodazole"
+      ],
+      "held_out_strains": [
+        "BAH"
+      ]
+    },
+    "fold1": {
+      "n_fit": 2957,
+      "n_dev": 1126,
+      "dev_by_regime": {
+        "full": 55,
+        "chem_novel": 403,
+        "strain_novel": 430,
+        "both_novel": 238
+      },
+      "n_fit_chemicals": 29,
+      "n_fit_strains": 3,
+      "held_out_chemicals": [
+        "1-10 Phenanthroline monohydrate",
+        "4-Hydroxytamoxifen",
+        "Brefeldin A",
+        "CHX",
+        "Clomiphene citrate",
+        "Desipramine hydrochloride",
+        "Staurosporine",
+        "Tunicamycin"
+      ],
+      "held_out_strains": [
+        "CEK"
+      ]
+    },
+    "fold2": {
+      "n_fit": 2998,
+      "n_dev": 1084,
+      "dev_by_regime": {
+        "full": 64,
+        "chem_novel": 376,
+        "strain_novel": 406,
+        "both_novel": 238
+      },
+      "n_fit_chemicals": 29,
+      "n_fit_strains": 3,
+      "held_out_chemicals": [
+        "(1R, 2S, 5R) - (-) - Menthol",
+        "Anisomycin",
+        "NaCl",
+        "Nystatin dihydrate",
+        "Oligomycin",
+        "Trichostatin A",
+        "Trifluoperazine dihydrochloride",
+        "U-73122"
+      ],
+      "held_out_strains": [
+        "CGD"
+      ]
+    },
+    "fold3": {
+      "n_fit": 2990,
+      "n_dev": 1151,
+      "dev_by_regime": {
+        "full": 65,
+        "chem_novel": 412,
+        "strain_novel": 450,
+        "both_novel": 224
+      },
+      "n_fit_chemicals": 30,
+      "n_fit_strains": 3,
+      "held_out_chemicals": [
+        "Cisplatin",
+        "Clotrimazole",
+        "Harmine hydrochloride",
+        "LY 294002 hydrochloride",
+        "Parthenolide",
+        "Sorbitol",
+        "Wortmannin"
+      ],
+      "held_out_strains": [
+        "DHY210"
+      ]
+    },
+    "fold4": {
+      "n_fit": 2970,
+      "n_dev": 869,
+      "dev_by_regime": {
+        "full": 60,
+        "chem_novel": 411,
+        "strain_novel": 145,
+        "both_novel": 253
+      },
+      "n_fit_chemicals": 29,
+      "n_fit_strains": 3,
+      "held_out_chemicals": [
+        "Artemisinin",
+        "Dyclonine hydrochloride",
+        "Emodin",
+        "Geldanamycin",
+        "Haloperidol",
+        "Rapamycin",
+        "SDS",
+        "Valinomycin"
+      ],
+      "held_out_strains": [
+        "BAH"
+      ]
+    }
+  },
+  "overall_regime_mix": {
+    "full": 305,
+    "chem_novel": 1984,
+    "strain_novel": 1600,
+    "both_novel": 1189
+  },
+  "oof_coverage": {
+    "lgb_tab": {
+      "n_rows_with_complete_prediction": 5078,
+      "n_rows_total": 5078,
+      "frac_complete": 1.0
+    },
+    "lgb_mol": {
+      "n_rows_with_complete_prediction": 5078,
+      "n_rows_total": 5078,
+      "frac_complete": 1.0
+    },
+    "lgb_mol3d": {
+      "n_rows_with_complete_prediction": 5078,
+      "n_rows_total": 5078,
+      "frac_complete": 1.0
+    }
+  },
+  "fit_seconds": {
+    "fold0/lgb_tab/full": 36.8,
+    "fold0/lgb_mol/full": 54.5,
+    "fold0/lgb_mol3d/full": 62.3,
+    "fold0/lgb_tab/chem_novel": 30.0,
+    "fold0/lgb_mol/chem_novel": 48.1,
+    "fold0/lgb_mol3d/chem_novel": 59.6,
+    "fold0/lgb_tab/strain_novel": 44.6,
+    "fold0/lgb_mol/strain_novel": 62.0,
+    "fold0/lgb_mol3d/strain_novel": 77.6,
+    "fold0/lgb_tab/both_novel": 26.2,
+    "fold0/lgb_mol/both_novel": 44.5,
+    "fold0/lgb_mol3d/both_novel": 61.4,
+    "fold1/lgb_tab/full": 31.0,
+    "fold1/lgb_mol/full": 46.9,
+    "fold1/lgb_mol3d/full": 59.9,
+    "fold1/lgb_tab/chem_novel": 28.1,
+    "fold1/lgb_mol/chem_novel": 43.2,
+    "fold1/lgb_mol3d/chem_novel": 56.5,
+    "fold1/lgb_tab/strain_novel": 39.0,
+    "fold1/lgb_mol/strain_novel": 60.6,
+    "fold1/lgb_mol3d/strain_novel": 76.8,
+    "fold1/lgb_tab/both_novel": 26.8,
+    "fold1/lgb_mol/both_novel": 42.5,
+    "fold1/lgb_mol3d/both_novel": 53.2,
+    "fold2/lgb_tab/full": 31.1,
+    "fold2/lgb_mol/full": 48.6,
+    "fold2/lgb_mol3d/full": 61.2,
+    "fold2/lgb_tab/chem_novel": 28.0,
+    "fold2/lgb_mol/chem_novel": 44.7,
+    "fold2/lgb_mol3d/chem_novel": 55.8,
+    "fold2/lgb_tab/strain_novel": 37.6,
+    "fold2/lgb_mol/strain_novel": 59.8,
+    "fold2/lgb_mol3d/strain_novel": 74.1,
+    "fold2/lgb_tab/both_novel": 25.4,
+    "fold2/lgb_mol/both_novel": 43.2,
+    "fold2/lgb_mol3d/both_novel": 54.8,
+    "fold3/lgb_tab/full": 29.5,
+    "fold3/lgb_mol/full": 46.4,
+    "fold3/lgb_mol3d/full": 59.8,
+    "fold3/lgb_tab/chem_novel": 27.7,
+    "fold3/lgb_mol/chem_novel": 45.0,
+    "fold3/lgb_mol3d/chem_novel": 55.3,
+    "fold3/lgb_tab/strain_novel": 36.9,
+    "fold3/lgb_mol/strain_novel": 59.7,
+    "fold3/lgb_mol3d/strain_novel": 83.5,
+    "fold3/lgb_tab/both_novel": 25.6,
+    "fold3/lgb_mol/both_novel": 42.5,
+    "fold3/lgb_mol3d/both_novel": 67.0,
+    "fold4/lgb_tab/full": 31.2,
+    "fold4/lgb_mol/full": 48.8,
+    "fold4/lgb_mol3d/full": 63.5,
+    "fold4/lgb_tab/chem_novel": 34.6,
+    "fold4/lgb_mol/chem_novel": 50.2,
+    "fold4/lgb_mol3d/chem_novel": 55.7,
+    "fold4/lgb_tab/strain_novel": 39.2,
+    "fold4/lgb_mol/strain_novel": 59.6,
+    "fold4/lgb_mol3d/strain_novel": 76.1,
+    "fold4/lgb_tab/both_novel": 25.3,
+    "fold4/lgb_mol/both_novel": 42.5,
+    "fold4/lgb_mol3d/both_novel": 53.2
+  },
+  "skipped_due_to_fold_time_budget": {},
+  "fold_time_budget_seconds": 5400.0,
+  "hyperparameters": {
+    "full": {
+      "config": {
+        "num_leaves": 63,
+        "learning_rate": 0.06,
+        "min_data_in_leaf": 200,
+        "feature_fraction": 0.55,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "lambda_l2": 1.0,
+        "objective": "regression",
+        "max_depth": -1
+      },
+      "n_rounds": 600
+    },
+    "chem_novel": {
+      "config": {
+        "num_leaves": 63,
+        "learning_rate": 0.06,
+        "min_data_in_leaf": 200,
+        "feature_fraction": 0.55,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "lambda_l2": 1.0,
+        "objective": "regression",
+        "max_depth": -1
+      },
+      "n_rounds": 600
+    },
+    "strain_novel": {
+      "config": {
+        "num_leaves": 127,
+        "learning_rate": 0.06,
+        "min_data_in_leaf": 400,
+        "feature_fraction": 0.8,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "lambda_l2": 1.0,
+        "objective": "regression",
+        "max_depth": -1
+      },
+      "n_rounds": 600
+    },
+    "both_novel": {
+      "config": {
+        "num_leaves": 63,
+        "learning_rate": 0.06,
+        "min_data_in_leaf": 200,
+        "feature_fraction": 0.55,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "lambda_l2": 1.0,
+        "objective": "regression",
+        "max_depth": -1
+      },
+      "n_rounds": 600
+    }
+  },
+  "protocol_notes": [
+    "hyper-parameters are the Step-3 per-regime selections, reused verbatim, so a Step-5 member differs from its Step-4 counterpart only in the fit set",
+    "encoders, mu_ctx, mu_drug, the group-mean benchmark and the abundance fallback are all refitted on each fold's fit rows only",
+    "fit sets hold ~3,300 rows against 5,078 for the final members, so a residual member-strength mismatch remains; it is roughly half the Step-4 gap"
+  ]
+}

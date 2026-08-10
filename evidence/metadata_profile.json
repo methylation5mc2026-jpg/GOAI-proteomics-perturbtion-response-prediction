@@ -1,0 +1,917 @@
+{
+  "id_checks": {
+    "train_val_n": 8958,
+    "train_val_n_unique": 8958,
+    "train_val_duplicated": 0,
+    "test_n": 4454,
+    "test_n_unique": 4454,
+    "test_duplicated": 0,
+    "n_overlap_tv_test": 0
+  },
+  "profile_train_val": {
+    "name": "metadata_train_val",
+    "n_rows": 8958,
+    "n_cols": 15,
+    "columns": {
+      "sample_ID": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 8958,
+        "top20_levels": {
+          "B4": 1,
+          "B5": 1,
+          "B6": 1,
+          "B7": 1,
+          "B8": 1,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 1,
+          "B15": 1,
+          "B16": 1,
+          "B17": 1,
+          "B18": 1,
+          "B19": 1,
+          "B20": 1,
+          "B21": 1,
+          "B22": 1,
+          "B23": 1,
+          "B24": 1,
+          "B28": 1
+        }
+      },
+      "data_source": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 4,
+        "levels": {
+          "WAYC": 4456,
+          "WAYB": 1515,
+          "WAYB_rep2": 1505,
+          "WAYB_rep1": 1482
+        }
+      },
+      "Strains": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 5,
+        "levels": {
+          "BAI": 1816,
+          "BAH": 1801,
+          "DHY210": 1793,
+          "CEK": 1786,
+          "CGD": 1762
+        }
+      },
+      "Medium": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 2,
+        "levels": {
+          "YNB+CSM+2% glucose": 4497,
+          "YNB+CSM+2% galactose": 4461
+        }
+      },
+      "Temperature": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 2,
+        "levels": {
+          "37": 4499,
+          "30": 4459
+        }
+      },
+      "pert_time": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 6,
+        "levels": {
+          "15": 1505,
+          "120": 1504,
+          "240": 1502,
+          "30": 1489,
+          "90": 1487,
+          "60": 1471
+        }
+      },
+      "pert_time_unit": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 1,
+        "levels": {
+          "min": 8958
+        }
+      },
+      "pert_id": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 41,
+        "levels": {
+          "#1": 486,
+          "#11": 473,
+          "#9": 472,
+          "#14": 471,
+          "#12": 470,
+          "#2": 466,
+          "#13": 466,
+          "#15": 466,
+          "#10": 463,
+          "#7": 462,
+          "#6": 424,
+          "#16": 350,
+          "#5": 349,
+          "#36": 120,
+          "#39": 120,
+          "#27": 119,
+          "#21": 119,
+          "#45": 119,
+          "#38": 119,
+          "#32": 119,
+          "#25": 118,
+          "#18": 118,
+          "#20": 118,
+          "#29": 118,
+          "#31": 118,
+          "#8": 118,
+          "#48": 118,
+          "#41": 117,
+          "#28": 117,
+          "#44": 117,
+          "#22": 117,
+          "#30": 117,
+          "#43": 116,
+          "#46": 116,
+          "#23": 115,
+          "#40": 115,
+          "#42": 114,
+          "#4": 114,
+          "#35": 94,
+          "#17": 80,
+          "#34": 30
+        }
+      },
+      "perturbation_no_concentration": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 46,
+        "levels": {
+          "EDTA": 699,
+          "Water": 486,
+          "DMSO": 470,
+          "FCCP": 356,
+          "Hydroxyurea": 356,
+          "Amphotericin B": 353,
+          "Cisplatin": 349,
+          "NaCl": 349,
+          "Sorbitol": 349,
+          "Rapamycin": 346,
+          "SDS": 346,
+          "CHX": 327,
+          "Anisomycin": 238,
+          "Brefeldin A": 234,
+          "1-10 Phenanthroline monohydrate": 213,
+          "Sulfometuron methyl": 120,
+          "Trifluoperazine dihydrochloride": 120,
+          "Nigericin": 119,
+          "Haloperidol": 119,
+          "Trichostatin A": 119,
+          "Pentamidine isethionate": 119,
+          "LY 294002 hydrochloride": 118,
+          "Emodin": 118,
+          "Geldanamycin": 118,
+          "Nystatin dihydrate": 118,
+          "Parthenolide": 118,
+          "Amiodarone hydrochloride": 118,
+          "Quality Control": 118,
+          "U-73122": 117,
+          "Artemisinin": 117,
+          "Clomiphene citrate": 117,
+          "Nocodazole": 117,
+          "Clotrimazole": 117,
+          "Harmine hydrochloride": 117,
+          "Oligomycin": 117,
+          "Desipramine hydrochloride": 117,
+          "Wortmannin": 116,
+          "4-Hydroxytamoxifen": 116,
+          "Cyclopiazonic acid": 115,
+          "Hoechst 33258": 115,
+          "Tunicamycin": 115,
+          "Valinomycin": 114,
+          "(1R, 2S, 5R) - (-) - Menthol": 114,
+          "Staurosporine": 94,
+          "Dyclonine hydrochloride": 80,
+          "Raloxifene hydrochloride": 30
+        }
+      },
+      "instrument": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 7,
+        "levels": {
+          "O": 3051,
+          "CAC": 1371,
+          "QE2": 1244,
+          "CAA": 1016,
+          "QE1": 944,
+          "CAB": 913,
+          "WAH": 419
+        }
+      },
+      "Yeast_cell_plate": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 144,
+        "top20_levels": {
+          "WAY_CP36": 79,
+          "WAY_CP71": 77,
+          "WAY_CP25": 76,
+          "WAY_CP28": 76,
+          "WAY_CP34": 76,
+          "WAY_CP44": 76,
+          "WAY_CP47": 76,
+          "WAY_CP48": 76,
+          "WAY_CP52": 76,
+          "WAY_CP66": 76,
+          "WAY_CP27": 75,
+          "WAY_CP35": 75,
+          "WAY_CP37": 75,
+          "WAY_CP38": 75,
+          "WAY_CP39": 75,
+          "WAY_CP40": 75,
+          "WAY_CP41": 75,
+          "WAY_CP46": 75,
+          "WAY_CP54": 75,
+          "WAY_CP58": 75
+        }
+      },
+      "protein_well": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 88,
+        "top20_levels": {
+          "A4": 142,
+          "D6": 142,
+          "E6": 142,
+          "F6": 142,
+          "C4": 141,
+          "C6": 141,
+          "D4": 141,
+          "E3": 141,
+          "F4": 141,
+          "H4": 141,
+          "A6": 140,
+          "H6": 140,
+          "B3": 139,
+          "E4": 139,
+          "F5": 139,
+          "G5": 139,
+          "F3": 138,
+          "G4": 138,
+          "B6": 137,
+          "G3": 137
+        }
+      },
+      "split_final": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 5,
+        "levels": {
+          "train": 5920,
+          "val_strain_only": 1547,
+          "val_chem_only": 1065,
+          "val_both": 269,
+          "val_time": 157
+        }
+      },
+      "strain_role": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 2,
+        "levels": {
+          "train": 7142,
+          "val": 1816
+        }
+      },
+      "chemical_role": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 2,
+        "levels": {
+          "train": 7624,
+          "val": 1334
+        }
+      }
+    }
+  },
+  "profile_test": {
+    "name": "metadata_test",
+    "n_rows": 4454,
+    "n_cols": 15,
+    "columns": {
+      "sample_ID": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 4454,
+        "top20_levels": {
+          "B1": 1,
+          "B2": 1,
+          "B13": 1,
+          "B14": 1,
+          "B25": 1,
+          "B26": 1,
+          "B27": 1,
+          "B29": 1,
+          "B31": 1,
+          "B33": 1,
+          "B35": 1,
+          "B37": 1,
+          "B38": 1,
+          "B39": 1,
+          "B41": 1,
+          "B43": 1,
+          "B45": 1,
+          "B47": 1,
+          "B49": 1,
+          "B50": 1
+        }
+      },
+      "data_source": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 4,
+        "levels": {
+          "WAYC": 2224,
+          "WAYB": 753,
+          "WAYB_rep2": 750,
+          "WAYB_rep1": 727
+        }
+      },
+      "Strains": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 6,
+        "levels": {
+          "CRD": 2231,
+          "CEK": 468,
+          "CGD": 445,
+          "DHY210": 444,
+          "BAH": 434,
+          "BAI": 432
+        }
+      },
+      "Medium": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 2,
+        "levels": {
+          "YNB+CSM+2% galactose": 2229,
+          "YNB+CSM+2% glucose": 2225
+        }
+      },
+      "Temperature": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 2,
+        "levels": {
+          "37": 2251,
+          "30": 2203
+        }
+      },
+      "pert_time": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 6,
+        "levels": {
+          "30": 754,
+          "240": 753,
+          "15": 748,
+          "60": 740,
+          "120": 735,
+          "90": 724
+        }
+      },
+      "pert_time_unit": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 1,
+        "levels": {
+          "min": 4454
+        }
+      },
+      "pert_id": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 48,
+        "levels": {
+          "#3": 545,
+          "#4": 455,
+          "#8": 450,
+          "#5": 220,
+          "#16": 218,
+          "#33": 144,
+          "#37": 144,
+          "#24": 144,
+          "#26": 143,
+          "#19": 143,
+          "#10": 106,
+          "#7": 106,
+          "#13": 104,
+          "#1": 103,
+          "#2": 102,
+          "#12": 100,
+          "#15": 100,
+          "#11": 97,
+          "#47": 97,
+          "#9": 94,
+          "#14": 94,
+          "#6": 91,
+          "#42": 28,
+          "#46": 28,
+          "#23": 28,
+          "#40": 28,
+          "#41": 27,
+          "#43": 27,
+          "#28": 27,
+          "#44": 27,
+          "#22": 27,
+          "#30": 27,
+          "#25": 26,
+          "#18": 26,
+          "#20": 26,
+          "#29": 26,
+          "#31": 26,
+          "#48": 26,
+          "#17": 25,
+          "#27": 25,
+          "#21": 25,
+          "#45": 25,
+          "#38": 25,
+          "#39": 25,
+          "#36": 24,
+          "#32": 24,
+          "#34": 15,
+          "#35": 11
+        }
+      },
+      "perturbation_no_concentration": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 57,
+        "levels": {
+          "MMS": 522,
+          "G418": 425,
+          "H2O2": 402,
+          "EDTA": 151,
+          "Plumbagin": 144,
+          "(S)-(+)-Camptothecin": 144,
+          "Tamoxifen": 144,
+          "Hygromycin B": 144,
+          "Neomycin B": 143,
+          "Abietic acid": 143,
+          "Fluconazole": 143,
+          "Doxycycline hyclate": 143,
+          "Water": 103,
+          "DMSO": 99,
+          "Rapamycin": 80,
+          "SDS": 79,
+          "NaCl": 77,
+          "CHX": 77,
+          "Sorbitol": 77,
+          "Cisplatin": 76,
+          "FCCP": 70,
+          "Hydroxyurea": 70,
+          "Amphotericin B": 69,
+          "Brefeldin A": 54,
+          "Anisomycin": 50,
+          "1-10 Phenanthroline monohydrate": 42,
+          "(1R, 2S, 5R) - (-) - Menthol": 30,
+          "Valinomycin": 28,
+          "Hoechst 33258": 28,
+          "Tunicamycin": 28,
+          "U-73122": 27,
+          "Wortmannin": 27,
+          "Clomiphene citrate": 27,
+          "Nocodazole": 27,
+          "Clotrimazole": 27,
+          "Harmine hydrochloride": 27,
+          "Oligomycin": 27,
+          "4-Hydroxytamoxifen": 27,
+          "LY 294002 hydrochloride": 26,
+          "Artemisinin": 26,
+          "Emodin": 26,
+          "Geldanamycin": 26,
+          "Nystatin dihydrate": 26,
+          "Parthenolide": 26,
+          "Quality Control": 26,
+          "Dyclonine hydrochloride": 25,
+          "Nigericin": 25,
+          "Haloperidol": 25,
+          "Trichostatin A": 25,
+          "Trifluoperazine dihydrochloride": 25,
+          "Amiodarone hydrochloride": 25,
+          "Sulfometuron methyl": 24,
+          "Cyclopiazonic acid": 24,
+          "Pentamidine isethionate": 24,
+          "Desipramine hydrochloride": 23,
+          "Raloxifene hydrochloride": 15,
+          "Staurosporine": 11
+        }
+      },
+      "instrument": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 7,
+        "levels": {
+          "O": 1149,
+          "CAC": 755,
+          "CAA": 664,
+          "QE2": 657,
+          "CAB": 499,
+          "QE1": 489,
+          "WAH": 241
+        }
+      },
+      "Yeast_cell_plate": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 144,
+        "top20_levels": {
+          "WAY_CP24": 60,
+          "WAY_CP11": 58,
+          "WAY_CP13": 58,
+          "WAY_CP15": 58,
+          "WAY_CP5": 57,
+          "WAY_CP6": 57,
+          "WAY_CP7": 57,
+          "WAY_CP20": 57,
+          "WAY_CP22": 57,
+          "WAY_CP1": 56,
+          "WAY_CP4": 56,
+          "WAY_CP17": 56,
+          "WAY_CP18": 56,
+          "WAY_CP23": 56,
+          "WAY_CP2": 55,
+          "WAY_CP3": 55,
+          "WAY_CP8": 55,
+          "WAY_CP9": 55,
+          "WAY_CP10": 55,
+          "WAY_CP14": 55
+        }
+      },
+      "protein_well": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 95,
+        "top20_levels": {
+          "C7": 144,
+          "H9": 144,
+          "C9": 143,
+          "C3": 142,
+          "E1": 142,
+          "H3": 142,
+          "C1": 141,
+          "H2": 141,
+          "D7": 97,
+          "D9": 97,
+          "H7": 97,
+          "H11": 97,
+          "D11": 95,
+          "D1": 75,
+          "A5": 75,
+          "B4": 75,
+          "A11": 75,
+          "E11": 74,
+          "E5": 73,
+          "C2": 72
+        }
+      },
+      "split_final": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 4,
+        "levels": {
+          "test_chem_only": 1640,
+          "test_strain_only": 1534,
+          "test_both": 1129,
+          "test_time": 151
+        }
+      },
+      "strain_role": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 3,
+        "levels": {
+          "test": 2231,
+          "train": 1791,
+          "val": 432
+        }
+      },
+      "chemical_role": {
+        "dtype": "str",
+        "n_missing": 0,
+        "n_unique": 3,
+        "levels": {
+          "test": 2497,
+          "train": 1685,
+          "val": 272
+        }
+      }
+    }
+  },
+  "crosstabs": {
+    "train_val_split_x_roles": [
+      {
+        "('split_final', '')": "train",
+        "('train', 'train')": 5920,
+        "('train', 'val')": 0,
+        "('val', 'train')": 0,
+        "('val', 'val')": 0
+      },
+      {
+        "('split_final', '')": "val_both",
+        "('train', 'train')": 0,
+        "('train', 'val')": 0,
+        "('val', 'train')": 0,
+        "('val', 'val')": 269
+      },
+      {
+        "('split_final', '')": "val_chem_only",
+        "('train', 'train')": 0,
+        "('train', 'val')": 1065,
+        "('val', 'train')": 0,
+        "('val', 'val')": 0
+      },
+      {
+        "('split_final', '')": "val_strain_only",
+        "('train', 'train')": 0,
+        "('train', 'val')": 0,
+        "('val', 'train')": 1547,
+        "('val', 'val')": 0
+      },
+      {
+        "('split_final', '')": "val_time",
+        "('train', 'train')": 157,
+        "('train', 'val')": 0,
+        "('val', 'train')": 0,
+        "('val', 'val')": 0
+      }
+    ],
+    "train_val_split_x_batch": [
+      {
+        "split_final": "train",
+        "WAYB": 907,
+        "WAYB_rep1": 869,
+        "WAYB_rep2": 902,
+        "WAYC": 3242
+      },
+      {
+        "split_final": "val_both",
+        "WAYB": 72,
+        "WAYB_rep1": 71,
+        "WAYB_rep2": 72,
+        "WAYC": 54
+      },
+      {
+        "split_final": "val_chem_only",
+        "WAYB": 288,
+        "WAYB_rep1": 277,
+        "WAYB_rep2": 285,
+        "WAYC": 215
+      },
+      {
+        "split_final": "val_strain_only",
+        "WAYB": 229,
+        "WAYB_rep1": 239,
+        "WAYB_rep2": 230,
+        "WAYC": 849
+      },
+      {
+        "split_final": "val_time",
+        "WAYB": 19,
+        "WAYB_rep1": 26,
+        "WAYB_rep2": 16,
+        "WAYC": 96
+      }
+    ],
+    "test_split_x_roles": [
+      {
+        "('split_final', '')": "test_both",
+        "('test', 'test')": 425,
+        "('test', 'train')": 0,
+        "('test', 'val')": 272,
+        "('train', 'test')": 0,
+        "('train', 'train')": 0,
+        "('val', 'test')": 432
+      },
+      {
+        "('split_final', '')": "test_chem_only",
+        "('test', 'test')": 0,
+        "('test', 'train')": 0,
+        "('test', 'val')": 0,
+        "('train', 'test')": 1640,
+        "('train', 'train')": 0,
+        "('val', 'test')": 0
+      },
+      {
+        "('split_final', '')": "test_strain_only",
+        "('test', 'test')": 0,
+        "('test', 'train')": 1534,
+        "('test', 'val')": 0,
+        "('train', 'test')": 0,
+        "('train', 'train')": 0,
+        "('val', 'test')": 0
+      },
+      {
+        "('split_final', '')": "test_time",
+        "('test', 'test')": 0,
+        "('test', 'train')": 0,
+        "('test', 'val')": 0,
+        "('train', 'test')": 0,
+        "('train', 'train')": 151,
+        "('val', 'test')": 0
+      }
+    ],
+    "test_split_x_batch": [
+      {
+        "split_final": "test_both",
+        "WAYB": 216,
+        "WAYB_rep1": 204,
+        "WAYB_rep2": 215,
+        "WAYC": 494
+      },
+      {
+        "split_final": "test_chem_only",
+        "WAYB": 277,
+        "WAYB_rep1": 276,
+        "WAYB_rep2": 273,
+        "WAYC": 814
+      },
+      {
+        "split_final": "test_strain_only",
+        "WAYB": 240,
+        "WAYB_rep1": 220,
+        "WAYB_rep2": 240,
+        "WAYC": 834
+      },
+      {
+        "split_final": "test_time",
+        "WAYB": 20,
+        "WAYB_rep1": 27,
+        "WAYB_rep2": 22,
+        "WAYC": 82
+      }
+    ]
+  },
+  "entity_visibility": {
+    "n_strains_train_val": 5,
+    "n_strains_test": 6,
+    "n_strains_shared": 5,
+    "n_strains_test_only": 1,
+    "n_strains_in_train_split": 4,
+    "n_chems_train_val": 46,
+    "n_chems_test": 57,
+    "n_chems_shared": 46,
+    "n_chems_test_only": 11,
+    "n_chems_in_train_split": 40,
+    "chems_all_sorted": [
+      "(1R, 2S, 5R) - (-) - Menthol",
+      "(S)-(+)-Camptothecin",
+      "1-10 Phenanthroline monohydrate",
+      "4-Hydroxytamoxifen",
+      "Abietic acid",
+      "Amiodarone hydrochloride",
+      "Amphotericin B",
+      "Anisomycin",
+      "Artemisinin",
+      "Brefeldin A",
+      "CHX",
+      "Cisplatin",
+      "Clomiphene citrate",
+      "Clotrimazole",
+      "Cyclopiazonic acid",
+      "DMSO",
+      "Desipramine hydrochloride",
+      "Doxycycline hyclate",
+      "Dyclonine hydrochloride",
+      "EDTA",
+      "Emodin",
+      "FCCP",
+      "Fluconazole",
+      "G418",
+      "Geldanamycin",
+      "H2O2",
+      "Haloperidol",
+      "Harmine hydrochloride",
+      "Hoechst 33258",
+      "Hydroxyurea",
+      "Hygromycin B",
+      "LY 294002 hydrochloride",
+      "MMS",
+      "NaCl",
+      "Neomycin B",
+      "Nigericin",
+      "Nocodazole",
+      "Nystatin dihydrate",
+      "Oligomycin",
+      "Parthenolide",
+      "Pentamidine isethionate",
+      "Plumbagin",
+      "Quality Control",
+      "Raloxifene hydrochloride",
+      "Rapamycin",
+      "SDS",
+      "Sorbitol",
+      "Staurosporine",
+      "Sulfometuron methyl",
+      "Tamoxifen",
+      "Trichostatin A",
+      "Trifluoperazine dihydrochloride",
+      "Tunicamycin",
+      "U-73122",
+      "Valinomycin",
+      "Water",
+      "Wortmannin"
+    ],
+    "strains_test_only_sorted": [
+      "CRD"
+    ],
+    "chems_test_only_sorted": [
+      "(S)-(+)-Camptothecin",
+      "Abietic acid",
+      "Doxycycline hyclate",
+      "Fluconazole",
+      "G418",
+      "H2O2",
+      "Hygromycin B",
+      "MMS",
+      "Neomycin B",
+      "Plumbagin",
+      "Tamoxifen"
+    ]
+  },
+  "split_novelty_vs_train": {
+    "train_val:train": {
+      "n_samples": 5920,
+      "n_strains": 4,
+      "n_novel_strains": 0,
+      "n_chems": 40,
+      "n_novel_chems": 0
+    },
+    "train_val:val_both": {
+      "n_samples": 269,
+      "n_strains": 1,
+      "n_novel_strains": 1,
+      "n_chems": 6,
+      "n_novel_chems": 6
+    },
+    "train_val:val_chem_only": {
+      "n_samples": 1065,
+      "n_strains": 4,
+      "n_novel_strains": 0,
+      "n_chems": 6,
+      "n_novel_chems": 6
+    },
+    "train_val:val_strain_only": {
+      "n_samples": 1547,
+      "n_strains": 1,
+      "n_novel_strains": 1,
+      "n_chems": 40,
+      "n_novel_chems": 0
+    },
+    "train_val:val_time": {
+      "n_samples": 157,
+      "n_strains": 4,
+      "n_novel_strains": 0,
+      "n_chems": 39,
+      "n_novel_chems": 0
+    },
+    "test:test_both": {
+      "n_samples": 1129,
+      "n_strains": 2,
+      "n_novel_strains": 2,
+      "n_chems": 17,
+      "n_novel_chems": 17
+    },
+    "test:test_chem_only": {
+      "n_samples": 1640,
+      "n_strains": 4,
+      "n_novel_strains": 0,
+      "n_chems": 11,
+      "n_novel_chems": 11
+    },
+    "test:test_strain_only": {
+      "n_samples": 1534,
+      "n_strains": 1,
+      "n_novel_strains": 1,
+      "n_chems": 40,
+      "n_novel_chems": 0
+    },
+    "test:test_time": {
+      "n_samples": 151,
+      "n_strains": 4,
+      "n_novel_strains": 0,
+      "n_chems": 38,
+      "n_novel_chems": 0
+    }
+  }
+}

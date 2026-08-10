@@ -1,0 +1,458 @@
+{
+  "(1R, 2S, 5R) - (-) - Menthol": {
+    "query": "(-)-Menthol",
+    "smiles": "CC1CCC(C(C1)O)C(C)C",
+    "cid": 16666,
+    "formula": "C10H20O",
+    "pubchem_mw": 156.26,
+    "source": "pubchem"
+  },
+  "(S)-(+)-Camptothecin": {
+    "query": "(S)-(+)-Camptothecin",
+    "smiles": "CCC1(C2=C(COC1=O)C(=O)N3CC4=CC5=CC=CC=C5N=C4C3=C2)O",
+    "cid": 24360,
+    "formula": "C20H16N2O4",
+    "pubchem_mw": 348.4,
+    "source": "pubchem"
+  },
+  "1-10 Phenanthroline monohydrate": {
+    "query": "1,10-Phenanthroline",
+    "smiles": "C1=CC2=C(C3=C(C=CC=N3)C=C2)N=C1",
+    "cid": 1318,
+    "formula": "C12H8N2",
+    "pubchem_mw": 180.2,
+    "source": "pubchem"
+  },
+  "4-Hydroxytamoxifen": {
+    "query": "4-Hydroxytamoxifen",
+    "smiles": "CCC(=C(C1=CC=C(C=C1)O)C2=CC=C(C=C2)OCCN(C)C)C3=CC=CC=C3",
+    "cid": 449459,
+    "formula": "C26H29NO2",
+    "pubchem_mw": 387.5,
+    "source": "pubchem"
+  },
+  "Abietic acid": {
+    "query": "Abietic acid",
+    "smiles": "CC(C)C1=CC2=CCC3C(C2CC1)(CCCC3(C)C(=O)O)C",
+    "cid": 10569,
+    "formula": "C20H30O2",
+    "pubchem_mw": 302.5,
+    "source": "pubchem"
+  },
+  "Amiodarone hydrochloride": {
+    "query": "Amiodarone hydrochloride",
+    "smiles": "CCCCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC(=C(C(=C3)I)OCCN(CC)CC)I.Cl",
+    "cid": 441325,
+    "formula": "C25H30ClI2NO3",
+    "pubchem_mw": 681.8,
+    "source": "pubchem"
+  },
+  "Amphotericin B": {
+    "query": "Amphotericin B",
+    "smiles": "CC1C=CC=CC=CC=CC=CC=CC=CC(CC2C(C(CC(O2)(CC(CC(C(CCC(CC(CC(=O)OC(C(C1O)C)C)O)O)O)O)O)O)O)C(=O)O)OC3C(C(C(C(O3)C)O)N)O",
+    "cid": 5280965,
+    "formula": "C47H73NO17",
+    "pubchem_mw": 924.1,
+    "source": "pubchem"
+  },
+  "Anisomycin": {
+    "query": "Anisomycin",
+    "smiles": "CC(=O)OC1C(CNC1CC2=CC=C(C=C2)OC)O",
+    "cid": 253602,
+    "formula": "C14H19NO4",
+    "pubchem_mw": 265.3,
+    "source": "pubchem"
+  },
+  "Artemisinin": {
+    "query": "Artemisinin",
+    "smiles": "CC1CCC2C(C(=O)OC3C24C1CCC(O3)(OO4)C)C",
+    "cid": 68827,
+    "formula": "C15H22O5",
+    "pubchem_mw": 282.33,
+    "source": "pubchem"
+  },
+  "Brefeldin A": {
+    "query": "Brefeldin A",
+    "smiles": "CC1CCCC=CC2CC(CC2C(C=CC(=O)O1)O)O",
+    "cid": 5287620,
+    "formula": "C16H24O4",
+    "pubchem_mw": 280.36,
+    "source": "pubchem"
+  },
+  "CHX": {
+    "query": "Cycloheximide",
+    "smiles": "CC1CC(C(=O)C(C1)C(CC2CC(=O)NC(=O)C2)O)C",
+    "cid": 6197,
+    "formula": "C15H23NO4",
+    "pubchem_mw": 281.35,
+    "source": "pubchem"
+  },
+  "Cisplatin": {
+    "query": "Cisplatin",
+    "smiles": "N.N.Cl[Pt]Cl",
+    "cid": 5702198,
+    "formula": "Cl2H6N2Pt",
+    "pubchem_mw": 300.05,
+    "source": "pubchem"
+  },
+  "Clomiphene citrate": {
+    "query": "Clomiphene citrate",
+    "smiles": "CCN(CC)CCOC1=CC=C(C=C1)C(=C(C2=CC=CC=C2)Cl)C3=CC=CC=C3.C(C(=O)O)C(CC(=O)O)(C(=O)O)O",
+    "cid": 60974,
+    "formula": "C32H36ClNO8",
+    "pubchem_mw": 598.1,
+    "source": "pubchem"
+  },
+  "Clotrimazole": {
+    "query": "Clotrimazole",
+    "smiles": "C1=CC=C(C=C1)C(C2=CC=CC=C2)(C3=CC=CC=C3Cl)N4C=CN=C4",
+    "cid": 2812,
+    "formula": "C22H17ClN2",
+    "pubchem_mw": 344.8,
+    "source": "pubchem"
+  },
+  "Cyclopiazonic acid": {
+    "query": "Cyclopiazonic acid",
+    "smiles": "CC(=O)C1=C(C2C3C(CC4=C5C3=CNC5=CC=C4)C(N2C1=O)(C)C)O",
+    "cid": 54682463,
+    "formula": "C20H20N2O3",
+    "pubchem_mw": 336.4,
+    "source": "pubchem"
+  },
+  "DMSO": {
+    "query": "DMSO",
+    "smiles": "CS(=O)C",
+    "cid": 679,
+    "formula": "C2H6OS",
+    "pubchem_mw": 78.14,
+    "source": "pubchem"
+  },
+  "Desipramine hydrochloride": {
+    "query": "Desipramine hydrochloride",
+    "smiles": "CNCCCN1C2=CC=CC=C2CCC3=CC=CC=C31.Cl",
+    "cid": 65327,
+    "formula": "C18H23ClN2",
+    "pubchem_mw": 302.8,
+    "source": "pubchem"
+  },
+  "Doxycycline hyclate": {
+    "query": "Doxycycline hyclate",
+    "smiles": "CCO.CC1C2C(C3C(C(=O)C(=C(C3(C(=O)C2=C(C4=C1C=CC=C4O)O)O)O)C(=O)N)N(C)C)O.CC1C2C(C3C(C(=O)C(=C(C3(C(=O)C2=C(C4=C1C=CC=C4O)O)O)O)C(=O)N)N(C)C)O.O.Cl.Cl",
+    "cid": 54686183,
+    "formula": "C46H58Cl2N4O18",
+    "pubchem_mw": 1025.9,
+    "source": "pubchem"
+  },
+  "Dyclonine hydrochloride": {
+    "query": "Dyclonine hydrochloride",
+    "smiles": "CCCCOC1=CC=C(C=C1)C(=O)CCN2CCCCC2.Cl",
+    "cid": 68304,
+    "formula": "C18H28ClNO2",
+    "pubchem_mw": 325.9,
+    "source": "pubchem"
+  },
+  "EDTA": {
+    "query": "EDTA",
+    "smiles": "C(CN(CC(=O)O)CC(=O)O)N(CC(=O)O)CC(=O)O",
+    "cid": 6049,
+    "formula": "C10H16N2O8",
+    "pubchem_mw": 292.24,
+    "source": "pubchem"
+  },
+  "Emodin": {
+    "query": "Emodin",
+    "smiles": "CC1=CC2=C(C(=C1)O)C(=O)C3=C(C2=O)C=C(C=C3O)O",
+    "cid": 3220,
+    "formula": "C15H10O5",
+    "pubchem_mw": 270.24,
+    "source": "pubchem"
+  },
+  "FCCP": {
+    "query": "FCCP",
+    "smiles": "C1=CC(=CC=C1NN=C(C#N)C#N)OC(F)(F)F",
+    "cid": 3330,
+    "formula": "C10H5F3N4O",
+    "pubchem_mw": 254.17,
+    "source": "pubchem"
+  },
+  "Fluconazole": {
+    "query": "Fluconazole",
+    "smiles": "C1=CC(=C(C=C1F)F)C(CN2C=NC=N2)(CN3C=NC=N3)O",
+    "cid": 3365,
+    "formula": "C13H12F2N6O",
+    "pubchem_mw": 306.27,
+    "source": "pubchem"
+  },
+  "G418": {
+    "query": "G418",
+    "smiles": "CC(C1C(C(C(C(O1)OC2C(CC(C(C2O)OC3C(C(C(CO3)(C)O)NC)O)N)N)N)O)O)O",
+    "cid": 123865,
+    "formula": "C20H40N4O10",
+    "pubchem_mw": 496.6,
+    "source": "pubchem"
+  },
+  "Geldanamycin": {
+    "query": "Geldanamycin",
+    "smiles": "CC1CC(C(C(C=C(C(C(C=CC=C(C(=O)NC2=CC(=O)C(=C(C1)C2=O)OC)C)OC)OC(=O)N)C)C)O)OC",
+    "cid": 5288382,
+    "formula": "C29H40N2O9",
+    "pubchem_mw": 560.6,
+    "source": "pubchem"
+  },
+  "H2O2": {
+    "query": "H2O2",
+    "smiles": "OO",
+    "cid": 784,
+    "formula": "H2O2",
+    "pubchem_mw": 34.015,
+    "source": "pubchem"
+  },
+  "Haloperidol": {
+    "query": "Haloperidol",
+    "smiles": "C1CN(CCC1(C2=CC=C(C=C2)Cl)O)CCCC(=O)C3=CC=C(C=C3)F",
+    "cid": 3559,
+    "formula": "C21H23ClFNO2",
+    "pubchem_mw": 375.9,
+    "source": "pubchem"
+  },
+  "Harmine hydrochloride": {
+    "query": "Harmine hydrochloride",
+    "smiles": "CC1=NC=CC2=C1NC3=C2C=CC(=C3)OC.Cl",
+    "cid": 5359389,
+    "formula": "C13H13ClN2O",
+    "pubchem_mw": 248.71,
+    "source": "pubchem"
+  },
+  "Hoechst 33258": {
+    "query": "Hoechst 33258",
+    "smiles": "CN1CCN(CC1)C2=CC3=C(C=C2)N=C(N3)C4=CC5=C(C=C4)N=C(N5)C6=CC=C(C=C6)O",
+    "cid": 2392,
+    "formula": "C25H24N6O",
+    "pubchem_mw": 424.5,
+    "source": "pubchem"
+  },
+  "Hydroxyurea": {
+    "query": "Hydroxyurea",
+    "smiles": "C(=O)(N)NO",
+    "cid": 3657,
+    "formula": "CH4N2O2",
+    "pubchem_mw": 76.055,
+    "source": "pubchem"
+  },
+  "Hygromycin B": {
+    "query": "Hygromycin B",
+    "smiles": "CNC1CC(C(C(C1O)OC2C3C(C(C(O2)CO)O)OC4(O3)C(C(C(C(O4)C(CO)N)O)O)O)O)N",
+    "cid": 56928061,
+    "formula": "C20H37N3O13",
+    "pubchem_mw": 527.5,
+    "source": "pubchem"
+  },
+  "LY 294002 hydrochloride": {
+    "query": "LY 294002 hydrochloride",
+    "smiles": "C1COCCN1C2=CC(=O)C3=C(O2)C(=CC=C3)C4=CC=CC=C4.Cl",
+    "cid": 11957589,
+    "formula": "C19H18ClNO3",
+    "pubchem_mw": 343.8,
+    "source": "pubchem"
+  },
+  "MMS": {
+    "query": "MMS",
+    "smiles": "COS(=O)(=O)C",
+    "cid": 4156,
+    "formula": "C2H6O3S",
+    "pubchem_mw": 110.13,
+    "source": "pubchem"
+  },
+  "NaCl": {
+    "query": "NaCl",
+    "smiles": "[Na+].[Cl-]",
+    "cid": 5234,
+    "formula": "ClNa",
+    "pubchem_mw": 58.44,
+    "source": "pubchem"
+  },
+  "Neomycin B": {
+    "query": "Neomycin B",
+    "smiles": "C1C(C(C(C(C1N)OC2C(C(C(C(O2)CN)O)O)N)OC3C(C(C(O3)CO)OC4C(C(C(C(O4)CN)O)O)N)O)O)N",
+    "cid": 8378,
+    "formula": "C23H46N6O13",
+    "pubchem_mw": 614.6,
+    "source": "pubchem"
+  },
+  "Nigericin": {
+    "query": "Nigericin",
+    "smiles": "CC1CCC(OC1C(C)C(=O)O)CC2CC(C(C3(O2)C(CC(O3)(C)C4CCC(O4)(C)C5C(CC(O5)C6C(CC(C(O6)(CO)O)C)C)C)C)C)OC",
+    "cid": 34230,
+    "formula": "C40H68O11",
+    "pubchem_mw": 725.0,
+    "source": "pubchem"
+  },
+  "Nocodazole": {
+    "query": "Nocodazole",
+    "smiles": "COC(=O)NC1=NC2=C(N1)C=C(C=C2)C(=O)C3=CC=CS3",
+    "cid": 4122,
+    "formula": "C14H11N3O3S",
+    "pubchem_mw": 301.32,
+    "source": "pubchem"
+  },
+  "Nystatin dihydrate": {
+    "query": "Nystatin dihydrate",
+    "smiles": "CC1C=CC=CCCC=CC=CC=CC=CC(CC2C(C(CC(O2)(CC(C(CCC(CC(CC(CC(=O)OC(C(C1O)C)C)O)O)O)O)O)O)O)C(=O)O)OC3C(C(C(C(O3)C)O)N)O.O.O",
+    "cid": 154809619,
+    "formula": "C47H79NO19",
+    "pubchem_mw": 962.1,
+    "source": "pubchem"
+  },
+  "Oligomycin": {
+    "query": "Oligomycin A",
+    "smiles": "CCC1CCC2C(C(C(C3(O2)CCC(C(O3)CC(C)O)C)C)OC(=O)C=CC(C(C(C(=O)C(C(C(C(=O)C(C(C(CC=CC=C1)C)O)(C)O)C)O)C)C)O)C)C",
+    "cid": 52947716,
+    "formula": "C45H74O11",
+    "pubchem_mw": 791.1,
+    "source": "pubchem"
+  },
+  "Parthenolide": {
+    "query": "Parthenolide",
+    "smiles": "CC1=CCCC2(C(O2)C3C(CC1)C(=C)C(=O)O3)C",
+    "cid": 6473881,
+    "formula": "C15H20O3",
+    "pubchem_mw": 248.32,
+    "source": "pubchem"
+  },
+  "Pentamidine isethionate": {
+    "query": "Pentamidine isethionate",
+    "smiles": "C1=CC(=CC=C1C(=N)N)OCCCCCOC2=CC=C(C=C2)C(=N)N.C(CS(=O)(=O)O)O.C(CS(=O)(=O)O)O",
+    "cid": 8813,
+    "formula": "C23H36N4O10S2",
+    "pubchem_mw": 592.7,
+    "source": "pubchem"
+  },
+  "Plumbagin": {
+    "query": "Plumbagin",
+    "smiles": "CC1=CC(=O)C2=C(C1=O)C=CC=C2O",
+    "cid": 10205,
+    "formula": "C11H8O3",
+    "pubchem_mw": 188.18,
+    "source": "pubchem"
+  },
+  "Quality Control": {
+    "query": null,
+    "smiles": null,
+    "cid": null,
+    "formula": null,
+    "pubchem_mw": null,
+    "source": "not_a_molecule"
+  },
+  "Raloxifene hydrochloride": {
+    "query": "Raloxifene hydrochloride",
+    "smiles": "C1CCN(CC1)CCOC2=CC=C(C=C2)C(=O)C3=C(SC4=C3C=CC(=C4)O)C5=CC=C(C=C5)O.Cl",
+    "cid": 54900,
+    "formula": "C28H28ClNO4S",
+    "pubchem_mw": 510.0,
+    "source": "pubchem"
+  },
+  "Rapamycin": {
+    "query": "Rapamycin",
+    "smiles": "CC1CCC2CC(C(=CC=CC=CC(CC(C(=O)C(C(C(=CC(C(=O)CC(OC(=O)C3CCCCN3C(=O)C(=O)C1(O2)O)C(C)CC4CCC(C(C4)OC)O)C)C)O)OC)C)C)C)OC",
+    "cid": 5284616,
+    "formula": "C51H79NO13",
+    "pubchem_mw": 914.2,
+    "source": "pubchem"
+  },
+  "SDS": {
+    "query": "Sodium dodecyl sulfate",
+    "smiles": "CCCCCCCCCCCCOS(=O)(=O)[O-].[Na+]",
+    "cid": 3423265,
+    "formula": "C12H25NaO4S",
+    "pubchem_mw": 288.38,
+    "source": "pubchem"
+  },
+  "Sorbitol": {
+    "query": "Sorbitol",
+    "smiles": "C(C(C(C(C(CO)O)O)O)O)O",
+    "cid": 5780,
+    "formula": "C6H14O6",
+    "pubchem_mw": 182.17,
+    "source": "pubchem"
+  },
+  "Staurosporine": {
+    "query": "Staurosporine",
+    "smiles": "CC12C(C(CC(O1)N3C4=CC=CC=C4C5=C6C(=C7C8=CC=CC=C8N2C7=C53)CNC6=O)NC)OC",
+    "cid": 44259,
+    "formula": "C28H26N4O3",
+    "pubchem_mw": 466.5,
+    "source": "pubchem"
+  },
+  "Sulfometuron methyl": {
+    "query": "Sulfometuron methyl",
+    "smiles": "CC1=CC(=NC(=N1)NC(=O)NS(=O)(=O)C2=CC=CC=C2C(=O)OC)C",
+    "cid": 52997,
+    "formula": "C15H16N4O5S",
+    "pubchem_mw": 364.4,
+    "source": "pubchem"
+  },
+  "Tamoxifen": {
+    "query": "Tamoxifen",
+    "smiles": "CCC(=C(C1=CC=CC=C1)C2=CC=C(C=C2)OCCN(C)C)C3=CC=CC=C3",
+    "cid": 2733526,
+    "formula": "C26H29NO",
+    "pubchem_mw": 371.5,
+    "source": "pubchem"
+  },
+  "Trichostatin A": {
+    "query": "Trichostatin A",
+    "smiles": "CC(C=C(C)C=CC(=O)NO)C(=O)C1=CC=C(C=C1)N(C)C",
+    "cid": 444732,
+    "formula": "C17H22N2O3",
+    "pubchem_mw": 302.37,
+    "source": "pubchem"
+  },
+  "Trifluoperazine dihydrochloride": {
+    "query": "Trifluoperazine dihydrochloride",
+    "smiles": "CN1CCN(CC1)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F.Cl.Cl",
+    "cid": 66064,
+    "formula": "C21H26Cl2F3N3S",
+    "pubchem_mw": 480.4,
+    "source": "pubchem"
+  },
+  "Tunicamycin": {
+    "query": "Tunicamycin A",
+    "smiles": "CC(C)CCCCCCCCCC=CC(=O)NC1C(C(C(OC1OC2C(C(C(C(O2)CO)O)O)NC(=O)C)CC(C3C(C(C(O3)N4C=CC(=O)NC4=O)O)O)O)O)O",
+    "cid": 11104835,
+    "formula": "C38H62N4O16",
+    "pubchem_mw": 830.9,
+    "source": "pubchem"
+  },
+  "U-73122": {
+    "query": "U-73122",
+    "smiles": "CC12CCC3C(C1CCC2NCCCCCCN4C(=O)C=CC4=O)CCC5=C3C=CC(=C5)OC",
+    "cid": 104794,
+    "formula": "C29H40N2O3",
+    "pubchem_mw": 464.6,
+    "source": "pubchem"
+  },
+  "Valinomycin": {
+    "query": "Valinomycin",
+    "smiles": "CC1C(=O)NC(C(=O)OC(C(=O)NC(C(=O)OC(C(=O)NC(C(=O)OC(C(=O)NC(C(=O)OC(C(=O)NC(C(=O)OC(C(=O)NC(C(=O)O1)C(C)C)C(C)C)C(C)C)C)C(C)C)C(C)C)C(C)C)C)C(C)C)C(C)C)C(C)C",
+    "cid": 3000706,
+    "formula": "C54H90N6O18",
+    "pubchem_mw": 1111.3,
+    "source": "pubchem"
+  },
+  "Water": {
+    "query": "Water",
+    "smiles": "O",
+    "cid": 962,
+    "formula": "H2O",
+    "pubchem_mw": 18.015,
+    "source": "pubchem"
+  },
+  "Wortmannin": {
+    "query": "Wortmannin",
+    "smiles": "CC(=O)OC1CC2(C(CCC2=O)C3=C1C4(C(OC(=O)C5=COC(=C54)C3=O)COC)C)C",
+    "cid": 312145,
+    "formula": "C23H24O8",
+    "pubchem_mw": 428.4,
+    "source": "pubchem"
+  }
+}

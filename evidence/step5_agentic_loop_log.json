@@ -1,0 +1,653 @@
+{
+  "step": "5_5_agentic_loop",
+  "seed": 42,
+  "protocol": {
+    "mutation_scope": "the stacking configuration only -- cluster index, cluster-spread shrinkage, member-role subset, regime tying, optimiser warm start and step schedule. The scoring code, the cohort definitions and the fold assignment are never mutated: a loop permitted to edit its own objective optimises the metric rather than the model",
+    "scored_on": "the train out-of-fold cohort only; val_* is not consulted in the acceptance test or the retention rule",
+    "pareto_front": "(oof objective, number of free weights) -- accuracy against model complexity. The plan proposed (oof, val_if_promoted); that was NOT used, because a val term in the retention rule would make val a tuning signal across iterations and the reported val score would stop being held out",
+    "exact_rescoring": "only a state that improves the fast OOF objective is re-scored with the real harness, and only exact totals are reported",
+    "operators": {
+      "cluster_column": {
+        "values": [
+          "k4",
+          "k8",
+          "k12",
+          "k16"
+        ],
+        "motivating_prior": "XD1_string_ppi_topology_as_a_protein_similarity_metric",
+        "search_mode": "divergent_cross_domain"
+      },
+      "alpha": {
+        "values": [
+          "0.0",
+          "0.005",
+          "0.02",
+          "0.05",
+          "0.12"
+        ],
+        "motivating_prior": "XD5_scale_sensitive_vs_scale_invariant_metric_geometry",
+        "search_mode": "divergent_cross_domain"
+      },
+      "drop_role": {
+        "values": [
+          "None",
+          "gbdt_tab",
+          "gbdt_mol",
+          "gbdt_mol3d",
+          "gnn"
+        ],
+        "motivating_prior": "FD2_signed_two_tailed_topk_feature_core",
+        "search_mode": "focused_domain"
+      },
+      "tie_regimes": {
+        "values": [
+          "False",
+          "True"
+        ],
+        "motivating_prior": "FD3_entity_held_out_evaluation_is_the_headline",
+        "search_mode": "focused_domain"
+      },
+      "warm_start": {
+        "values": [
+          "scalar",
+          "current_best",
+          "uniform"
+        ],
+        "motivating_prior": null,
+        "search_mode": "exploratory"
+      },
+      "grid_schedule": {
+        "values": [
+          "coarse",
+          "standard",
+          "fine"
+        ],
+        "motivating_prior": null,
+        "search_mode": "exploratory"
+      }
+    }
+  },
+  "iterations": [
+    {
+      "iteration": 1,
+      "operator": "cluster_column",
+      "from": "k8",
+      "to": "k4",
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "scalar",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "XD1_string_ppi_topology_as_a_protein_similarity_metric",
+        "search_mode": "divergent_cross_domain",
+        "transfer_kind": "cross_domain",
+        "claim_excerpt": "Physically and functionally interacting proteins are co-regulated, so an external interaction network supplies a protein-similarity metric that the training rows alone do not have to estimate. STRING v12 provides scored "
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4558023303882453,
+      "n_free_parameters": 96,
+      "n_clusters": 4,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 13958,
+        "seconds": 47.2,
+        "truncated": false
+      },
+      "oof_exact_total": 0.4564803819765148,
+      "accepted": true,
+      "on_pareto_front": true,
+      "pareto_front_size": 1,
+      "seconds": 126.0
+    },
+    {
+      "iteration": 2,
+      "operator": "alpha",
+      "from": 0.0,
+      "to": 0.12,
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.12,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "scalar",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "XD5_scale_sensitive_vs_scale_invariant_metric_geometry",
+        "search_mode": "divergent_cross_domain",
+        "transfer_kind": "cross_domain",
+        "claim_excerpt": "When an aggregate objective mixes scale-invariant terms (Pearson correlations) with scale-sensitive ones (R^2, thresholded counts), the optimum of the mixture is not attained by any single member: shrinking a prediction "
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4553752413896633,
+      "n_free_parameters": 96,
+      "n_clusters": 4,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 11572,
+        "seconds": 41.2,
+        "truncated": false
+      },
+      "accepted": false,
+      "on_pareto_front": false,
+      "pareto_front_size": 1,
+      "seconds": 41.2
+    },
+    {
+      "iteration": 3,
+      "operator": "drop_role",
+      "from": null,
+      "to": "gbdt_mol3d",
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": "gbdt_mol3d",
+        "tie_regimes": false,
+        "warm_start": "scalar",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "FD2_signed_two_tailed_topk_feature_core",
+        "search_mode": "focused_domain",
+        "transfer_kind": "methodology",
+        "claim_excerpt": "A signed two-tailed importance rule -- top 30 most positive plus top 30 most negative SHAP proteins, ~1% of 5,585 -- significantly outperformed random subsets and matched or beat the full protein set. The sign balance is"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4557819425375147,
+      "n_free_parameters": 80,
+      "n_clusters": 4,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 13504,
+        "seconds": 44.8,
+        "truncated": false
+      },
+      "accepted": false,
+      "on_pareto_front": true,
+      "pareto_front_size": 2,
+      "seconds": 75.8
+    },
+    {
+      "iteration": 4,
+      "operator": "tie_regimes",
+      "from": false,
+      "to": true,
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": null,
+        "tie_regimes": true,
+        "warm_start": "scalar",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "FD3_entity_held_out_evaluation_is_the_headline",
+        "search_mode": "focused_domain",
+        "transfer_kind": "methodology",
+        "claim_excerpt": "The paper reports a random 0.7:0.2:0.1 split (AUROC 0.960) alongside leave-one-cell-line-out and leave-one-drug-out; the random split is far more optimistic than the entity-held-out settings. Entity-held-out evaluation i"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.44511441645312066,
+      "n_free_parameters": 24,
+      "n_clusters": 4,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 4139,
+        "seconds": 35.8,
+        "truncated": false
+      },
+      "accepted": false,
+      "on_pareto_front": true,
+      "pareto_front_size": 3,
+      "seconds": 35.8
+    },
+    {
+      "iteration": 5,
+      "operator": "warm_start",
+      "from": "scalar",
+      "to": "current_best",
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": null,
+        "search_mode": "exploratory",
+        "claim_excerpt": "exploratory move with no literature prior behind it"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4558076809347095,
+      "n_free_parameters": 96,
+      "n_clusters": 4,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 6784,
+        "seconds": 23.5,
+        "truncated": false
+      },
+      "oof_exact_total": 0.456489019000478,
+      "accepted": true,
+      "on_pareto_front": true,
+      "pareto_front_size": 3,
+      "seconds": 63.4
+    },
+    {
+      "iteration": 6,
+      "operator": "grid_schedule",
+      "from": "standard",
+      "to": "coarse",
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "coarse"
+      },
+      "dual_search_query": {
+        "prior_id": null,
+        "search_mode": "exploratory",
+        "claim_excerpt": "exploratory move with no literature prior behind it"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4558076809347089,
+      "n_free_parameters": 96,
+      "n_clusters": 4,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 881,
+        "seconds": 3.1,
+        "truncated": false
+      },
+      "accepted": false,
+      "on_pareto_front": false,
+      "pareto_front_size": 3,
+      "seconds": 3.1
+    },
+    {
+      "iteration": 7,
+      "operator": "cluster_column",
+      "from": "k4",
+      "to": "k16",
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.0,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "XD1_string_ppi_topology_as_a_protein_similarity_metric",
+        "search_mode": "divergent_cross_domain",
+        "transfer_kind": "cross_domain",
+        "claim_excerpt": "Physically and functionally interacting proteins are co-regulated, so an external interaction network supplies a protein-similarity metric that the training rows alone do not have to estimate. STRING v12 provides scored "
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.46180041737488164,
+      "n_free_parameters": 360,
+      "n_clusters": 15,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 28357,
+        "seconds": 90.8,
+        "truncated": true
+      },
+      "oof_exact_total": 0.4628960818614074,
+      "accepted": true,
+      "on_pareto_front": true,
+      "pareto_front_size": 4,
+      "seconds": 166.5
+    },
+    {
+      "iteration": 8,
+      "operator": "alpha",
+      "from": 0.0,
+      "to": 0.005,
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.005,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "XD5_scale_sensitive_vs_scale_invariant_metric_geometry",
+        "search_mode": "divergent_cross_domain",
+        "transfer_kind": "cross_domain",
+        "claim_excerpt": "When an aggregate objective mixes scale-invariant terms (Pearson correlations) with scale-sensitive ones (R^2, thresholded counts), the optimum of the mixture is not attained by any single member: shrinking a prediction "
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4619145091085072,
+      "n_free_parameters": 360,
+      "n_clusters": 15,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 26519,
+        "seconds": 90.5,
+        "truncated": true
+      },
+      "oof_exact_total": 0.4630095828319215,
+      "accepted": true,
+      "on_pareto_front": true,
+      "pareto_front_size": 4,
+      "seconds": 129.5
+    },
+    {
+      "iteration": 9,
+      "operator": "drop_role",
+      "from": null,
+      "to": "gbdt_mol3d",
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.005,
+        "drop_role": "gbdt_mol3d",
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "FD2_signed_two_tailed_topk_feature_core",
+        "search_mode": "focused_domain",
+        "transfer_kind": "methodology",
+        "claim_excerpt": "A signed two-tailed importance rule -- top 30 most positive plus top 30 most negative SHAP proteins, ~1% of 5,585 -- significantly outperformed random subsets and matched or beat the full protein set. The sign balance is"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4615346630796959,
+      "n_free_parameters": 300,
+      "n_clusters": 15,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 27941,
+        "seconds": 90.2,
+        "truncated": true
+      },
+      "accepted": false,
+      "on_pareto_front": true,
+      "pareto_front_size": 5,
+      "seconds": 121.5
+    },
+    {
+      "iteration": 10,
+      "operator": "tie_regimes",
+      "from": false,
+      "to": true,
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.005,
+        "drop_role": null,
+        "tie_regimes": true,
+        "warm_start": "current_best",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": "FD3_entity_held_out_evaluation_is_the_headline",
+        "search_mode": "focused_domain",
+        "transfer_kind": "methodology",
+        "claim_excerpt": "The paper reports a random 0.7:0.2:0.1 split (AUROC 0.960) alongside leave-one-cell-line-out and leave-one-drug-out; the random split is far more optimistic than the entity-held-out settings. Entity-held-out evaluation i"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4513500362368187,
+      "n_free_parameters": 90,
+      "n_clusters": 15,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 12247,
+        "seconds": 90.0,
+        "truncated": true
+      },
+      "accepted": false,
+      "on_pareto_front": false,
+      "pareto_front_size": 5,
+      "seconds": 90.0
+    },
+    {
+      "iteration": 11,
+      "operator": "warm_start",
+      "from": "current_best",
+      "to": "scalar",
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.005,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "scalar",
+        "grid_schedule": "standard"
+      },
+      "dual_search_query": {
+        "prior_id": null,
+        "search_mode": "exploratory",
+        "claim_excerpt": "exploratory move with no literature prior behind it"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4617729679826072,
+      "n_free_parameters": 360,
+      "n_clusters": 15,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 27100,
+        "seconds": 91.1,
+        "truncated": true
+      },
+      "accepted": false,
+      "on_pareto_front": false,
+      "pareto_front_size": 5,
+      "seconds": 91.1
+    },
+    {
+      "iteration": 12,
+      "operator": "grid_schedule",
+      "from": "standard",
+      "to": "coarse",
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.005,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "coarse"
+      },
+      "dual_search_query": {
+        "prior_id": null,
+        "search_mode": "exploratory",
+        "claim_excerpt": "exploratory move with no literature prior behind it"
+      },
+      "status": "ok",
+      "oof_fast_objective": 0.4619145091085101,
+      "n_free_parameters": 360,
+      "n_clusters": 15,
+      "roles": [
+        "gbdt_tab",
+        "gbdt_mol",
+        "gbdt_mol3d",
+        "bench",
+        "gnn",
+        "dl"
+      ],
+      "optimiser": {
+        "n_evaluations": 3391,
+        "seconds": 11.8,
+        "truncated": false
+      },
+      "accepted": false,
+      "on_pareto_front": true,
+      "pareto_front_size": 5,
+      "seconds": 11.8
+    }
+  ],
+  "n_iterations": 12,
+  "n_crashes": 0,
+  "n_accepted": 4,
+  "pareto_front": [
+    {
+      "iteration": 12,
+      "oof_fast_objective": 0.4619145091085101,
+      "n_free_parameters": 360,
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.005,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "coarse"
+      }
+    },
+    {
+      "iteration": 9,
+      "oof_fast_objective": 0.4615346630796959,
+      "n_free_parameters": 300,
+      "config": {
+        "cluster_column": "k16",
+        "alpha": 0.005,
+        "drop_role": "gbdt_mol3d",
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "standard"
+      }
+    },
+    {
+      "iteration": 5,
+      "oof_fast_objective": 0.4558076809347095,
+      "n_free_parameters": 96,
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": null,
+        "tie_regimes": false,
+        "warm_start": "current_best",
+        "grid_schedule": "standard"
+      }
+    },
+    {
+      "iteration": 3,
+      "oof_fast_objective": 0.4557819425375147,
+      "n_free_parameters": 80,
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": "gbdt_mol3d",
+        "tie_regimes": false,
+        "warm_start": "scalar",
+        "grid_schedule": "standard"
+      }
+    },
+    {
+      "iteration": 4,
+      "oof_fast_objective": 0.44511441645312066,
+      "n_free_parameters": 24,
+      "config": {
+        "cluster_column": "k4",
+        "alpha": 0.0,
+        "drop_role": null,
+        "tie_regimes": true,
+        "warm_start": "scalar",
+        "grid_schedule": "standard"
+      }
+    }
+  ],
+  "best": {
+    "config": {
+      "cluster_column": "k16",
+      "alpha": 0.005,
+      "drop_role": null,
+      "tie_regimes": false,
+      "warm_start": "current_best",
+      "grid_schedule": "standard"
+    },
+    "cluster_column": "k16",
+    "roles": [
+      "gbdt_tab",
+      "gbdt_mol",
+      "gbdt_mol3d",
+      "bench",
+      "gnn",
+      "dl"
+    ],
+    "oof_fast_objective": 0.4619145091085072,
+    "oof_exact_total": 0.4630095828319215
+  }
+}

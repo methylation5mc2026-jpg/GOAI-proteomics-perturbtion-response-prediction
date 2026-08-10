@@ -1,0 +1,48 @@
+{
+  "proteome_train_val": {
+    "label": "proteome_train_val",
+    "probe_rows": 400,
+    "n_protein_columns": 5243,
+    "n_duplicate_protein_columns": 0,
+    "id_column": "sample_ID",
+    "pct_nan": 24.5541,
+    "pct_exact_zero": 0.0,
+    "n_negative": 0,
+    "nonzero_percentiles": {
+      "0": 4207.1001,
+      "1": 81709.0,
+      "25": 1295330.0,
+      "50": 4013760.0,
+      "75": 13621800.0,
+      "99": 633399488.0,
+      "100": 23850799100.0
+    },
+    "max_value": 23850799100.0,
+    "verdict_already_log2": false,
+    "detected_per_sample_median": 4029.5
+  },
+  "proteome_test": {
+    "label": "proteome_test",
+    "probe_rows": 400,
+    "n_protein_columns": 5243,
+    "n_duplicate_protein_columns": 0,
+    "id_column": "sample_ID",
+    "pct_nan": 24.7483,
+    "pct_exact_zero": 0.0,
+    "n_negative": 0,
+    "nonzero_percentiles": {
+      "0": 3861.05005,
+      "1": 84464.1819,
+      "25": 1283260.0,
+      "50": 4021040.0,
+      "75": 13587500.0,
+      "99": 722263067.5199999,
+      "100": 18107799600.0
+    },
+    "max_value": 18107799600.0,
+    "verdict_already_log2": false,
+    "detected_per_sample_median": 3983.0
+  },
+  "column_order_identical": true,
+  "n_columns": 5244
+}

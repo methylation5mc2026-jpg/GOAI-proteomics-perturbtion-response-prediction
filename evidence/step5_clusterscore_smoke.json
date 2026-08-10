@@ -1,0 +1,57 @@
+{
+  "step": "5_4_smoke",
+  "seed": 42,
+  "roles": [
+    "bench",
+    "dl",
+    "gbdt_mol",
+    "gbdt_tab"
+  ],
+  "n_val_samples": 2806,
+  "n_clusters": 8,
+  "cluster_sizes": [
+    524,
+    958,
+    1100,
+    308,
+    191,
+    713,
+    1185,
+    264
+  ],
+  "check1_harness_agreement_k8": {
+    "max_abs_deviation": 1.9450177024538107e-09,
+    "n_trials": 5,
+    "tol": 1e-06,
+    "trial_names": [
+      "all_zero",
+      "cluster_constant",
+      "one_cluster_zeroed",
+      "fully_random",
+      "alternating_0_and_1.2"
+    ]
+  },
+  "check1_build_seconds": 20.54,
+  "check2a_reduces_to_step4_scorer": {
+    "max_abs_deviation": 6.772360450213455e-15,
+    "tol": 1e-09,
+    "n_trials": 4,
+    "build_seconds": 17.36
+  },
+  "check2b_cluster_constant_equals_scalar": {
+    "max_abs_deviation": 1.1102230246251565e-16,
+    "tol": 1e-09,
+    "n_trials": 3
+  },
+  "check2c_incremental_updates_exact": {
+    "n_perturbations": 3000,
+    "max_abs_deviation_vs_cold_scorer": 1.965094753586527e-14,
+    "tol": 1e-09,
+    "block_updates_on_task_m1_p": 3319,
+    "full_recomputes_on_task_m1_p": 10
+  },
+  "check3_seconds_per_evaluation": 0.004413076639175415,
+  "n_free_parameters": 128,
+  "exact_harness_seconds_per_evaluation_for_scale": 27.29,
+  "all_checks_passed": true
+}

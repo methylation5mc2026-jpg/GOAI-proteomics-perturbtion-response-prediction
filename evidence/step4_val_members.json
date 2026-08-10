@@ -1,0 +1,17 @@
+{
+  "step": "4e_val_members",
+  "seed": 42,
+  "n_val_samples": 2806,
+  "n_proteins": 5243,
+  "cached": [
+    "val_C_harness",
+    "val_bench_delta",
+    "val_cat_delta",
+    "val_lgb_delta",
+    "val_lgb_rdkit_delta",
+    "val_regimes",
+    "val_xgb_delta",
+    "val_y_fallback"
+  ],
+  "self_check_lgb_delta_total": 0.4028701435612267
+}

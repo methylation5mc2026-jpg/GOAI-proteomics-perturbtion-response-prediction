@@ -1,0 +1,76 @@
+name: quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-and-privacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: "0.11.32"
+          python-version: "3.12.10"
+      - name: Compile workflow
+        run: uv run --no-project --python 3.12.10 python -m compileall -q workflow
+      - name: Correctness lint
+        run: uvx --from ruff==0.16.3 ruff check workflow tools --select E9,F63,F7,F82,B023
+      - name: Security lint
+        run: uvx --from bandit==1.9.4 bandit -q -r workflow -ll
+      - name: Shell lint
+        run: shellcheck workflow/*.sh
+      - name: Release and privacy policy
+        run: uv run --no-project --python 3.12.10 --with pillow --with pypdf python tools/validate_release.py
+      - name: Secret scan
+        shell: bash
+        run: |
+          uvx --from detect-secrets==1.5.0 detect-secrets scan --all-files \
+            --exclude-files '(^|[\\/])(LICENSE|uv\.lock|evidence[\\/]manifest\.json)$|(^|[\\/])(\.git|\.ruff_cache|__pycache__)[\\/]' \
+            > "$RUNNER_TEMP/secrets.json"
+          python - "$RUNNER_TEMP/secrets.json" <<'PY'
+          import json, sys
+          findings = json.load(open(sys.argv[1], encoding="utf-8"))["results"]
+          if findings:
+              raise SystemExit(json.dumps(findings, indent=2))
+          PY
+
+  harness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: "0.11.32"
+          python-version: "3.12.10"
+      - name: Run 57 scoring tests
+        run: >-
+          uv run --no-project --python 3.12.10
+          --with numpy==2.5.1 --with pandas==3.0.5
+          --with scipy==1.18.0 --with scikit-learn==1.9.0
+          python workflow/11_test_harness.py
+
+  dependency-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: "0.11.32"
+          python-version: "3.12.10"
+      - name: Audit locked dependency graph
+        shell: bash
+        run: |
+          uv export --locked --no-hashes --no-emit-project > "$RUNNER_TEMP/requirements.txt"
+          uvx --from pip-audit==2.10.1 pip-audit \
+            --requirement "$RUNNER_TEMP/requirements.txt" --no-deps --disable-pip \
+            --vulnerability-service osv --progress-spinner off

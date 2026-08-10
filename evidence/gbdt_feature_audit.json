@@ -1,0 +1,563 @@
+{
+  "step": "3a_feature_engineering",
+  "seed": 42,
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5"
+  },
+  "config": {
+    "subsample_frac": 0.3,
+    "n_folds": 5,
+    "min_cell_n": 3,
+    "delta_table_keys": {
+      "d_ctx": [
+        "Strains",
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "d_ctxb": [
+        "data_source",
+        "Strains",
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "d_strain": [
+        "Strains"
+      ],
+      "d_drug": [
+        "perturbation_no_concentration"
+      ],
+      "d_drug_time": [
+        "perturbation_no_concentration",
+        "pert_time"
+      ],
+      "d_drug_strain": [
+        "perturbation_no_concentration",
+        "Strains"
+      ],
+      "d_batch": [
+        "data_source"
+      ],
+      "d_batch_time": [
+        "data_source",
+        "pert_time"
+      ],
+      "d_plate": [
+        "Yeast_cell_plate"
+      ],
+      "d_instr": [
+        "instrument"
+      ],
+      "d_time": [
+        "pert_time"
+      ],
+      "d_mtt": [
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ]
+    },
+    "abund_table_keys": {
+      "y_ctxb": [
+        "data_source",
+        "Strains",
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "y_mtt": [
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ]
+    },
+    "cat_features": [
+      "data_source",
+      "instrument",
+      "Strains",
+      "Medium",
+      "perturbation_no_concentration",
+      "Yeast_cell_plate",
+      "pert_id"
+    ],
+    "n_features": 37
+  },
+  "anchor_report": {
+    "n_cells_both_defined": 29377690,
+    "max_abs_deviation": 0.0,
+    "mean_abs_deviation": 0.0,
+    "frac_defined_derived": 0.774872,
+    "frac_defined_harness": 0.710708,
+    "coverage_gain_pp": 6.4164,
+    "level_usage": {
+      "L1_full_ctx": 7884
+    }
+  },
+  "n_samples": 7884,
+  "n_proteins": 5243,
+  "split_sizes": {
+    "train": 5078,
+    "val_chem_only": 1065,
+    "val_strain_only": 1333,
+    "val_both": 269,
+    "val_time": 139,
+    "all_val": 2806
+  },
+  "cat_vocabularies": {
+    "data_source": {
+      "n_levels_fit": 4,
+      "levels": [
+        "WAYB",
+        "WAYB_rep1",
+        "WAYB_rep2",
+        "WAYC",
+        "__UNSEEN__"
+      ],
+      "truncated": false
+    },
+    "instrument": {
+      "n_levels_fit": 7,
+      "levels": [
+        "CAA",
+        "CAB",
+        "CAC",
+        "O",
+        "QE1",
+        "QE2",
+        "WAH",
+        "__UNSEEN__"
+      ],
+      "truncated": false
+    },
+    "Strains": {
+      "n_levels_fit": 4,
+      "levels": [
+        "BAH",
+        "CEK",
+        "CGD",
+        "DHY210",
+        "__UNSEEN__"
+      ],
+      "truncated": false
+    },
+    "Medium": {
+      "n_levels_fit": 2,
+      "levels": [
+        "YNB+CSM+2% galactose",
+        "YNB+CSM+2% glucose",
+        "__UNSEEN__"
+      ],
+      "truncated": false
+    },
+    "perturbation_no_concentration": {
+      "n_levels_fit": 37,
+      "levels": [
+        "(1R, 2S, 5R) - (-) - Menthol",
+        "1-10 Phenanthroline monohydrate",
+        "4-Hydroxytamoxifen",
+        "Amiodarone hydrochloride",
+        "Anisomycin",
+        "Artemisinin",
+        "Brefeldin A",
+        "CHX",
+        "Cisplatin",
+        "Clomiphene citrate",
+        "Clotrimazole",
+        "Cyclopiazonic acid"
+      ],
+      "truncated": true
+    },
+    "Yeast_cell_plate": {
+      "n_levels_fit": 144,
+      "levels": [
+        "WAY_B-1_P1",
+        "WAY_B-1_P10",
+        "WAY_B-1_P11",
+        "WAY_B-1_P12",
+        "WAY_B-1_P13",
+        "WAY_B-1_P14",
+        "WAY_B-1_P15",
+        "WAY_B-1_P16",
+        "WAY_B-1_P17",
+        "WAY_B-1_P18",
+        "WAY_B-1_P19",
+        "WAY_B-1_P2"
+      ],
+      "truncated": true
+    },
+    "pert_id": {
+      "n_levels_fit": 36,
+      "levels": [
+        "#10",
+        "#11",
+        "#12",
+        "#13",
+        "#14",
+        "#15",
+        "#16",
+        "#17",
+        "#18",
+        "#2",
+        "#20",
+        "#21"
+      ],
+      "truncated": true
+    }
+  },
+  "group_table_diagnostics": {
+    "d_ctx": {
+      "keys": [
+        "Strains",
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "n_groups": 96,
+      "frac_cells_defined": 0.846603
+    },
+    "d_ctxb": {
+      "keys": [
+        "data_source",
+        "Strains",
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "n_groups": 383,
+      "frac_cells_defined": 0.747682
+    },
+    "d_strain": {
+      "keys": [
+        "Strains"
+      ],
+      "n_groups": 4,
+      "frac_cells_defined": 0.929239
+    },
+    "d_drug": {
+      "keys": [
+        "perturbation_no_concentration"
+      ],
+      "n_groups": 37,
+      "frac_cells_defined": 0.896356
+    },
+    "d_drug_time": {
+      "keys": [
+        "perturbation_no_concentration",
+        "pert_time"
+      ],
+      "n_groups": 222,
+      "frac_cells_defined": 0.833332
+    },
+    "d_drug_strain": {
+      "keys": [
+        "perturbation_no_concentration",
+        "Strains"
+      ],
+      "n_groups": 148,
+      "frac_cells_defined": 0.825607
+    },
+    "d_batch": {
+      "keys": [
+        "data_source"
+      ],
+      "n_groups": 4,
+      "frac_cells_defined": 0.898007
+    },
+    "d_batch_time": {
+      "keys": [
+        "data_source",
+        "pert_time"
+      ],
+      "n_groups": 24,
+      "frac_cells_defined": 0.872966
+    },
+    "d_plate": {
+      "keys": [
+        "Yeast_cell_plate"
+      ],
+      "n_groups": 144,
+      "frac_cells_defined": 0.802371
+    },
+    "d_instr": {
+      "keys": [
+        "instrument"
+      ],
+      "n_groups": 7,
+      "frac_cells_defined": 0.893545
+    },
+    "d_time": {
+      "keys": [
+        "pert_time"
+      ],
+      "n_groups": 6,
+      "frac_cells_defined": 0.938521
+    },
+    "d_mtt": {
+      "keys": [
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "n_groups": 24,
+      "frac_cells_defined": 0.902767
+    },
+    "y_ctxb": {
+      "keys": [
+        "data_source",
+        "Strains",
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "n_groups": 383,
+      "frac_cells_defined": 0.77229
+    },
+    "y_mtt": {
+      "keys": [
+        "Medium",
+        "Temperature",
+        "pert_time"
+      ],
+      "n_groups": 24,
+      "frac_cells_defined": 0.928357
+    }
+  },
+  "oof_self_contribution": {
+    "n_samples_audited": 60,
+    "d_ctx": {
+      "mean_abs_oof_minus_full": 0.031918,
+      "max_abs_oof_minus_full": 0.076875,
+      "n_groups_full": 96
+    },
+    "d_ctxb": {
+      "mean_abs_oof_minus_full": 0.046417,
+      "max_abs_oof_minus_full": 0.13233,
+      "n_groups_full": 383
+    },
+    "d_strain": {
+      "mean_abs_oof_minus_full": 0.009445,
+      "max_abs_oof_minus_full": 0.012174,
+      "n_groups_full": 4
+    },
+    "d_drug": {
+      "mean_abs_oof_minus_full": 0.022193,
+      "max_abs_oof_minus_full": 0.070489,
+      "n_groups_full": 37
+    },
+    "d_drug_time": {
+      "mean_abs_oof_minus_full": 0.04698,
+      "max_abs_oof_minus_full": 0.123884,
+      "n_groups_full": 222
+    },
+    "d_drug_strain": {
+      "mean_abs_oof_minus_full": 0.038319,
+      "max_abs_oof_minus_full": 0.12018,
+      "n_groups_full": 148
+    },
+    "d_batch": {
+      "mean_abs_oof_minus_full": 0.007495,
+      "max_abs_oof_minus_full": 0.010999,
+      "n_groups_full": 4
+    },
+    "d_batch_time": {
+      "mean_abs_oof_minus_full": 0.014682,
+      "max_abs_oof_minus_full": 0.026635,
+      "n_groups_full": 24
+    },
+    "d_plate": {
+      "mean_abs_oof_minus_full": 0.036575,
+      "max_abs_oof_minus_full": 0.13233,
+      "n_groups_full": 144
+    },
+    "d_instr": {
+      "mean_abs_oof_minus_full": 0.010867,
+      "max_abs_oof_minus_full": 0.017149,
+      "n_groups_full": 7
+    },
+    "d_time": {
+      "mean_abs_oof_minus_full": 0.011029,
+      "max_abs_oof_minus_full": 0.013255,
+      "n_groups_full": 6
+    },
+    "d_mtt": {
+      "mean_abs_oof_minus_full": 0.018951,
+      "max_abs_oof_minus_full": 0.029589,
+      "n_groups_full": 24
+    }
+  },
+  "leak_guard_blanked_eval": true,
+  "unseen_level_mapping": {
+    "val_chem_only:perturbation_no_concentration": {
+      "n_levels_in_split": 6,
+      "n_mapped_to_UNSEEN": 6,
+      "frac_mapped_to_UNSEEN": 1.0
+    },
+    "val_strain_only:Strains": {
+      "n_levels_in_split": 1,
+      "n_mapped_to_UNSEEN": 1,
+      "frac_mapped_to_UNSEEN": 1.0
+    },
+    "val_both:perturbation_no_concentration": {
+      "n_levels_in_split": 6,
+      "n_mapped_to_UNSEEN": 6,
+      "frac_mapped_to_UNSEEN": 1.0
+    },
+    "val_both:Strains": {
+      "n_levels_in_split": 1,
+      "n_mapped_to_UNSEEN": 1,
+      "frac_mapped_to_UNSEEN": 1.0
+    }
+  },
+  "feature_coverage_by_split": {
+    "train": {
+      "d_batch": 0.912304,
+      "d_batch_time": 0.885902,
+      "d_ctx": 0.841716,
+      "d_ctxb": 0.756824,
+      "d_drug": 0.90347,
+      "d_drug_strain": 0.837786,
+      "d_drug_time": 0.837697,
+      "d_instr": 0.900938,
+      "d_mtt": 0.899904,
+      "d_plate": 0.800264,
+      "d_strain": 0.92732,
+      "d_time": 0.937044,
+      "y_ctxb": 0.780809,
+      "y_mtt": 0.9248
+    },
+    "val_both": {
+      "d_batch": 0.895874,
+      "d_batch_time": 0.8708,
+      "d_ctx": 0.0,
+      "d_ctxb": 0.0,
+      "d_drug": 0.0,
+      "d_drug_strain": 0.0,
+      "d_drug_time": 0.0,
+      "d_instr": 0.895387,
+      "d_mtt": 0.902835,
+      "d_plate": 0.803054,
+      "d_strain": 0.0,
+      "d_time": 0.938581,
+      "y_ctxb": 0.0,
+      "y_mtt": 0.928411
+    },
+    "val_chem_only": {
+      "d_batch": 0.896218,
+      "d_batch_time": 0.871152,
+      "d_ctx": 0.846322,
+      "d_ctxb": 0.746496,
+      "d_drug": 0.0,
+      "d_drug_strain": 0.0,
+      "d_drug_time": 0.0,
+      "d_instr": 0.893902,
+      "d_mtt": 0.90284,
+      "d_plate": 0.805261,
+      "d_strain": 0.929354,
+      "d_time": 0.938584,
+      "y_ctxb": 0.770348,
+      "y_mtt": 0.928429
+    },
+    "val_strain_only": {
+      "d_batch": 0.912939,
+      "d_batch_time": 0.88861,
+      "d_ctx": 0.0,
+      "d_ctxb": 0.0,
+      "d_drug": 0.907298,
+      "d_drug_strain": 0.0,
+      "d_drug_time": 0.851648,
+      "d_instr": 0.90727,
+      "d_mtt": 0.902897,
+      "d_plate": 0.798418,
+      "d_strain": 0.0,
+      "d_time": 0.938572,
+      "y_ctxb": 0.0,
+      "y_mtt": 0.928418
+    },
+    "val_time": {
+      "d_batch": 0.915303,
+      "d_batch_time": 0.890798,
+      "d_ctx": 0.846241,
+      "d_ctxb": 0.764589,
+      "d_drug": 0.905262,
+      "d_drug_strain": 0.842063,
+      "d_drug_time": 0.846511,
+      "d_instr": 0.904271,
+      "d_mtt": 0.902286,
+      "d_plate": 0.803924,
+      "d_strain": 0.929464,
+      "d_time": 0.938485,
+      "y_ctxb": 0.793835,
+      "y_mtt": 0.927802
+    }
+  },
+  "design_matrix": {
+    "n_rows": 5645086,
+    "n_features": 37,
+    "n_train_samples": 5078,
+    "rows_per_protein_mean": 1076.7,
+    "target_delta": {
+      "mean": -0.0724971815943718,
+      "sd": 0.4780435562133789,
+      "q01": -1.9346306324005127,
+      "q99": 0.976124107837677,
+      "frac_abs_gt_1": 0.04464272112063483
+    },
+    "target_abs": {
+      "mean": 21.564743041992188,
+      "sd": 2.7235546112060547
+    },
+    "feature_missing_rate": {
+      "d_ctxb": 0.016593,
+      "y_ctxb": 0.016593,
+      "d_drug_time": 0.011884,
+      "d_drug_strain": 0.005614,
+      "d_plate": 0.001967,
+      "d_ctx": 0.001522,
+      "d_drug": 0.00078,
+      "d_mtt": 0.000249,
+      "d_batch_time": 0.000227,
+      "y_mtt": 5.4e-05,
+      "d_instr": 5e-05,
+      "d_time": 3.5e-05,
+      "d_strain": 2.5e-05,
+      "d_batch": 1e-05,
+      "prot_mean_absd": 1e-06,
+      "prot_mean_d": 1e-06,
+      "prot_sd_d": 1e-06,
+      "c_ctrl": 0.0,
+      "c_ctrl_centered": 0.0,
+      "prot_mean_y": 0.0,
+      "prot_sd_y": 0.0,
+      "prot_detect": 0.0,
+      "pert_time_num": 0.0,
+      "temperature_num": 0.0,
+      "well_row": 0.0,
+      "well_col": 0.0,
+      "ctrl_median": 0.0,
+      "ctrl_detect": 0.0,
+      "has_drug_prior": 0.0,
+      "has_strain_prior": 0.0
+    }
+  },
+  "inner_split": {
+    "purpose": "hyper-parameter selection on a novel-chemical holdout carved from train only, so no val_* row influences model choice",
+    "holdout_frac_of_train_chemicals": 0.25,
+    "held_out_chemicals": [
+      "4-Hydroxytamoxifen",
+      "Amiodarone hydrochloride",
+      "CHX",
+      "EDTA",
+      "LY 294002 hydrochloride",
+      "Nocodazole",
+      "Oligomycin",
+      "Sorbitol",
+      "Trifluoperazine dihydrochloride"
+    ],
+    "n_inner_fit": 3441,
+    "n_inner_dev": 1637,
+    "chemical_overlap": 0
+  }
+}

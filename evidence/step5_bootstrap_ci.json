@@ -1,0 +1,51 @@
+{
+  "step": "5_4_bootstrap",
+  "seed": 42,
+  "cluster_frozen_vs_scalar_frozen": {
+    "n_boot": 1000,
+    "component_weight_of_total": 0.5875,
+    "point_a": 0.2548688456366304,
+    "point_b": 0.24811364840352595,
+    "point_diff": 0.006755197233104471,
+    "diff_mean": 0.006757346805520914,
+    "diff_sd": 0.00012245985058975138,
+    "diff_ci95": [
+      0.006511875506397388,
+      0.007006228202808905
+    ],
+    "frac_bootstrap_replicates_favouring_a": 1.0,
+    "a_ci95": [
+      0.25394183428767053,
+      0.25864842348911576
+    ],
+    "b_ci95": [
+      0.2470746363311504,
+      0.25198706095455
+    ],
+    "scope_note": "the bootstrap covers only the submetrics that are literally means over samples (0.5875 of the 1.0 module weight). Pooled and per-protein-mean submetrics are not sample means, so resampling samples does not yield a valid bootstrap distribution for them and they are excluded rather than approximated. The CI is therefore a CI on that component of the margin, not on the full total."
+  },
+  "cluster_frozen_vs_benchmark_member": {
+    "n_boot": 1000,
+    "component_weight_of_total": 0.5875,
+    "point_a": 0.2548688456366304,
+    "point_b": 0.2150099546684238,
+    "point_diff": 0.039858890968206634,
+    "diff_mean": 0.0397786730687529,
+    "diff_sd": 0.0010170193169128565,
+    "diff_ci95": [
+      0.037840448997544004,
+      0.041796201105578336
+    ],
+    "frac_bootstrap_replicates_favouring_a": 1.0,
+    "a_ci95": [
+      0.25394183428767053,
+      0.25864842348911576
+    ],
+    "b_ci95": [
+      0.21414750451930145,
+      0.2189301832459204
+    ],
+    "scope_note": "the bootstrap covers only the submetrics that are literally means over samples (0.5875 of the 1.0 module weight). Pooled and per-protein-mean submetrics are not sample means, so resampling samples does not yield a valid bootstrap distribution for them and they are excluded rather than approximated. The CI is therefore a CI on that component of the margin, not on the full total."
+  },
+  "method": "paired non-parametric bootstrap over validation samples: both candidates are scored on the same resampled sample sets, so the shared cohort sampling noise cancels and the CI reflects only their disagreement"
+}

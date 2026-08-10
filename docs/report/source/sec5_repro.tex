@@ -1,0 +1,86 @@
+% ============================ 五、可运行性、可复现性与证据质量 ============================
+\section{可运行性、可复现性与证据质量}
+\label{sec:repro}
+
+\subsection{\NEW{}随本文档提交的训练与推理源代码}
+
+修订说明第三条要求初赛一并提交训练与推理源代码，标准是\textbf{代码完整、流程可复现}，且\emph{随机种子与关键参数在代码中体现、外部资源注明来源与版本}。表 \ref{tab:code} 给出提交清单与每项要求的落点。
+
+\begin{table}[H]
+\centering\small
+\caption{\textbf{代码提交清单与修订第三条各项要求的落点。} 组委会明确不需要提交运行环境、无需容器打包；我们因此提交源代码与\emph{结构化产物摘要}，后者使评审可以在不重跑的前提下核对主要数字。}
+\label{tab:code}
+\begin{tabularx}{\textwidth}{@{}R{3.15cm}XR{3.35cm}@{}}
+\toprule
+\textbf{要求} & \textbf{我们提交了什么} & \textbf{位置} \\
+\midrule
+训练与推理源代码 & \textbf{73 个 Python 科学脚本、25\,591 行}，按阶段编号组织；另有 1 个共享路径模块和 3 个驱动脚本。脚本输出位置由仓库根目录推导，运行产物写入被忽略的 \file{data/}、\file{results/}、\file{models/} 与 \file{logs/} & \file{workflow/} \\
+随机种子在代码中体现 & 全局种子 \textbf{42} 定义于 \file{workflow/common.py}；主要随机训练阶段显式设置 NumPy / PyTorch 或模型随机状态。公开的随机训练产物保留 \code{seed}，非随机 QC 与披露 JSON 不强行添加无意义字段 & \file{workflow/common.py}；\file{evidence/step6\_model\_scores.json} 等 \\
+关键参数在代码中体现 & GBDT 轮数与情形路由、交叉注意力的 $k=12$/8 模式/4 头/300 轮/机制损失四系数、元学习器的簇层级与 $\alpha$ 选择，均为脚本常量或产物配置字段 & \file{workflow/15\_train\_gbdt.py}、\file{workflow/36\_dynamic\_cross\_attention\_gnn.py}、\file{workflow/37\_hierarchical\_cluster\_stacking.py} \\
+外部资源来源与版本 & 披露清单区分直接服务、交叉引用、文献启发手工先验与计划资源；原始产物未保存的精确发布号明确写作「未记录」 & \file{workflow/51\_external\_data\_manifest.py}；\file{evidence/step7\_external\_data\_manifest.json} \\
+流程可复现 & 三层级复现入口（下表）；每阶段有独立验证入口，且\textbf{验证脚本审计的是产物文件本身而非产生它的脚本的日志} & \S\ref{sec:threelevel} \\
+（组委会「同步运行代码验证结果准确性」） & 公开 \textbf{70 份结构化快照}（JSON/CSV）与 1 份确定性索引；索引记录每份快照的大小和 SHA-256。大型矩阵、预测、权重、缓存与日志不在公开范围 & \file{evidence/}；\file{evidence/manifest.json} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{三层级复现入口}
+\label{sec:threelevel}
+
+\textbf{层级一：公开结论核查（无需 GPU，分钟级）。} \file{evidence/} 含 70 份公开 JSON/CSV 快照与 1 份哈希索引，覆盖报告的主要分数、质控、机制验证与外部资源披露。\file{tools/build\_evidence\_index.py} 可确定性重建索引，\file{tools/validate\_release.py} 会逐文件复算哈希。该层用于核查公开结论，不宣称包含运行时的全部中间矩阵与逐行来源表。
+
+\textbf{层级二：评分复现（无需 GPU，小时级）。} \file{workflow/harness.py} 是纯函数模块（不触碰文件系统），实现完整的七模块口径与四种聚合敏感性；\file{workflow/11\_test\_harness.py} 提供 57 项自检。给定任意预测矩阵与真值即可独立复算总分——\textbf{这一层不依赖我们的模型，因此可被用来独立校验任何参赛方案的自报分数}。本次修订新增的 \file{50\_selfscore\_test.py} 就是这一层的直接应用：它在 345 秒内完成了 8 个预测器 $\times$ 7 个模块的完整评分。
+
+\textbf{层级三：全链路重训（需赛事数据、外部资源与 GPU，历史运行约 1--2 天）。} 三个驱动脚本串联长链路，锁定依赖见 \file{uv.lock}。公开仓库不含赛事原始数据、外部服务缓存、大型矩阵、预测与权重；且 ChEMBL / UniProt 的精确发布头未在原始产物中留存。因此当前仓库支持按相同代码重新获取与重训，但\textbf{不能声称仅凭公开文件即可逐字节复现历史模型}。
+
+\begin{table}[H]
+\centering\small
+\caption{\textbf{依赖、运行时与硬件。} 竞赛数据仅在赛事范围内使用、不再分发；完整锁定图见 \file{uv.lock}，外部资源的版本与授权边界见表 \ref{tab:external}。}
+\label{tab:deps}
+\begin{tabularx}{\textwidth}{@{}R{2.15cm}R{4.35cm}X@{}}
+\toprule
+\textbf{类别} & \textbf{组件 / 版本} & \textbf{用途与许可} \\
+\midrule
+运行时 & Python 3.12.10；NumPy 2.5.1；pandas 3.0.5 & 全流程（PSF / BSD-3） \\
+梯度提升 & LightGBM 4.7.0；XGBoost 3.4.0；CatBoost 1.2.10 & 表格与分子成员（MIT / Apache-2.0） \\
+深度学习 & PyTorch 2.13.0+cu130 & MLP-ResNet、图注意力 ResNet、动态交叉注意力（BSD-3） \\
+化学信息学 & RDKit 2026.03.5 & 分子特征与三维构象（BSD-3）\citep{landrum_rdkit} \\
+硬件 & NVIDIA Tesla T4 $\times$ 2，每卡 15\,360\,MiB & 交叉注意力成员端到端 5\,155.4\,s（1.43 GPU-小时）；五折测量训练总计 1.098 GPU-小时 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{证据质量：被自动检查捕获的缺陷}
+
+\begin{table}[H]
+\centering\small
+\caption{\textbf{被工程体系自动捕获并修复的 9 项代表性缺陷。} 公开仓库未发布完整运行日志，因此本表只陈述能由现有代码、结构化快照或规则口径交叉核对的项目。\textbf{最后一项是本系统自己引入的缺陷}——保留它是为了说明检查装置本身也需要独立验证。}
+\label{tab:defects}
+\begin{tabularx}{\textwidth}{@{}p{0.9cm}R{4.9cm}X@{}}
+\toprule
+层 & 缺陷 & 发现方式与后果 \\
+\midrule
+数据 & 朴素逗号切分给出 5\,245 个蛋白 & 化学名中的引号内逗号；正确计数为 \textbf{5\,243}，由带引号解析确认（与修订后手册一致） \\
+数据 & \code{pert\_id} 不是化合物身份 & 15 个 \code{pert\_id} 映射到多个化合物（\code{\#2} 在一个批次是 DMSO、另一批次是 EDTA）；改用 \code{perturbation\_no\_concentration} 为实体键 \\
+数据 & 对照锚点再推导不一致 & 恒等式检查给出最大偏差 4.36；修正后为 \textbf{0.00}（29\,377\,690 个单元），覆盖率 71.07\,\% \\
+化学 & 盐析静默破坏两个化合物 & 分子量交叉校验捕获顺铂 $\to$ 氨（17.03 对 300.05）、NaCl $\to$ 氯原子；两者都能正常解析，无该门控即静默错误 \\
+化学 & ChEMBL 结构重复记录不含活性 & 机制覆盖率减半\emph{且不报错}；强制解析到规范母体分子后修复 \\
+指标 & 浮点降精度引入伪残差 & 自检 4 捕获：把 float64 基线降到 float32 $\bm{\Delta}$ 上的舍入残差，会让「恰好预测 $\bm{\mu}$」的模型获得伪非零残差方差 \\
+指标 & \code{val\_time} 被误标为时间外推 & 一条断言失败暴露：六个时间值在训练集中全部出现（与修订后手册第 13 条一致） \\
+指标 & S1 模块奖励批次复现 & 批次感知 $\bm{\mu}_{\text{ctx}}$ 下基线 S1 由 0.4528 塌缩至 0.0004；\NEW{}测试队列上由 0.381 塌缩至 0.014 \\
+门控 & \textbf{（自引入）} 过严的动态范围门中止了阶段 5 导出 & 该门在阶段 4 由本系统自己设定；阶段 6 拆分为「非致命诊断 $+$ 边距致命门」修复 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{本文档的数字核查。} 配套的长篇技术报告采用「数字宏」机制（每个阶段性数字由发射脚本从产物生成为 LaTeX 宏，源产物缺失时渲染为醒目的 \textbf{[PENDING]} 而非默认值）；\textbf{本方案说明文档不使用该机制}——它按赛事模板重新组织内容，其数值为人工转录，因而改用另一道防线：一次覆盖全文每一个数值与每一项架构陈述的\textbf{独立对抗性核查}，逐条比对产物键路径、只报告差异。上一版核查返回 \textbf{19 项发现（9 严重、10 轻微），全部已修复}，包括：把阶段 6 的自助法区间误用于阶段 5 的增益；把\emph{总}目标的下降误述为机制罚项的下降（两项机制罚项在退化初值处为 0 并随拟合\emph{上升}至收敛值）；把交叉注意力的五折耗时 3\,954\,s 当作含重拟合的总耗时（实为 5\,155\,s，低估约 30\,\%）。本修订版测试自评数值均与 \file{evidence/step7\_*} 公开快照逐格对齐。我们把核查结果写进正文而非致谢——\textbf{一份声称可复现的材料，应当同时给出它被检验过的证据}。
+
+\begin{keybox}[title=证据强度的自我标注]
+\small
+为免读者高估我们的证据等级，此处明确分级：
+\textbf{（一）本次会话内计算并复核的}——测试队列七模块自评（8 个预测器）、四种聚合口径敏感性、S1 批次混杂在测试队列的复现、检出率-丰度 Spearman $\rho=0.860$ 的重算。
+\textbf{（二）跨两条独立路径一致的}——六阶段成绩轨迹的符号与次序（验证队列 $\times$ 测试队列，同一 harness、不同样本与不同 $\bm{\mu}$ 拟合结果）；S1 批次混杂诊断（两个队列）。
+\textbf{（三）单次运行、未重复的}——全部神经成员训练（单一种子 42，\textbf{未做多种子重复}）、自演化环路的 12 次迭代、复现包的端到端重跑。
+\textbf{（四）尚未检验的}——ITPV 无增益的四种候选解释；测试队列增益幅度缩小的队列构成假说；Tobit 头与菌株基因组表征的效果。
+我们没有对任何一项使用「已复现/已验证」这类措辞，除非其条件在上面第（一）或第（二）类中被满足。
+\end{keybox}

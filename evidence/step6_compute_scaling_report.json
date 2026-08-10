@@ -1,0 +1,128 @@
+{
+  "step": "6_5_compute_scaling",
+  "measurement_basis": "per-epoch wall-clock and dev-PCC recorded during the actual Step-6.3 LCGO training runs; the short-budget figures come from weight checkpoints captured mid-training, so the comparison is measured, not extrapolated",
+  "hardware": "cuda",
+  "model_parameters": 2892390,
+  "per_fold": [
+    {
+      "fold": "fold0",
+      "n_epochs": 300,
+      "wall_clock_seconds": 817.1,
+      "seconds_per_epoch": 2.724,
+      "best_epoch": 145,
+      "best_dev_pcc_over_run": 0.1957162618637085,
+      "dev_pcc_at_final_epoch": 0.19278037548065186,
+      "final_epoch_evaluated": 300,
+      "dev_pcc_at_epoch_150": 0.19308322668075562,
+      "seconds_to_epoch_150": 408.6
+    },
+    {
+      "fold": "fold1",
+      "n_epochs": 300,
+      "wall_clock_seconds": 786.6,
+      "seconds_per_epoch": 2.622,
+      "best_epoch": 255,
+      "best_dev_pcc_over_run": 0.1970459222793579,
+      "dev_pcc_at_final_epoch": 0.195753276348114,
+      "final_epoch_evaluated": 300,
+      "dev_pcc_at_epoch_150": 0.18398141860961914,
+      "seconds_to_epoch_150": 395.6
+    },
+    {
+      "fold": "fold2",
+      "n_epochs": 300,
+      "wall_clock_seconds": 792.1,
+      "seconds_per_epoch": 2.64,
+      "best_epoch": 225,
+      "best_dev_pcc_over_run": 0.22815346717834473,
+      "dev_pcc_at_final_epoch": 0.22811359167099,
+      "final_epoch_evaluated": 300,
+      "dev_pcc_at_epoch_150": 0.20725911855697632,
+      "seconds_to_epoch_150": 396.5
+    },
+    {
+      "fold": "fold3",
+      "n_epochs": 300,
+      "wall_clock_seconds": 791.1,
+      "seconds_per_epoch": 2.637,
+      "best_epoch": 235,
+      "best_dev_pcc_over_run": 0.21706056594848633,
+      "dev_pcc_at_final_epoch": 0.2151278853416443,
+      "final_epoch_evaluated": 300,
+      "dev_pcc_at_epoch_150": 0.20965051651000977,
+      "seconds_to_epoch_150": 398.8
+    },
+    {
+      "fold": "fold4",
+      "n_epochs": 300,
+      "wall_clock_seconds": 767.4,
+      "seconds_per_epoch": 2.558,
+      "best_epoch": 300,
+      "best_dev_pcc_over_run": 0.19946563243865967,
+      "dev_pcc_at_final_epoch": 0.19946563243865967,
+      "final_epoch_evaluated": 300,
+      "dev_pcc_at_epoch_150": 0.18328624963760376,
+      "seconds_to_epoch_150": 384.0
+    }
+  ],
+  "mean_seconds_per_epoch": 2.636,
+  "total_measured_training_seconds": 3954.3,
+  "total_measured_training_gpu_hours": 1.098,
+  "epoch_budget_comparison": {
+    "short_budget_epochs": 150,
+    "full_budget_epochs": 300,
+    "n_folds_compared": 5,
+    "dev_pcc_short_mean": 0.19545210599899293,
+    "dev_pcc_full_mean": 0.20624815225601195,
+    "dev_pcc_gain_mean": 0.010796046257019043,
+    "dev_pcc_gain_sd": 0.00840503309854095,
+    "dev_pcc_gain_per_fold": [
+      -0.00030285120010375977,
+      0.011771857738494873,
+      0.020854473114013672,
+      0.0054773688316345215,
+      0.016179382801055908
+    ],
+    "n_folds_improved_by_longer_training": 4,
+    "extra_gpu_hours_for_full_budget": 0.547,
+    "dev_pcc_gain_per_extra_gpu_hour": 0.0986040352274928,
+    "comparison_definition": "primary comparison is the dev PCC at the TERMINAL epoch against the dev PCC at the mid-run checkpoint -- a like-for-like pairing of two fixed points on the same run",
+    "confounded_alternative": {
+      "definition": "best-over-run (early-stopped maximum) minus the mid-run checkpoint; reported only to show the size of the selection artefact it introduces",
+      "dev_pcc_best_mean": 0.20748836994171144,
+      "dev_pcc_gain_mean": 0.012036263942718506,
+      "dev_pcc_gain_per_fold": [
+        0.002633035182952881,
+        0.01306450366973877,
+        0.020894348621368408,
+        0.0074100494384765625,
+        0.016179382801055908
+      ],
+      "n_folds_improved": 5,
+      "note": "a fold whose best epoch precedes the checkpoint contributes a positive 'gain' here that contains no extra-compute contribution whatever"
+    },
+    "best_epoch_per_fold": [
+      145,
+      255,
+      225,
+      235,
+      300
+    ],
+    "interpretation": "Training from 150 to 300 epochs improved mean dev PCC by +0.0108, consistently across 4/5 folds, at a cost of 0.55 extra GPU-hours."
+  },
+  "linear_projection": {
+    "as_measured": {
+      "epochs_per_fold": 300,
+      "projected_gpu_hours_5_folds": 1.098
+    },
+    "2x_epochs": {
+      "epochs_per_fold": 600,
+      "projected_gpu_hours_5_folds": 2.197
+    },
+    "4x_epochs": {
+      "epochs_per_fold": 1200,
+      "projected_gpu_hours_5_folds": 4.394
+    }
+  },
+  "projection_caveat": "The projections scale measured per-epoch cost linearly in the epoch count. That is sound for cost, but says nothing about accuracy: the measured epoch-budget comparison above is the only evidence here about whether more epochs help, and it should govern any scaling decision."
+}

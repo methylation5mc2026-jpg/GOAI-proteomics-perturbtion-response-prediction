@@ -1,0 +1,438 @@
+{
+  "step": "4d_stacking",
+  "seed": 42,
+  "benchmark_total": 0.445442994,
+  "step3_best_total": 0.436172,
+  "roles": [
+    "gbdt_tab",
+    "gbdt_mol",
+    "bench",
+    "dl"
+  ],
+  "role_sources": {
+    "gbdt_tab": {
+      "inner": "inner_lgb_delta",
+      "val": "val_lgb_delta"
+    },
+    "gbdt_mol": {
+      "inner": "inner_lgb_rdkit_delta",
+      "val": "val_lgb_rdkit_delta"
+    },
+    "bench": {
+      "inner": "inner_bench_delta",
+      "val": "val_bench_delta"
+    },
+    "dl": {
+      "inner": "dl_delta_inner",
+      "val": "dl_delta_val"
+    }
+  },
+  "protocol": {
+    "weight_space": "non-negative, per-regime, NOT constrained to sum to one: the shortfall from one is a shrinkage toward the control anchor, which buys Module 1 and Module 4 without costing Module 2 (whose submetrics are scale-invariant Pearson terms)",
+    "fitted_on": "inner-dev cohort carved from train, with every member retrained on inner_fit and both residual baselines refitted on inner_fit",
+    "evaluated_on": "val_* with the inner-fitted weights frozen",
+    "regime_routing": "entity novelty (transfers to the test set unchanged)",
+    "optimiser": "coordinate ascent, coarse-to-fine grid, non-negativity by construction",
+    "objective_implementation": "modules 1-3 (0.95 of the weight) are evaluated by a co-moment factorisation that is algebraically identical to the harness but ~10^5 times faster, which is what makes a converged search possible at all; module 4 is not a polynomial in the weights so it is held constant during the search and every shortlisted candidate is re-scored with the real harness, from which the reported total is taken",
+    "fast_objective_validation": {
+      "inner": {
+        "max_abs_deviation": 1.8374036458990162e-09,
+        "n_trials": 3,
+        "tol": 1e-06
+      },
+      "val": {
+        "max_abs_deviation": 3.4402459769822258e-09,
+        "n_trials": 3,
+        "tol": 1e-06
+      },
+      "note": "max absolute deviation of fast vs exact module scores; gate is 1e-6"
+    },
+    "exact_harness_seconds_per_evaluation": 20.01
+  },
+  "frozen_weights": {
+    "full": {
+      "gbdt_tab": 0.292,
+      "gbdt_mol": 0.098,
+      "bench": 0.18,
+      "dl": 0.384
+    },
+    "chem_novel": {
+      "gbdt_tab": 0.439,
+      "gbdt_mol": 0.076,
+      "bench": 0.4449,
+      "dl": 0.088
+    },
+    "strain_novel": {
+      "gbdt_tab": 0.264,
+      "gbdt_mol": 0.0,
+      "bench": 0.126,
+      "dl": 0.24
+    },
+    "both_novel": {
+      "gbdt_tab": 0.115,
+      "gbdt_mol": 0.269,
+      "bench": 0.126,
+      "dl": 0.0
+    }
+  },
+  "inner_dev_total_at_frozen_weights": 0.44963565737167577,
+  "val_total_at_frozen_weights": 0.47737677553719804,
+  "val_total_val_tuned_OPTIMISTIC": 0.5053938605012145,
+  "generalisation_gap_inner_to_val": 0.02774111816552227,
+  "beats_benchmark": true,
+  "margin_vs_benchmark": 0.03193378153719806,
+  "optimiser_trace": [
+    {
+      "start": 0,
+      "total": 0.4489264545951691,
+      "weights": [
+        [
+          0.29600000000000004,
+          0.098,
+          0.18000000000000002,
+          0.384
+        ],
+        [
+          0.44000000000000006,
+          0.08199999999999999,
+          0.44400000000000006,
+          0.084
+        ],
+        [
+          0.268,
+          0.0,
+          0.126,
+          0.238
+        ],
+        [
+          0.11399999999999999,
+          0.27,
+          0.126,
+          0.0
+        ]
+      ]
+    },
+    {
+      "start": 1,
+      "total": 0.44892621107336994,
+      "weights": [
+        [
+          0.292,
+          0.1,
+          0.178,
+          0.384
+        ],
+        [
+          0.436,
+          0.08,
+          0.4459999999999999,
+          0.086
+        ],
+        [
+          0.26399999999999996,
+          0.0,
+          0.126,
+          0.24
+        ],
+        [
+          0.12,
+          0.264,
+          0.126,
+          0.0
+        ]
+      ]
+    },
+    {
+      "start": 2,
+      "total": 0.4489264545951691,
+      "weights": [
+        [
+          0.29600000000000004,
+          0.098,
+          0.18000000000000002,
+          0.384
+        ],
+        [
+          0.44000000000000006,
+          0.08199999999999999,
+          0.44400000000000006,
+          0.084
+        ],
+        [
+          0.268,
+          0.0,
+          0.126,
+          0.238
+        ],
+        [
+          0.11399999999999999,
+          0.27,
+          0.126,
+          0.0
+        ]
+      ]
+    },
+    {
+      "start": 3,
+      "total": 0.44892534420068253,
+      "weights": [
+        [
+          0.29200000000000004,
+          0.09799999999999999,
+          0.18000000000000002,
+          0.384
+        ],
+        [
+          0.43900000000000006,
+          0.076,
+          0.4449117615922823,
+          0.088
+        ],
+        [
+          0.264,
+          0.0,
+          0.126,
+          0.24000000000000002
+        ],
+        [
+          0.115,
+          0.26899999999999996,
+          0.126,
+          0.0
+        ]
+      ]
+    },
+    {
+      "start": 4,
+      "total": 0.44892542203311364,
+      "weights": [
+        [
+          0.31199999999999994,
+          0.08000000000000003,
+          0.178,
+          0.384
+        ],
+        [
+          0.44799999999999995,
+          0.07800000000000001,
+          0.44000000000000006,
+          0.084
+        ],
+        [
+          0.264,
+          0.0,
+          0.126,
+          0.24000000000000002
+        ],
+        [
+          0.115,
+          0.26899999999999996,
+          0.126,
+          0.0
+        ]
+      ]
+    },
+    {
+      "start": 5,
+      "total": 0.4489259997696578,
+      "weights": [
+        [
+          0.2800000000000001,
+          0.11199999999999985,
+          0.178,
+          0.384
+        ],
+        [
+          0.44200000000000006,
+          0.07999999999999999,
+          0.44399999999999995,
+          0.08399999999999999
+        ],
+        [
+          0.264,
+          0.0,
+          0.126,
+          0.24000000000000002
+        ],
+        [
+          0.115,
+          0.26899999999999996,
+          0.126,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "sensitivity": {
+    "val_gbdt_tab_replaced_by_multi_library_ensemble": {
+      "total_score": 0.45885252904375573,
+      "module_scores": {
+        "m1_abundance": 0.7875511745345312,
+        "m2_fold_change": 0.3847689215810891,
+        "m3_s1_chem": 0.3947791577376334,
+        "m3_s2_strain": 0.34867002285023496,
+        "m3_s3_both": 0.2886026958330927,
+        "m3_time": 0.5740998642384183,
+        "m4_dep": 0.2665019924085582
+      },
+      "note": "the tabular role is replaced by the mean of 3 libraries, which is stronger than the LightGBM member the weights were calibrated against; reported as a sensitivity because the inner/val member correspondence is no longer exact"
+    }
+  },
+  "module_scores": {
+    "inner:gbdt_tab": {
+      "m1_abundance": 0.7816591207040078,
+      "m2_fold_change": 0.3448088133455617,
+      "m3_s1_chem": 0.39166318601887756,
+      "m3_s2_strain": 0.15835757246416277,
+      "m3_s3_both": 0.19909654667621524,
+      "m3_time": 0.4970332127725283,
+      "m4_dep": 0.2844436297550055
+    },
+    "inner:gbdt_mol": {
+      "m1_abundance": 0.7730856480221804,
+      "m2_fold_change": 0.3339846870864344,
+      "m3_s1_chem": 0.3637489461337567,
+      "m3_s2_strain": 0.14491565920054933,
+      "m3_s3_both": 0.1973249939772449,
+      "m3_time": 0.49471881025547376,
+      "m4_dep": 0.27503094793545013
+    },
+    "inner:bench": {
+      "m1_abundance": 0.7331134124531075,
+      "m2_fold_change": 0.32179601935504437,
+      "m3_s1_chem": 0.4015140054827003,
+      "m3_s2_strain": 0.17929872504362773,
+      "m3_s3_both": 0.21101534107415149,
+      "m3_time": 0.4073630903501285,
+      "m4_dep": 0.23372575292767384
+    },
+    "inner:dl": {
+      "m1_abundance": 0.7610025120718111,
+      "m2_fold_change": 0.28152512600593993,
+      "m3_s1_chem": 0.2943505194821687,
+      "m3_s2_strain": 0.15114620967086917,
+      "m3_s3_both": 0.08379350724397845,
+      "m3_time": 0.498483781126089,
+      "m4_dep": 0.2390702145028581
+    },
+    "inner:control_anchor": {
+      "m1_abundance": 0.7685121935525714,
+      "m2_fold_change": 0.0,
+      "m3_s1_chem": 0.17205275215467516,
+      "m3_s2_strain": 0.1270785400248433,
+      "m3_s3_both": 0.10499665842116436,
+      "m3_time": 0.05718027107990969,
+      "m4_dep": 0.036345889053236734
+    },
+    "val:gbdt_tab": {
+      "m1_abundance": 0.7473600179333237,
+      "m2_fold_change": 0.31829711430343843,
+      "m3_s1_chem": 0.33921604820065565,
+      "m3_s2_strain": 0.28269674633387193,
+      "m3_s3_both": 0.18701054893406419,
+      "m3_time": 0.5422478389378944,
+      "m4_dep": 0.2595676619639761
+    },
+    "val:gbdt_mol": {
+      "m1_abundance": 0.8108677347553945,
+      "m2_fold_change": 0.3474634222009062,
+      "m3_s1_chem": 0.4011467884023675,
+      "m3_s2_strain": 0.2842096963618102,
+      "m3_s3_both": 0.18411077320961997,
+      "m3_time": 0.5403334952394411,
+      "m4_dep": 0.26592177087453983
+    },
+    "val:bench": {
+      "m1_abundance": 0.788994687067148,
+      "m2_fold_change": 0.3463629587498308,
+      "m3_s1_chem": 0.4518275129973695,
+      "m3_s2_strain": 0.3108386594062728,
+      "m3_s3_both": 0.2645250075455387,
+      "m3_time": 0.4135949457074307,
+      "m4_dep": 0.2079245888880343
+    },
+    "val:dl": {
+      "m1_abundance": 0.7798715630160914,
+      "m2_fold_change": 0.29200373572323557,
+      "m3_s1_chem": 0.36441581019374647,
+      "m3_s2_strain": 0.162522117506902,
+      "m3_s3_both": 0.10609138157679299,
+      "m3_time": 0.5554997060660094,
+      "m4_dep": 0.2365526480099
+    },
+    "val:control_anchor": {
+      "m1_abundance": 0.8172335138043081,
+      "m2_fold_change": 0.0,
+      "m3_s1_chem": 0.23525408228522657,
+      "m3_s2_strain": 0.15878520086322284,
+      "m3_s3_both": 0.11141437478951802,
+      "m3_time": 0.05708716230226249,
+      "m4_dep": 0.015575645821045524
+    },
+    "val:stacked_oof_frozen": {
+      "m1_abundance": 0.8229318352854903,
+      "m2_fold_change": 0.39976519431013025,
+      "m3_s1_chem": 0.41965681455133136,
+      "m3_s2_strain": 0.35197420341992264,
+      "m3_s3_both": 0.291922128423388,
+      "m3_time": 0.5817226375678671,
+      "m4_dep": 0.2968133601750779
+    },
+    "inner:stacked_oof_frozen": {
+      "m1_abundance": 0.7970033217476995,
+      "m2_fold_change": 0.3941905845782029,
+      "m3_s1_chem": 0.4259957171036471,
+      "m3_s2_strain": 0.25419147263813835,
+      "m3_s3_both": 0.273537916173602,
+      "m3_time": 0.5408103716037654,
+      "m4_dep": 0.2986498908071949
+    },
+    "val:stacked_val_tuned_OPTIMISTIC": {
+      "m1_abundance": 0.8411272953159714,
+      "m2_fold_change": 0.4288112087486642,
+      "m3_s1_chem": 0.48427812348267607,
+      "m3_s2_strain": 0.37438217626487014,
+      "m3_s3_both": 0.30717933053402,
+      "m3_time": 0.5844762805605834,
+      "m4_dep": 0.2730151749322961
+    },
+    "val:stacked_frozen_multilib": {
+      "m1_abundance": 0.7875511745345312,
+      "m2_fold_change": 0.3847689215810891,
+      "m3_s1_chem": 0.3947791577376334,
+      "m3_s2_strain": 0.34867002285023496,
+      "m3_s3_both": 0.2886026958330927,
+      "m3_time": 0.5740998642384183,
+      "m4_dep": 0.2665019924085582
+    }
+  },
+  "module_weights": {
+    "m1_abundance": 0.2,
+    "m2_fold_change": 0.25,
+    "m3_s1_chem": 0.2,
+    "m3_s2_strain": 0.2,
+    "m3_s3_both": 0.05,
+    "m3_time": 0.05,
+    "m4_dep": 0.05
+  },
+  "totals": {
+    "inner:gbdt_tab": 0.40156684863398756,
+    "inner:gbdt_mol": 0.3881999600513143,
+    "inner:bench": 0.3858394426522459,
+    "inner:dl": 0.35274850489010107,
+    "inner:control_anchor": 0.22345483807413352,
+    "val:gbdt_tab": 0.4028701435612267,
+    "val:gbdt_mol": 0.43562900142032107,
+    "val:bench": 0.441225138688666,
+    "val:dl": 0.37927001885679196,
+    "val:control_anchor": 0.25145841853619283,
+    "val:stacked_oof_frozen": 0.47737677553719804,
+    "inner:stacked_oof_frozen": 0.44963565737167577,
+    "val:stacked_val_tuned_OPTIMISTIC": 0.5053938605012145,
+    "val:stacked_frozen_multilib": 0.45885252904375573
+  },
+  "caveats": [
+    "inner_fit (~2378 rows) is smaller than train (~5078), so inner members are weaker than the final members; weights calibrated on them are biased toward the analytic baseline, which is conservative rather than optimistic",
+    "the val-tuned total is reported only to quantify headroom in the weight space and must not be read as an achieved score"
+  ]
+}

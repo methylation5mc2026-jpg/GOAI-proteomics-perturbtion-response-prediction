@@ -1,0 +1,78 @@
+% ---- shared preamble for the 2026-08-11 revised submission document ----
+\documentclass[11pt,a4paper,fontset=fandol]{ctexart}
+
+\usepackage[UTF8]{ctex}
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf,ItalicFont=FandolKai-Regular.otf,BoldItalicFont=FandolHei-Bold.otf,AutoFakeSlant=0.15]
+\setCJKsansfont{FandolHei-Regular.otf}[BoldFont=FandolHei-Bold.otf]
+
+\usepackage[margin=2.2cm,top=2.3cm,bottom=2.2cm]{geometry}
+\usepackage{setspace}\linespread{1.20}
+\usepackage{parskip}
+\setlength{\parindent}{2em}\setlength{\parskip}{3.5pt plus 1pt}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{graphicx,booktabs,array,tabularx,multirow,float,adjustbox}
+\usepackage[font=small,labelfont=bf,justification=justified,skip=4pt]{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\definecolor{accent}{RGB}{21,74,102}
+\definecolor{lightaccent}{RGB}{233,242,246}
+\definecolor{warmbox}{RGB}{253,243,230}
+\definecolor{warmrule}{RGB}{196,116,36}
+\definecolor{greenrule}{RGB}{40,110,72}
+\definecolor{greenbox}{RGB}{234,244,238}
+\definecolor{newrule}{RGB}{120,50,120}
+\definecolor{newbox}{RGB}{245,238,248}
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{keybox}[1][]{enhanced,breakable,colback=lightaccent,colframe=accent,
+  boxrule=0.7pt,left=7pt,right=7pt,top=5pt,bottom=5pt,fonttitle=\bfseries,
+  coltitle=white,colbacktitle=accent,#1}
+\newtcolorbox{warnbox}[1][]{enhanced,breakable,colback=warmbox,colframe=warmrule,
+  boxrule=0.7pt,left=7pt,right=7pt,top=5pt,bottom=5pt,fonttitle=\bfseries,
+  coltitle=white,colbacktitle=warmrule,#1}
+\newtcolorbox{okbox}[1][]{enhanced,breakable,colback=greenbox,colframe=greenrule,
+  boxrule=0.7pt,left=7pt,right=7pt,top=5pt,bottom=5pt,fonttitle=\bfseries,
+  coltitle=white,colbacktitle=greenrule,#1}
+\newtcolorbox{newboxx}[1][]{enhanced,breakable,colback=newbox,colframe=newrule,
+  boxrule=0.7pt,left=7pt,right=7pt,top=5pt,bottom=5pt,fonttitle=\bfseries,
+  coltitle=white,colbacktitle=newrule,#1}
+
+\usepackage{multicol}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.5em,itemsep=1.5pt,topsep=2.5pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=1.5pt,topsep=2.5pt,parsep=0pt}
+
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+\setlength{\bibsep}{1.5pt}
+\usepackage[hidelinks,breaklinks=true]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=accent,
+            bookmarksnumbered=true}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{accent} GOAI 赛道三 · 算法赛题一「虚拟细胞」· 初赛方案说明文档（2026-08-11 规则修订版）}
+\fancyhead[R]{\small\color{accent}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\renewcommand{\topfraction}{0.92}\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.06}\renewcommand{\floatpagefraction}{0.80}
+\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}
+
+\ctexset{
+  section = {format = \large\bfseries\color{accent}, beforeskip = 2.6ex plus .8ex, afterskip = 1.2ex},
+  subsection = {format = \normalsize\bfseries\color{accent!85!black}, beforeskip = 2.0ex plus .6ex, afterskip = 0.9ex},
+  subsubsection = {format = \normalsize\bfseries, beforeskip = 1.6ex, afterskip = 0.7ex}
+}
+
+\PassOptionsToPackage{hyphens}{url}\usepackage{url}
+\def\UrlBreaks{\do\/\do\-\do\.\do\_\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+\newcommand{\code}[1]{\texttt{\small #1}}
+\newcommand{\file}[1]{\texttt{\small\nolinkurl{#1}}}
+\newcommand{\Sc}{\textit{S.\,cerevisiae}}
+\newcommand{\NEW}{{\color{newrule}\textbf{[修订新增]}}}
+\setlength{\emergencystretch}{3.5em}\sloppy
+\newcolumntype{R}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\tabcolsep}{4.5pt}
+\renewcommand{\arraystretch}{1.12}

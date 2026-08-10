@@ -1,0 +1,89 @@
+{
+  "step": "5_3_leakage_audit",
+  "seed": 42,
+  "n_checks": 5,
+  "n_passed": 5,
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "dev folds partition every train row exactly once",
+      "passed": true,
+      "detail": "5078 assignments over 5078 train rows; 0 non-train rows assigned"
+    },
+    {
+      "name": "no fold has a row in both its fit and dev set",
+      "passed": true,
+      "detail": "0 overlapping rows"
+    },
+    {
+      "name": "no non-train (val) row enters any fit set",
+      "passed": true,
+      "detail": "0 rows"
+    },
+    {
+      "name": "every dev row's regime label matches entity novelty against its fold's fit set",
+      "passed": true,
+      "detail": "0 mismatched rows"
+    },
+    {
+      "name": "zero chemical leakage into any chem-novel dev row",
+      "passed": true,
+      "detail": "0 leaked rows"
+    }
+  ],
+  "per_fold": {
+    "fold0": {
+      "n_fit_chemicals": 31,
+      "n_fit_strains": 3,
+      "dev_regime_counts": {
+        "full": 61,
+        "chem_novel": 382,
+        "strain_novel": 169,
+        "both_novel": 236
+      }
+    },
+    "fold1": {
+      "n_fit_chemicals": 29,
+      "n_fit_strains": 3,
+      "dev_regime_counts": {
+        "full": 55,
+        "chem_novel": 403,
+        "strain_novel": 430,
+        "both_novel": 238
+      }
+    },
+    "fold2": {
+      "n_fit_chemicals": 29,
+      "n_fit_strains": 3,
+      "dev_regime_counts": {
+        "full": 64,
+        "chem_novel": 376,
+        "strain_novel": 406,
+        "both_novel": 238
+      }
+    },
+    "fold3": {
+      "n_fit_chemicals": 30,
+      "n_fit_strains": 3,
+      "dev_regime_counts": {
+        "full": 65,
+        "chem_novel": 412,
+        "strain_novel": 450,
+        "both_novel": 224
+      }
+    },
+    "fold4": {
+      "n_fit_chemicals": 29,
+      "n_fit_strains": 3,
+      "dev_regime_counts": {
+        "full": 60,
+        "chem_novel": 411,
+        "strain_novel": 145,
+        "both_novel": 253
+      }
+    }
+  },
+  "n_regime_mismatches": 0,
+  "regime_mismatch_examples": [],
+  "note": "regime labels are re-derived from each fold's realised fit set rather than trusted from the construction, so a construction bug cannot hide as a pass"
+}

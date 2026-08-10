@@ -1,0 +1,81 @@
+{
+  "n_checks": 15,
+  "n_failed": 0,
+  "checks": [
+    {
+      "name": "proteome protein columns == 5243",
+      "passed": true,
+      "detail": "5243"
+    },
+    {
+      "name": "delta protein columns match proteome order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "proteome sample_ID order == metadata order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no duplicated sample_ID in proteome",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no duplicated sample_ID in delta",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "delta excludes all control samples",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "delta excludes Quality Control",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all delta rows matched at L1_full_ctx",
+      "passed": true,
+      "detail": "levels=['L1_full_ctx']"
+    },
+    {
+      "name": "proteome retains NaN (missingness not silently filled)",
+      "passed": true,
+      "detail": "27.35% NaN"
+    },
+    {
+      "name": "no infinite values in proteome",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no infinite values in delta",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "delta centred near zero",
+      "passed": true,
+      "detail": "median=-0.01472"
+    },
+    {
+      "name": "Delta == y_treat - median(matched controls), re-derived",
+      "passed": true,
+      "detail": "max abs deviation=0.00e+00 over 146086 cells"
+    },
+    {
+      "name": "reported missingness matches log2 export",
+      "passed": true,
+      "detail": "reported=27.353, observed=27.353"
+    },
+    {
+      "name": "all manifest outputs exist",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

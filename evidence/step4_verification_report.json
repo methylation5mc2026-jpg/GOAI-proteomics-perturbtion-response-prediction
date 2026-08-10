@@ -1,0 +1,356 @@
+{
+  "step": "4e_verification",
+  "seed": 42,
+  "artefact_integrity": {
+    "n_checks": 6,
+    "n_passed": 6,
+    "all_passed": true,
+    "note": "a failure here is a defect and raises",
+    "checks": [
+      {
+        "name": "test predictions cover exactly the required sample_IDs, in order",
+        "passed": true,
+        "detail": "4226 samples"
+      },
+      {
+        "name": "prediction matrix has the full protein width",
+        "passed": true,
+        "detail": "shape (4226, 5243)"
+      },
+      {
+        "name": "no non-finite value in the submitted abundance matrix",
+        "passed": true,
+        "detail": "0 non-finite cells"
+      },
+      {
+        "name": "predicted abundances lie within the observed train dynamic range",
+        "passed": true,
+        "detail": "predicted [10.13, 33.04] vs observed train [10.16, 33.45]"
+      },
+      {
+        "name": "test-prediction CSV parses with the expected header",
+        "passed": true,
+        "detail": "5244 columns"
+      },
+      {
+        "name": "CSV agrees with the parquet mirror",
+        "passed": true,
+        "detail": ""
+      }
+    ]
+  },
+  "success_criteria": {
+    "n_criteria": 4,
+    "n_met": 4,
+    "all_met": true,
+    "note": "a failure here is a scientific result, reported rather than raised",
+    "criteria": [
+      {
+        "name": "RDKit descriptors/fingerprints generated for 100% of chemical perturbations without missing values",
+        "met": true,
+        "detail": "56/56 molecular labels resolved, 0 unresolved, 0 missing descriptor cells, 0 MW cross-checks flagged"
+      },
+      {
+        "name": "final stacked ensemble total score > 0.4454 on the 5-module harness",
+        "met": true,
+        "detail": "0.477377 vs 0.445443 (margin +0.031934)"
+      },
+      {
+        "name": "validated test prediction matrix exported without non-finite values",
+        "met": true,
+        "detail": "4226 x 5243, 0 non-finite"
+      },
+      {
+        "name": "RDKit-enhanced model improves S1 (val_chem_only) over the tabular model",
+        "met": true,
+        "detail": "m3_s1_chem delta = +0.061931"
+      }
+    ]
+  },
+  "test_predictions": {
+    "source": "Step-4 stacked ensemble with inner-OOF-frozen per-regime weights",
+    "roles": [
+      "gbdt_tab",
+      "gbdt_mol",
+      "bench",
+      "dl"
+    ],
+    "frozen_weights": {
+      "full": {
+        "gbdt_tab": 0.292,
+        "gbdt_mol": 0.098,
+        "bench": 0.18,
+        "dl": 0.384
+      },
+      "chem_novel": {
+        "gbdt_tab": 0.439,
+        "gbdt_mol": 0.076,
+        "bench": 0.4449,
+        "dl": 0.088
+      },
+      "strain_novel": {
+        "gbdt_tab": 0.264,
+        "gbdt_mol": 0.0,
+        "bench": 0.126,
+        "dl": 0.24
+      },
+      "both_novel": {
+        "gbdt_tab": 0.115,
+        "gbdt_mol": 0.269,
+        "bench": 0.126,
+        "dl": 0.0
+      }
+    },
+    "n_samples": 4226,
+    "n_proteins": 5243,
+    "split_counts": {
+      "test_chem_only": 1640,
+      "test_strain_only": 1322,
+      "test_both": 1129,
+      "test_time": 135
+    },
+    "routing_vs_split": {
+      "test_both": {
+        "both_novel": 1129,
+        "chem_novel": 0,
+        "full": 0,
+        "strain_novel": 0
+      },
+      "test_chem_only": {
+        "both_novel": 0,
+        "chem_novel": 1640,
+        "full": 0,
+        "strain_novel": 0
+      },
+      "test_strain_only": {
+        "both_novel": 0,
+        "chem_novel": 0,
+        "full": 0,
+        "strain_novel": 1322
+      },
+      "test_time": {
+        "both_novel": 0,
+        "chem_novel": 0,
+        "full": 135,
+        "strain_novel": 0
+      }
+    },
+    "y_pred_summary": {
+      "mean": 20.548097610473633,
+      "sd": 2.992663860321045,
+      "min": 10.133688926696777,
+      "max": 33.038516998291016
+    },
+    "dynamic_range_finding": {
+      "observed_train_range": [
+        10.162742614746094,
+        33.44898223876953
+      ],
+      "predicted_range": [
+        10.133688926696777,
+        33.038516998291016
+      ],
+      "plan_convention_window": [
+        9.0,
+        33.0
+      ],
+      "n_cells_outside_plan_window": 7,
+      "frac_cells_outside_plan_window": 3.159284156758625e-07,
+      "finding": "the plan's [9, 33] log2 window is a convention, not a physical bound: the measured abundances run to 35.30 in train_val and 35.04 in test, with 647 and 299 observed cells respectively above 33. The Step-4 predictions reach 33.04; the handful of cells above 33 are all protein PDC1 (pyruvate decarboxylase), among the most abundant proteins in yeast, so they are biologically plausible rather than artefactual. The integrity gate is therefore the observed train dynamic range, and the plan window is reported for reference only. No clipping is applied."
+    },
+    "delta_pred_summary": {
+      "mean": -0.0698913037776947,
+      "sd": 0.22977547347545624,
+      "frac_defined": 1.0,
+      "frac_abs_gt_1": 0.006850862561300268
+    },
+    "indicative_fold_change_pcc_per_sample_mean": 0.36104219880087035,
+    "indicative_note": "the released test delta matrix permits an indicative fold-change PCC; it is NOT the official score, whose mu_ctx / mu_drug baselines and test-side control matching are held by the organisers",
+    "files": {
+      "csv": "results/step4_test_predictions.csv",
+      "parquet": "data/step4_test_predictions.parquet",
+      "delta_parquet": "data/step4_test_delta_predictions.parquet"
+    }
+  },
+  "molecular_feature_usage": {
+    "full": {
+      "molecular_share_of_gain": 0.024688154735206427,
+      "tabular_share_of_gain": 0.9753118452647936,
+      "n_molecular_features": 45,
+      "top_molecular": [
+        {
+          "feature": "mol_MolWt",
+          "gain_share": 0.002891356703125929
+        },
+        {
+          "feature": "mol_ExactMolWt",
+          "gain_share": 0.0018724942370048963
+        },
+        {
+          "feature": "fppca_12",
+          "gain_share": 0.0015952141931837624
+        },
+        {
+          "feature": "mol_MolLogP",
+          "gain_share": 0.0015736180611549777
+        },
+        {
+          "feature": "fppca_00",
+          "gain_share": 0.0012723126400892614
+        },
+        {
+          "feature": "fppca_14",
+          "gain_share": 0.000959621057309014
+        },
+        {
+          "feature": "fppca_13",
+          "gain_share": 0.0008709317571498669
+        },
+        {
+          "feature": "fppca_04",
+          "gain_share": 0.0008242318138421811
+        }
+      ]
+    },
+    "chem_novel": {
+      "molecular_share_of_gain": 0.21282386927477945,
+      "tabular_share_of_gain": 0.7871761307252205,
+      "n_molecular_features": 45,
+      "top_molecular": [
+        {
+          "feature": "fppca_00",
+          "gain_share": 0.0329164915200666
+        },
+        {
+          "feature": "mol_MolWt",
+          "gain_share": 0.026940997476821875
+        },
+        {
+          "feature": "fppca_13",
+          "gain_share": 0.024128632673300295
+        },
+        {
+          "feature": "fppca_07",
+          "gain_share": 0.023263102979085293
+        },
+        {
+          "feature": "mol_MolLogP",
+          "gain_share": 0.02124882002575179
+        },
+        {
+          "feature": "fppca_12",
+          "gain_share": 0.012385019020173277
+        },
+        {
+          "feature": "fppca_14",
+          "gain_share": 0.008420569023766374
+        },
+        {
+          "feature": "fppca_01",
+          "gain_share": 0.007556697134234841
+        }
+      ]
+    },
+    "strain_novel": {
+      "molecular_share_of_gain": 0.02287447108283462,
+      "tabular_share_of_gain": 0.9771255289171653,
+      "n_molecular_features": 45,
+      "top_molecular": [
+        {
+          "feature": "mol_MolWt",
+          "gain_share": 0.0026765103255429784
+        },
+        {
+          "feature": "mol_MolLogP",
+          "gain_share": 0.0013807044570274803
+        },
+        {
+          "feature": "fppca_11",
+          "gain_share": 0.0012266615264987094
+        },
+        {
+          "feature": "mol_TPSA",
+          "gain_share": 0.0011822468346395457
+        },
+        {
+          "feature": "fppca_00",
+          "gain_share": 0.0009899460958832933
+        },
+        {
+          "feature": "mol_NumAromaticRings",
+          "gain_share": 0.0008899645803975934
+        },
+        {
+          "feature": "fppca_14",
+          "gain_share": 0.0008108708313386171
+        },
+        {
+          "feature": "mol_HallKierAlpha",
+          "gain_share": 0.0007938499085574103
+        }
+      ]
+    },
+    "both_novel": {
+      "molecular_share_of_gain": 0.19797062435313767,
+      "tabular_share_of_gain": 0.8020293756468624,
+      "n_molecular_features": 45,
+      "top_molecular": [
+        {
+          "feature": "fppca_12",
+          "gain_share": 0.035021858113075933
+        },
+        {
+          "feature": "mol_ExactMolWt",
+          "gain_share": 0.015841462650219608
+        },
+        {
+          "feature": "mol_qed",
+          "gain_share": 0.015273140008085101
+        },
+        {
+          "feature": "fppca_14",
+          "gain_share": 0.014445909291917147
+        },
+        {
+          "feature": "mol_MolLogP",
+          "gain_share": 0.013321760713972565
+        },
+        {
+          "feature": "fppca_13",
+          "gain_share": 0.012700510886427891
+        },
+        {
+          "feature": "fppca_00",
+          "gain_share": 0.012069017850579452
+        },
+        {
+          "feature": "mol_NumAromaticRings",
+          "gain_share": 0.010650113995831005
+        }
+      ]
+    }
+  },
+  "validation_summary": {
+    "val_total_frozen_oof_weights": 0.47737677553719804,
+    "benchmark_total": 0.445442994,
+    "step3_best_total": 0.436172,
+    "inner_dev_total": 0.44963565737167577,
+    "val_total_val_tuned_OPTIMISTIC": 0.5053938605012145,
+    "totals": {
+      "inner:gbdt_tab": 0.40156684863398756,
+      "inner:gbdt_mol": 0.3881999600513143,
+      "inner:bench": 0.3858394426522459,
+      "inner:dl": 0.35274850489010107,
+      "inner:control_anchor": 0.22345483807413352,
+      "val:gbdt_tab": 0.4028701435612267,
+      "val:gbdt_mol": 0.43562900142032107,
+      "val:bench": 0.441225138688666,
+      "val:dl": 0.37927001885679196,
+      "val:control_anchor": 0.25145841853619283,
+      "val:stacked_oof_frozen": 0.47737677553719804,
+      "inner:stacked_oof_frozen": 0.44963565737167577,
+      "val:stacked_val_tuned_OPTIMISTIC": 0.5053938605012145,
+      "val:stacked_frozen_multilib": 0.45885252904375573
+    }
+  }
+}

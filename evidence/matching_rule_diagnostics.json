@@ -1,0 +1,158 @@
+{
+  "pert_id_unique_within_data_source": true,
+  "dose_series_within_batch": {
+    "WAYB": {
+      "EDTA": [
+        "#16",
+        "#2"
+      ]
+    },
+    "WAYB_rep1": {
+      "EDTA": [
+        "#16",
+        "#2"
+      ]
+    },
+    "WAYB_rep2": {
+      "EDTA": [
+        "#16",
+        "#2"
+      ]
+    },
+    "WAYC": {
+      "1-10 Phenanthroline monohydrate": [
+        "#46",
+        "#6"
+      ],
+      "Anisomycin": [
+        "#45",
+        "#9"
+      ],
+      "Brefeldin A": [
+        "#11",
+        "#44"
+      ]
+    }
+  },
+  "availability_with_fallback": {
+    "train_val": {
+      "L1_full_ctx": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_newly_matched": 7884,
+        "n_control_groups": 479
+      },
+      "L2_drop_time": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_newly_matched": 0,
+        "n_control_groups": null
+      },
+      "L3_drop_batch": {
+        "keys": [
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_newly_matched": 0,
+        "n_control_groups": null
+      },
+      "L4_strain_media": {
+        "keys": [
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_newly_matched": 0,
+        "n_control_groups": null
+      },
+      "L5_strain": {
+        "keys": [
+          "Strains"
+        ],
+        "n_newly_matched": 0,
+        "n_control_groups": null
+      },
+      "L6_global": {
+        "keys": [],
+        "n_newly_matched": 0,
+        "n_control_groups": null
+      },
+      "_level_distribution": {
+        "L1_full_ctx": 7884
+      }
+    },
+    "test": {
+      "L1_full_ctx": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_newly_matched": 2079,
+        "n_control_groups": 108
+      },
+      "L2_drop_time": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_newly_matched": 251,
+        "n_control_groups": 29
+      },
+      "L3_drop_batch": {
+        "keys": [
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_newly_matched": 150,
+        "n_control_groups": 37
+      },
+      "L4_strain_media": {
+        "keys": [
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_newly_matched": 525,
+        "n_control_groups": 13
+      },
+      "L5_strain": {
+        "keys": [
+          "Strains"
+        ],
+        "n_newly_matched": 789,
+        "n_control_groups": 5
+      },
+      "L6_global": {
+        "keys": [],
+        "n_newly_matched": 432,
+        "n_control_groups": 1
+      },
+      "_level_distribution": {
+        "L1_full_ctx": 2079,
+        "L5_strain": 789,
+        "L4_strain_media": 525,
+        "L6_global": 432,
+        "L2_drop_time": 251,
+        "L3_drop_batch": 150
+      }
+    }
+  }
+}

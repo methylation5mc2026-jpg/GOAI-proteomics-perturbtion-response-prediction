@@ -1,0 +1,414 @@
+{
+  "step": "6_2_metabolic_mechanism_loss",
+  "seed": 42,
+  "n_proteins": 5243,
+  "n_complexes_curated": 20,
+  "n_complexes_with_2plus_measured_subunits": 20,
+  "n_complex_edges": 2615,
+  "complex_membership": {
+    "proteasome_20S_core": {
+      "n_curated": 13,
+      "n_measured": 13
+    },
+    "proteasome_19S_regulatory": {
+      "n_curated": 17,
+      "n_measured": 17
+    },
+    "SAGA": {
+      "n_curated": 18,
+      "n_measured": 17
+    },
+    "RNA_Pol_II": {
+      "n_curated": 12,
+      "n_measured": 11
+    },
+    "RNA_Pol_I": {
+      "n_curated": 7,
+      "n_measured": 7
+    },
+    "RNA_Pol_III": {
+      "n_curated": 8,
+      "n_measured": 8
+    },
+    "TRiC_CCT_chaperonin": {
+      "n_curated": 8,
+      "n_measured": 8
+    },
+    "V_ATPase": {
+      "n_curated": 12,
+      "n_measured": 10
+    },
+    "F1F0_ATP_synthase": {
+      "n_curated": 12,
+      "n_measured": 12
+    },
+    "eIF3": {
+      "n_curated": 7,
+      "n_measured": 6
+    },
+    "TFIID": {
+      "n_curated": 12,
+      "n_measured": 12
+    },
+    "exosome": {
+      "n_curated": 11,
+      "n_measured": 10
+    },
+    "COPI": {
+      "n_curated": 7,
+      "n_measured": 7
+    },
+    "COPII": {
+      "n_curated": 6,
+      "n_measured": 6
+    },
+    "chaperonin_HSP90_system": {
+      "n_curated": 7,
+      "n_measured": 7
+    },
+    "ribosome_40S": {
+      "n_curated": 62,
+      "n_measured": 33
+    },
+    "ribosome_60S": {
+      "n_curated": 86,
+      "n_measured": 51
+    },
+    "MCM_helicase": {
+      "n_curated": 6,
+      "n_measured": 6
+    },
+    "cytoskeleton_tubulin": {
+      "n_curated": 4,
+      "n_measured": 4
+    },
+    "CCR4_NOT": {
+      "n_curated": 9,
+      "n_measured": 6
+    }
+  },
+  "edge_weighting": "each edge weighted 1/(k-1) for a complex with k measured subunits, so a large complex does not dominate the penalty through its quadratic edge count",
+  "n_reactions_curated": 44,
+  "n_reactions_with_measured_enzyme": 44,
+  "reactions_dropped_no_measured_enzyme": [],
+  "n_balanced_metabolites": 40,
+  "stoichiometry_shape": [
+    40,
+    44
+  ],
+  "reaction_coverage": {
+    "HEX1": {
+      "n_curated_enzymes": 3,
+      "n_measured": 3
+    },
+    "PGI": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "PFK": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "FBA": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "TPI": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "GAPD": {
+      "n_curated_enzymes": 3,
+      "n_measured": 3
+    },
+    "PGK": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "PGM": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "ENO": {
+      "n_curated_enzymes": 4,
+      "n_measured": 3
+    },
+    "PYK": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "PDC": {
+      "n_curated_enzymes": 3,
+      "n_measured": 3
+    },
+    "ALCD": {
+      "n_curated_enzymes": 5,
+      "n_measured": 5
+    },
+    "ALDD": {
+      "n_curated_enzymes": 5,
+      "n_measured": 5
+    },
+    "ACS": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "PDH": {
+      "n_curated_enzymes": 4,
+      "n_measured": 4
+    },
+    "CS": {
+      "n_curated_enzymes": 3,
+      "n_measured": 3
+    },
+    "ACONT": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "ICDH": {
+      "n_curated_enzymes": 5,
+      "n_measured": 5
+    },
+    "AKGD": {
+      "n_curated_enzymes": 3,
+      "n_measured": 3
+    },
+    "SUCOAS": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "SUCD": {
+      "n_curated_enzymes": 4,
+      "n_measured": 4
+    },
+    "FUM": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "MDH": {
+      "n_curated_enzymes": 3,
+      "n_measured": 3
+    },
+    "G6PDH": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "PGL": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "GND": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "RPI": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "RPE": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "TKT1": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "TALA": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "HMGCOAR": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "MEVK": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "PMEVK": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "DPMVD": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "IPDDI": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "FRTT": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "SQLS": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "SQLE": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "LNS": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "C14DM": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "C14STR": {
+      "n_curated_enzymes": 4,
+      "n_measured": 4
+    },
+    "C24STR": {
+      "n_curated_enzymes": 1,
+      "n_measured": 1
+    },
+    "C8ISO": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    },
+    "ERGSTt": {
+      "n_curated_enzymes": 2,
+      "n_measured": 2
+    }
+  },
+  "flux_surrogate_note": "Fluxes are not observed. v_j is taken as the mean predicted log2 fold-change of reaction j's measured catalysing enzymes -- the standard enzyme-capacity proxy. The penalty ||S v||^2 therefore asks that the predicted enzyme response pattern stay compatible with metabolite mass balance. This is an approximation: enzyme abundance bounds capacity rather than determining flux, and post-translational regulation is not captured. It is consequently applied as a weak regulariser (default coefficient 0.01), never as a hard constraint.",
+  "dead_end_metabolite_policy": "metabolites touching fewer than 2 retained reactions are dropped, because mass balance over a dead-end would merely penalise any nonzero flux",
+  "verification": {
+    "torch_vs_numpy_max_abs_deviation": 4.88284263155947e-06,
+    "tolerance": 0.001,
+    "per_term_deviation": {
+      "mse": 1.4415408283730002e-08,
+      "pcc_loss": 1.0283380813547183e-09,
+      "complex": 4.88284263155947e-06,
+      "flux": 8.29878565866693e-07
+    },
+    "gradient_finite": true,
+    "gradient_abs_mean": 7.401284528896213e-05
+  },
+  "convergence_trajectory": [
+    {
+      "epoch": 0,
+      "mse": 0.2493422031402588,
+      "pcc_loss": 0.0,
+      "complex": 0.0,
+      "flux": 0.0,
+      "total": 0.2493422031402588
+    },
+    {
+      "epoch": 30,
+      "mse": 0.01639896258711815,
+      "pcc_loss": 0.027091801166534424,
+      "complex": 0.03062853403389454,
+      "flux": 0.02292022854089737,
+      "total": 0.030786635354161263
+    },
+    {
+      "epoch": 60,
+      "mse": 0.01098213903605938,
+      "pcc_loss": 0.02225559949874878,
+      "complex": 0.02495872788131237,
+      "flux": 0.01884736493229866,
+      "total": 0.022797586396336555
+    },
+    {
+      "epoch": 90,
+      "mse": 0.010840941220521927,
+      "pcc_loss": 0.021977782249450684,
+      "complex": 0.024550963193178177,
+      "flux": 0.0185057632625103,
+      "total": 0.022505909204483032
+    },
+    {
+      "epoch": 120,
+      "mse": 0.0108331348747015,
+      "pcc_loss": 0.021958231925964355,
+      "complex": 0.024637702852487564,
+      "flux": 0.018529439345002174,
+      "total": 0.022490298375487328
+    },
+    {
+      "epoch": 150,
+      "mse": 0.0108327716588974,
+      "pcc_loss": 0.0219576358795166,
+      "complex": 0.02461760863661766,
+      "flux": 0.018528752028942108,
+      "total": 0.02248922921717167
+    },
+    {
+      "epoch": 180,
+      "mse": 0.010832817293703556,
+      "pcc_loss": 0.021957814693450928,
+      "complex": 0.02460359036922455,
+      "flux": 0.018530234694480896,
+      "total": 0.022489096969366074
+    },
+    {
+      "epoch": 210,
+      "mse": 0.010832746513187885,
+      "pcc_loss": 0.0219576358795166,
+      "complex": 0.024633530527353287,
+      "flux": 0.018532058224081993,
+      "total": 0.022489553317427635
+    },
+    {
+      "epoch": 240,
+      "mse": 0.01083280984312296,
+      "pcc_loss": 0.021957814693450928,
+      "complex": 0.024607744067907333,
+      "flux": 0.018533864989876747,
+      "total": 0.022489210590720177
+    },
+    {
+      "epoch": 270,
+      "mse": 0.010832867585122585,
+      "pcc_loss": 0.021957874298095703,
+      "complex": 0.02462378889322281,
+      "flux": 0.018524672836065292,
+      "total": 0.022489529103040695
+    },
+    {
+      "epoch": 299,
+      "mse": 0.010832609608769417,
+      "pcc_loss": 0.0219573974609375,
+      "complex": 0.024639766663312912,
+      "flux": 0.018545877188444138,
+      "total": 0.022489560768008232
+    }
+  ],
+  "term_isolation": {
+    "mse_only": {
+      "start": 0.49479353427886963,
+      "end": 1.2844809589296347e-06,
+      "started_strictly_positive": true,
+      "decreased": true
+    },
+    "pcc_only": {
+      "start": 0.9925370812416077,
+      "end": 1.2695789337158203e-05,
+      "started_strictly_positive": true,
+      "decreased": true
+    },
+    "complex_only": {
+      "start": 59.08597183227539,
+      "end": 0.00010824437777046114,
+      "started_strictly_positive": true,
+      "decreased": true
+    },
+    "flux_only": {
+      "start": 14.4147310256958,
+      "end": 0.002644400577992201,
+      "started_strictly_positive": true,
+      "decreased": true
+    }
+  },
+  "default_coefficients": {
+    "w_mse": 1.0,
+    "w_pcc": 0.5,
+    "w_complex": 0.02,
+    "w_flux": 0.01
+  },
+  "runtime_seconds": 9.3
+}

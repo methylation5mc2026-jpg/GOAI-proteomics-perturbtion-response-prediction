@@ -1,0 +1,577 @@
+{
+  "step": "6_1_target_affinity_features",
+  "seed": 42,
+  "n_perturbations": 57,
+  "n_resolved_to_chembl": 54,
+  "n_with_activity_evidence": 52,
+  "n_activity_records_raw": 22942,
+  "n_activity_records_usable": 13963,
+  "qualifying_activity_types": [
+    "Kd",
+    "Ki",
+    "IC50",
+    "EC50"
+  ],
+  "n_distinct_chembl_targets": 1921,
+  "n_target_uniprot_accessions": 1057,
+  "itpv_dimension": 5243,
+  "itpv_dimension_matches_brief_5243": true,
+  "itpv_dimension_note": "The ITPV is defined over the measured yeast proteome, so its width is 5243 -- exactly the 5,243 proteins quantified in this study. Each entry is the strongest annotated binding potency (pActivity = -log10[M]) of that compound against that protein, obtained by mapping ChEMBL targets onto the yeast proteome.",
+  "target_to_protein_links": 1837,
+  "mapping_channels": {
+    "orthodb": 1680,
+    "symbol": 148,
+    "direct": 9
+  },
+  "mapping_channel_definitions": {
+    "direct": "ChEMBL target is itself an S. cerevisiae protein in the roster",
+    "orthodb": "target and yeast protein share an OrthoDB Eukaryota orthologous group",
+    "symbol": "target and yeast protein share a gene symbol or alias"
+  },
+  "itpv_nonzero_density": 0.002994803430472041,
+  "n_perturbations_with_nonzero_itpv": 44,
+  "n_proteins_with_nonzero_itpv": 419,
+  "sparsity_note": "The ITPV is sparse by construction: only a minority of the 5,243 measured proteins are annotated drug targets in ChEMBL. Coverage is reported as measured. A zero entry means 'no annotated engagement', which is a substantive statement, not a missing value -- no imputation is performed.",
+  "missing_value_policy": "Perturbations with no ChEMBL activity data at all (solvents, inorganic stressors, vehicle controls) carry an all-zero ITPV together with has_chembl_evidence = 0, so models can distinguish 'no annotated target' from 'not looked up'. The compact feature matrix contains zero NaNs.",
+  "n_nan_in_feature_matrix": 0,
+  "compact_feature_shape": [
+    57,
+    32
+  ],
+  "svd_components": 24,
+  "svd_fit_basis": "37 LCGO training compounds only",
+  "svd_explained_variance_ratio_sum": 0.994354716103728,
+  "top_target_organisms": {
+    "Homo sapiens": 9713,
+    "Plasmodium falciparum": 816,
+    "Rattus norvegicus": 531,
+    "Leishmania donovani": 247,
+    "Mus musculus": 228,
+    "Cavia porcellus": 99,
+    "Leishmania amazonensis": 97,
+    "Leishmania infantum": 92,
+    "Trypanosoma brucei brucei": 76,
+    "Leishmania major": 61,
+    "Trypanosoma brucei": 51,
+    "Trypanosoma brucei rhodesiense": 50,
+    "Candida albicans": 47,
+    "Trypanosoma cruzi": 37,
+    "Mycolicibacterium smegmatis": 30
+  },
+  "per_compound": [
+    {
+      "chemical": "(1R, 2S, 5R) - (-) - Menthol",
+      "chembl_id": "CHEMBL256087",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 12,
+      "n_yeast_targets": 1,
+      "max_pactivity": 4.119999885559082,
+      "has_evidence": true
+    },
+    {
+      "chemical": "(S)-(+)-Camptothecin",
+      "chembl_id": "CHEMBL276820",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 687,
+      "n_yeast_targets": 19,
+      "max_pactivity": 8.680000305175781,
+      "has_evidence": true
+    },
+    {
+      "chemical": "1-10 Phenanthroline monohydrate",
+      "chembl_id": "CHEMBL415879",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 25,
+      "n_yeast_targets": 9,
+      "max_pactivity": 5.230000019073486,
+      "has_evidence": true
+    },
+    {
+      "chemical": "4-Hydroxytamoxifen",
+      "chembl_id": "CHEMBL2137046",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 29,
+      "n_yeast_targets": 5,
+      "max_pactivity": 10.399999618530273,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Abietic acid",
+      "chembl_id": "CHEMBL71893",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 6,
+      "n_yeast_targets": 1,
+      "max_pactivity": 5.829999923706055,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Amiodarone hydrochloride",
+      "chembl_id": "CHEMBL633",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 71,
+      "n_yeast_targets": 42,
+      "max_pactivity": 9.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Amphotericin B",
+      "chembl_id": "CHEMBL1700818",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 53,
+      "n_yeast_targets": 8,
+      "max_pactivity": 5.929999828338623,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Anisomycin",
+      "chembl_id": "CHEMBL598263",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 13,
+      "n_yeast_targets": 6,
+      "max_pactivity": 6.610000133514404,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Artemisinin",
+      "chembl_id": "CHEMBL345083",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 51,
+      "n_yeast_targets": 2,
+      "max_pactivity": 6.21999979019165,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Brefeldin A",
+      "chembl_id": "CHEMBL1502250",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 27,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "CHX",
+      "chembl_id": "CHEMBL225699",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 47,
+      "n_yeast_targets": 20,
+      "max_pactivity": 7.440000057220459,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Cisplatin",
+      "chembl_id": "CHEMBL11359",
+      "match_method": "pref_name",
+      "n_chembl_targets": 643,
+      "n_yeast_targets": 25,
+      "max_pactivity": 5.619999885559082,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Clomiphene citrate",
+      "chembl_id": "CHEMBL2355051",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 47,
+      "n_yeast_targets": 44,
+      "max_pactivity": 8.880000114440918,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Clotrimazole",
+      "chembl_id": "CHEMBL104",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 110,
+      "n_yeast_targets": 53,
+      "max_pactivity": 8.739999771118164,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Cyclopiazonic acid",
+      "chembl_id": "CHEMBL1325652",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 3,
+      "n_yeast_targets": 4,
+      "max_pactivity": 5.75,
+      "has_evidence": true
+    },
+    {
+      "chemical": "DMSO",
+      "chembl_id": "CHEMBL504",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 9,
+      "n_yeast_targets": 1,
+      "max_pactivity": 0.5528419613838196,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Desipramine hydrochloride",
+      "chembl_id": "CHEMBL72",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 37,
+      "n_yeast_targets": 30,
+      "max_pactivity": 9.3100004196167,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Doxycycline hyclate",
+      "chembl_id": "CHEMBL1433",
+      "match_method": "pref_name",
+      "n_chembl_targets": 19,
+      "n_yeast_targets": 1,
+      "max_pactivity": 4.579999923706055,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Dyclonine hydrochloride",
+      "chembl_id": "CHEMBL1201217",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 3,
+      "n_yeast_targets": 10,
+      "max_pactivity": 3.5600361824035645,
+      "has_evidence": true
+    },
+    {
+      "chemical": "EDTA",
+      "chembl_id": "CHEMBL858",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 12,
+      "n_yeast_targets": 1,
+      "max_pactivity": 4.849999904632568,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Emodin",
+      "chembl_id": "CHEMBL289277",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 56,
+      "n_yeast_targets": 25,
+      "max_pactivity": 6.619999885559082,
+      "has_evidence": true
+    },
+    {
+      "chemical": "FCCP",
+      "chembl_id": "CHEMBL457504",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 4,
+      "n_yeast_targets": 1,
+      "max_pactivity": 6.510000228881836,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Fluconazole",
+      "chembl_id": "CHEMBL106",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 33,
+      "n_yeast_targets": 3,
+      "max_pactivity": 7.349999904632568,
+      "has_evidence": true
+    },
+    {
+      "chemical": "G418",
+      "chembl_id": "CHEMBL2008763",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 6,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Geldanamycin",
+      "chembl_id": "CHEMBL278315",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 58,
+      "n_yeast_targets": 10,
+      "max_pactivity": 8.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "H2O2",
+      "chembl_id": "CHEMBL71595",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 2,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Haloperidol",
+      "chembl_id": "CHEMBL54",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 108,
+      "n_yeast_targets": 60,
+      "max_pactivity": 9.699999809265137,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Harmine hydrochloride",
+      "chembl_id": "CHEMBL269538",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 93,
+      "n_yeast_targets": 40,
+      "max_pactivity": 8.260000228881836,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Hoechst 33258",
+      "chembl_id": "CHEMBL301735",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 11,
+      "n_yeast_targets": 2,
+      "max_pactivity": 4.639999866485596,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Hydroxyurea",
+      "chembl_id": "CHEMBL467",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 19,
+      "n_yeast_targets": 4,
+      "max_pactivity": 3.8297383785247803,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Hygromycin B",
+      "chembl_id": "CHEMBL1276484",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 1,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "LY 294002 hydrochloride",
+      "chembl_id": "CHEMBL98350",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 58,
+      "n_yeast_targets": 21,
+      "max_pactivity": 6.699999809265137,
+      "has_evidence": true
+    },
+    {
+      "chemical": "MMS",
+      "chembl_id": "CHEMBL313493",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 1,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "NaCl",
+      "chembl_id": NaN,
+      "match_method": NaN,
+      "n_chembl_targets": 0,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": false
+    },
+    {
+      "chemical": "Neomycin B",
+      "chembl_id": "CHEMBL266347",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 17,
+      "n_yeast_targets": 2,
+      "max_pactivity": 4.809999942779541,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Nigericin",
+      "chembl_id": "CHEMBL2005417",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 7,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Nocodazole",
+      "chembl_id": "CHEMBL9514",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 66,
+      "n_yeast_targets": 4,
+      "max_pactivity": 6.119999885559082,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Nystatin dihydrate",
+      "chembl_id": "CHEMBL450895",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 0,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": false
+    },
+    {
+      "chemical": "Oligomycin",
+      "chembl_id": "CHEMBL1255855",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 9,
+      "n_yeast_targets": 1,
+      "max_pactivity": 6.599999904632568,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Parthenolide",
+      "chembl_id": "CHEMBL2142363",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 15,
+      "n_yeast_targets": 3,
+      "max_pactivity": 5.179999828338623,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Pentamidine isethionate",
+      "chembl_id": "CHEMBL55",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 83,
+      "n_yeast_targets": 28,
+      "max_pactivity": 6.539999961853027,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Plumbagin",
+      "chembl_id": "CHEMBL295316",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 54,
+      "n_yeast_targets": 11,
+      "max_pactivity": 7.21999979019165,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Quality Control",
+      "chembl_id": NaN,
+      "match_method": "excluded_non_moa",
+      "n_chembl_targets": 0,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": false
+    },
+    {
+      "chemical": "Raloxifene hydrochloride",
+      "chembl_id": "CHEMBL81",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 67,
+      "n_yeast_targets": 15,
+      "max_pactivity": 10.520000457763672,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Rapamycin",
+      "chembl_id": "CHEMBL3560003",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 406,
+      "n_yeast_targets": 29,
+      "max_pactivity": 10.300000190734863,
+      "has_evidence": true
+    },
+    {
+      "chemical": "SDS",
+      "chembl_id": "CHEMBL1204779",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 0,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": false
+    },
+    {
+      "chemical": "Sorbitol",
+      "chembl_id": "CHEMBL689",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 3,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Staurosporine",
+      "chembl_id": "CHEMBL1980995",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 555,
+      "n_yeast_targets": 208,
+      "max_pactivity": 10.699999809265137,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Sulfometuron methyl",
+      "chembl_id": "CHEMBL513261",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 2,
+      "n_yeast_targets": 1,
+      "max_pactivity": 7.289999961853027,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Tamoxifen",
+      "chembl_id": "CHEMBL2139100",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 112,
+      "n_yeast_targets": 50,
+      "max_pactivity": 9.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Trichostatin A",
+      "chembl_id": "CHEMBL99",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 93,
+      "n_yeast_targets": 15,
+      "max_pactivity": 12.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Trifluoperazine dihydrochloride",
+      "chembl_id": "CHEMBL422",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 46,
+      "n_yeast_targets": 40,
+      "max_pactivity": 8.979999542236328,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Tunicamycin",
+      "chembl_id": "CHEMBL4534172",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 2,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": true
+    },
+    {
+      "chemical": "U-73122",
+      "chembl_id": "CHEMBL2138492",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 2,
+      "n_yeast_targets": 3,
+      "max_pactivity": 6.699999809265137,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Valinomycin",
+      "chembl_id": "CHEMBL602575",
+      "match_method": "inchikey_exact",
+      "n_chembl_targets": 14,
+      "n_yeast_targets": 11,
+      "max_pactivity": 5.809999942779541,
+      "has_evidence": true
+    },
+    {
+      "chemical": "Water",
+      "chembl_id": NaN,
+      "match_method": "excluded_non_moa",
+      "n_chembl_targets": 0,
+      "n_yeast_targets": 0,
+      "max_pactivity": 0.0,
+      "has_evidence": false
+    },
+    {
+      "chemical": "Wortmannin",
+      "chembl_id": "CHEMBL428496",
+      "match_method": "inchikey_connectivity",
+      "n_chembl_targets": 25,
+      "n_yeast_targets": 26,
+      "max_pactivity": 9.0,
+      "has_evidence": true
+    }
+  ],
+  "runtime_seconds": 20.9
+}

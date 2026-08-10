@@ -1,0 +1,491 @@
+{
+  "step": "5_2_graph",
+  "seed": 42,
+  "species_taxid": 4932,
+  "required_score": 400,
+  "n_proteins": 5243,
+  "id_repairs": {
+    "1-Oct": "OCT1"
+  },
+  "string_version": "12.0\thttps://version-12-0.string-db.org",
+  "queries": [
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 400,
+      "status": 200
+    },
+    {
+      "url": "https://string-db.org/api/tsv/get_string_ids",
+      "n_identifiers": 43,
+      "status": 200
+    },
+    {
+      "url": "https://stringdb-downloads.org/download/protein.links.v12.0/4932.protein.links.v12.0.txt.gz",
+      "status": 200,
+      "n_bytes_gz": 15771211,
+      "n_edge_rows_in_file": 2824842,
+      "columns": [
+        "protein1",
+        "protein2",
+        "combined_score"
+      ]
+    }
+  ],
+  "n_mapped_to_string": 5185,
+  "n_unmapped": 58,
+  "unmapped_examples": [
+    "AAD6",
+    "ADE57",
+    "ATG44",
+    "ATG45",
+    "CPP1",
+    "CRS5",
+    "DFP3",
+    "FLO1",
+    "FLP1",
+    "HOB2",
+    "HSU1",
+    "IMP2",
+    "KTD1",
+    "LAA2",
+    "NGK1",
+    "RAF1",
+    "REP1",
+    "REP2",
+    "SDC25",
+    "SDL1",
+    "TY1A-BL",
+    "TY1A-DR2",
+    "TY1A-DR3",
+    "TY1A-H",
+    "TY1A-LR4",
+    "TY1A-MR1",
+    "TY1B-DR3",
+    "TY1B-H",
+    "TY1B-JR2",
+    "TY1B-LR3",
+    "TY1B-LR4",
+    "TY1B-NL1",
+    "TY1B-NL2",
+    "TY1B-OL",
+    "TY1B-PR3",
+    "TY2A-DR2",
+    "TY2A-DR3",
+    "TY2A-GR1",
+    "TY2A-LR1",
+    "TY2B-B"
+  ],
+  "n_edges_in_species_file": 2824842,
+  "n_edges_above_score_cutoff": 562356,
+  "n_edge_rows_downloaded": 562356,
+  "n_edge_rows_unresolved": 75766,
+  "n_edges_undirected": 243685,
+  "n_isolated_nodes": 72,
+  "mean_weighted_degree": 60697.18062178142,
+  "coresponse_graph": {
+    "k_neighbours": 20,
+    "n_edges_undirected": 95752,
+    "n_proteins_with_too_few_observations": 295,
+    "note": "Pearson correlation of train-row Delta, NaN treated as 0 after standardisation"
+  },
+  "string_vs_coresponse_shared_edges": 10641,
+  "string_vs_coresponse_jaccard": 0.0323635324030706,
+  "graph_source": "STRING_v12.0_PPI_bulk_links",
+  "spectral": {
+    "k_kept": 64,
+    "n_connected_components": 73,
+    "giant_component_size": 5171,
+    "component_sizes_top10": [
+      5171,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "trivial_eigenvalue_dropped": 0.9999999999999993,
+    "eigenvalues_top10_after_dropping_trivial": [
+      0.8578996452652128,
+      0.8113555882538024,
+      0.7884839998628278,
+      0.7675016482052425,
+      0.7031197749316548,
+      0.6995218861974069,
+      0.6888590546164285,
+      0.687378825653416,
+      0.6822759745634793,
+      0.6780773189899617
+    ],
+    "n_off_giant_zero_embedding": 72,
+    "n_isolated_nodes": 72,
+    "note": "one eigenvalue of the normalised adjacency equals 1 per connected component, so those eigenvectors are component indicators rather than community structure; the embedding is therefore restricted to the giant component and the trivial eigenvector is dropped"
+  },
+  "cluster_profiles": {
+    "k1": {
+      "n_clusters_requested": 1,
+      "n_clusters_realised": 1,
+      "n_merges": 0,
+      "merges": [],
+      "min_cluster_size_enforced": 81,
+      "sizes": [
+        5243
+      ],
+      "abundance_mean_by_cluster": [
+        20.63220977783203
+      ],
+      "delta_sd_by_cluster": [
+        0.4840869605541229
+      ],
+      "detect_rate_by_cluster": [
+        0.720847624661611
+      ],
+      "weighted_degree_by_cluster": [
+        60697.18062178142
+      ]
+    },
+    "k4": {
+      "n_clusters_requested": 4,
+      "n_clusters_realised": 4,
+      "n_merges": 0,
+      "merges": [],
+      "min_cluster_size_enforced": 81,
+      "sizes": [
+        2256,
+        191,
+        2532,
+        264
+      ],
+      "abundance_mean_by_cluster": [
+        18.732282638549805,
+        20.494672775268555,
+        21.69191551208496,
+        26.803918838500977
+      ],
+      "delta_sd_by_cluster": [
+        0.5670888423919678,
+        0.45280927419662476,
+        0.4236435294151306,
+        0.37713441252708435
+      ],
+      "detect_rate_by_cluster": [
+        0.49972224084424816,
+        0.0,
+        0.9431400950853883,
+        1.0
+      ],
+      "weighted_degree_by_cluster": [
+        36899.765957446805,
+        23288.25654450262,
+        74164.21366508689,
+        161960.60606060605
+      ]
+    },
+    "k8": {
+      "n_clusters_requested": 8,
+      "n_clusters_realised": 8,
+      "n_merges": 0,
+      "merges": [],
+      "min_cluster_size_enforced": 81,
+      "sizes": [
+        524,
+        958,
+        1100,
+        308,
+        191,
+        713,
+        1185,
+        264
+      ],
+      "abundance_mean_by_cluster": [
+        17.630077362060547,
+        18.1729679107666,
+        19.682584762573242,
+        20.343103408813477,
+        20.494672775268555,
+        22.137435913085938,
+        22.64606475830078,
+        26.803918838500977
+      ],
+      "delta_sd_by_cluster": [
+        0.49787256121635437,
+        0.6225619316101074,
+        0.4029214680194855,
+        0.43918997049331665,
+        0.45280927419662476,
+        0.5810990929603577,
+        0.4235531687736511,
+        0.37713441252708435
+      ],
+      "detect_rate_by_cluster": [
+        0.45814304483642954,
+        0.36745167865638423,
+        0.7990939525224677,
+        0.8235174140550273,
+        0.0,
+        0.8737053991394831,
+        0.9854175287456604,
+        1.0
+      ],
+      "weighted_degree_by_cluster": [
+        65931.65267175573,
+        16816.63987473904,
+        27452.62181818182,
+        40925.07467532468,
+        23288.25654450262,
+        87036.45021037868,
+        97477.9223628692,
+        161960.60606060605
+      ]
+    },
+    "k12": {
+      "n_clusters_requested": 12,
+      "n_clusters_realised": 12,
+      "n_merges": 0,
+      "merges": [],
+      "min_cluster_size_enforced": 81,
+      "sizes": [
+        486,
+        820,
+        819,
+        253,
+        321,
+        191,
+        212,
+        159,
+        308,
+        495,
+        915,
+        264
+      ],
+      "abundance_mean_by_cluster": [
+        17.96802520751953,
+        17.975605010986328,
+        19.361772537231445,
+        19.768238067626953,
+        20.35787582397461,
+        20.494672775268555,
+        20.831220626831055,
+        21.018938064575195,
+        21.90370750427246,
+        22.32982635498047,
+        22.688674926757812,
+        26.803918838500977
+      ],
+      "delta_sd_by_cluster": [
+        0.4866454303264618,
+        0.6479286551475525,
+        0.4117984473705292,
+        0.4218173325061798,
+        0.43533754348754883,
+        0.45280927419662476,
+        0.5018042325973511,
+        0.4301685690879822,
+        0.4588130712509155,
+        0.6083196997642517,
+        0.41887280344963074,
+        0.37713441252708435
+      ],
+      "detect_rate_by_cluster": [
+        0.5149762470886272,
+        0.3442838067608719,
+        0.7097556506772733,
+        0.8327186795087543,
+        0.8287776113194907,
+        0.0,
+        0.7503037520343027,
+        0.9064889608893713,
+        0.9520013759379652,
+        0.8681247289754577,
+        0.982156608276999,
+        1.0
+      ],
+      "weighted_degree_by_cluster": [
+        73968.97119341564,
+        19581.408536585364,
+        19130.175824175825,
+        58323.1581027668,
+        41638.68847352025,
+        23288.25654450262,
+        40404.00471698113,
+        45412.27672955975,
+        167272.87337662338,
+        70894.79191919192,
+        79601.55846994536,
+        161960.60606060605
+      ]
+    },
+    "k16": {
+      "n_clusters_requested": 16,
+      "n_clusters_realised": 15,
+      "n_merges": 1,
+      "merges": [
+        {
+          "merged_cluster_size": 65,
+          "into_cluster_of_size": 769
+        }
+      ],
+      "min_cluster_size_enforced": 81,
+      "sizes": [
+        135,
+        834,
+        177,
+        833,
+        251,
+        106,
+        313,
+        191,
+        210,
+        164,
+        285,
+        286,
+        429,
+        765,
+        264
+      ],
+      "abundance_mean_by_cluster": [
+        17.61224365234375,
+        18.020370483398438,
+        18.176483154296875,
+        19.08073616027832,
+        19.82267951965332,
+        20.20598030090332,
+        20.40382957458496,
+        20.494672775268555,
+        20.765583038330078,
+        20.986682891845703,
+        21.40261459350586,
+        21.731908798217773,
+        22.282026290893555,
+        22.856801986694336,
+        26.803918838500977
+      ],
+      "delta_sd_by_cluster": [
+        0.4772898256778717,
+        0.6451320648193359,
+        0.475058376789093,
+        0.41389355063438416,
+        0.42159438133239746,
+        0.45223119854927063,
+        0.43405881524086,
+        0.45280927419662476,
+        0.5052832961082458,
+        0.4302457571029663,
+        0.5871393084526062,
+        0.4544406831264496,
+        0.5599259734153748,
+        0.4142286777496338,
+        0.37713441252708435
+      ],
+      "detect_rate_by_cluster": [
+        0.4366767318716905,
+        0.3498249844393882,
+        0.5658473574942757,
+        0.6930425577083924,
+        0.8343200651509755,
+        0.7697726782940842,
+        0.8304614153392383,
+        0.0,
+        0.7396837900185674,
+        0.9068062613473713,
+        0.8149091713134747,
+        0.9482251698675487,
+        0.8741433176250033,
+        0.9853539682907428,
+        1.0
+      ],
+      "weighted_degree_by_cluster": [
+        50058.72592592592,
+        20389.23860911271,
+        72988.78531073446,
+        25254.661464585835,
+        59234.430278884465,
+        26713.594339622643,
+        41630.33865814697,
+        23288.25654450262,
+        40545.20476190476,
+        45101.51219512195,
+        159064.39298245613,
+        159469.56293706293,
+        42647.32167832168,
+        75075.41437908496,
+        161960.60606060605
+      ]
+    }
+  },
+  "cluster_feature_views": {
+    "abundance_statistics": [
+      "abundance_mean",
+      "abundance_sd",
+      "detect_rate",
+      "delta_sd",
+      "delta_abs_mean",
+      "weighted_degree"
+    ],
+    "spectral_dims_used": 16,
+    "scaling": "each view standardised then divided by sqrt(n_dims) for equal total variance"
+  }
+}

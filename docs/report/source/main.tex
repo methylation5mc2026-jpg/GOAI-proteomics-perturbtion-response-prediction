@@ -1,0 +1,28 @@
+% =============================================================================
+%  GOAI 世界人工智能开源大赛 · 赛道三 前沿探索 AI for Research
+%  算法赛题一「虚拟细胞」— 初赛方案说明文档
+%  2026-08-11《参赛规则细化说明》修订版
+%  编译：xelatex -> bibtex -> xelatex -> xelatex   （或 bash build.sh）
+% =============================================================================
+\input{preamble}
+
+\begin{document}
+
+\input{sec0_front}
+\input{sec1_problem}
+\input{sec2_env}
+\input{sec3_method}
+\input{sec4_signals}
+\input{sec5_repro}
+\input{sec6_oss}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{参考文献}
+\footnotesize
+\setlength{\columnsep}{16pt}
+\begin{multicols}{2}
+\bibliography{references}
+\end{multicols}
+
+\end{document}

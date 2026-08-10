@@ -1,0 +1,43 @@
+# Restricted or generated data
+/input/
+/data/
+/results/
+/logs/
+/models/
+**/models_step*/
+**/step*_cache/
+
+# Model and prediction artefacts
+*.pt
+*.pth
+*.ckpt
+*.parquet
+*_predictions.csv
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Notebook and editor state
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# OS and local secrets
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+
+# LaTeX build products (the sanitized report PDF is tracked one directory above)
+docs/report/source/main.aux
+docs/report/source/main.blg
+docs/report/source/main.log
+docs/report/source/main.out
+docs/report/source/main.pdf
+docs/report/source/main.toc

@@ -1,0 +1,184 @@
+{
+  "control_counts": {
+    "train_val": {
+      "controls": {
+        "Water": 486,
+        "DMSO": 470
+      },
+      "qc": {
+        "Quality Control": 118
+      },
+      "n_treatment": 7884,
+      "n_total": 8958
+    },
+    "test": {
+      "controls": {
+        "Water": 103,
+        "DMSO": 99
+      },
+      "qc": {
+        "Quality Control": 26
+      },
+      "n_treatment": 4226,
+      "n_total": 4454
+    }
+  },
+  "pert_id_is_unique_per_chem": false,
+  "chems_with_multiple_pert_ids": {
+    "1-10 Phenanthroline monohydrate": 2,
+    "Anisomycin": 2,
+    "Brefeldin A": 2,
+    "DMSO": 2,
+    "EDTA": 2,
+    "MMS": 2
+  },
+  "control_availability_by_level": {
+    "train_val": {
+      "L1_plate": {
+        "keys": [
+          "data_source",
+          "Yeast_cell_plate",
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_matched": 6264,
+        "pct_matched": 79.45,
+        "n_control_groups": 381
+      },
+      "L2_plate_notime": {
+        "keys": [
+          "data_source",
+          "Yeast_cell_plate",
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_matched": 6264,
+        "pct_matched": 79.45,
+        "n_control_groups": 381
+      },
+      "L3_batch_ctx": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_matched": 6264,
+        "pct_matched": 79.45,
+        "n_control_groups": 381
+      },
+      "L4_batch_ctx_notime": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_matched": 6282,
+        "pct_matched": 79.68,
+        "n_control_groups": 64
+      },
+      "L5_strain_ctx": {
+        "keys": [
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_matched": 6282,
+        "pct_matched": 79.68,
+        "n_control_groups": 16
+      },
+      "L6_strain": {
+        "keys": [
+          "Strains"
+        ],
+        "n_matched": 6282,
+        "pct_matched": 79.68,
+        "n_control_groups": 4
+      }
+    },
+    "test": {
+      "L1_plate": {
+        "keys": [
+          "data_source",
+          "Yeast_cell_plate",
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_matched": 1772,
+        "pct_matched": 41.93,
+        "n_control_groups": 381
+      },
+      "L2_plate_notime": {
+        "keys": [
+          "data_source",
+          "Yeast_cell_plate",
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_matched": 1772,
+        "pct_matched": 41.93,
+        "n_control_groups": 381
+      },
+      "L3_batch_ctx": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature",
+          "pert_time"
+        ],
+        "n_matched": 1772,
+        "pct_matched": 41.93,
+        "n_control_groups": 381
+      },
+      "L4_batch_ctx_notime": {
+        "keys": [
+          "data_source",
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_matched": 1775,
+        "pct_matched": 42.0,
+        "n_control_groups": 64
+      },
+      "L5_strain_ctx": {
+        "keys": [
+          "Strains",
+          "Medium",
+          "Temperature"
+        ],
+        "n_matched": 1775,
+        "pct_matched": 42.0,
+        "n_control_groups": 16
+      },
+      "L6_strain": {
+        "keys": [
+          "Strains"
+        ],
+        "n_matched": 1775,
+        "pct_matched": 42.0,
+        "n_control_groups": 4
+      }
+    }
+  },
+  "l3_vehicle_composition": {
+    "('DMSO', 'Water')": 324,
+    "('DMSO',)": 44,
+    "('Water',)": 13
+  },
+  "l3_control_replicates": {
+    "median": 2.0,
+    "min": 1,
+    "max": 3,
+    "n_groups": 381
+  }
+}

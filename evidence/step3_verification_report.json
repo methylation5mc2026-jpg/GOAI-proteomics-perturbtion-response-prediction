@@ -1,0 +1,183 @@
+{
+  "artefact_integrity": {
+    "n_checks": 28,
+    "n_passed": 28,
+    "all_passed": true,
+    "note": "a failure here is a defect and raises",
+    "checks": [
+      {
+        "name": "all declared outputs exist",
+        "passed": true,
+        "detail": "33 files"
+      },
+      {
+        "name": "no declared output is empty",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "leakage guard (blanked eval rows) recorded as passing",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "control anchor identical to Y - Delta where both defined",
+        "passed": true,
+        "detail": "max|dev| = 0.0"
+      },
+      {
+        "name": "anchor coverage improved over Y - Delta",
+        "passed": true,
+        "detail": "+6.42 pp"
+      },
+      {
+        "name": "out-of-fold encoding active for every Delta table",
+        "passed": true,
+        "detail": "12/12 tables"
+      },
+      {
+        "name": "novel chemicals/strains are out-of-vocabulary",
+        "passed": true,
+        "detail": "4 split x column combinations"
+      },
+      {
+        "name": "strain-keyed features are unavailable on novel-strain splits",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "chemical-keyed features are unavailable on novel-chemical splits",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "batch-keyed features remain available on every split",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "benchmark predictor reproduces its Step-2 total score",
+        "passed": true,
+        "detail": "0.445442994 vs 0.445442994"
+      },
+      {
+        "name": "weights in the scored spec still sum to 1",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "every module score is a finite value in [0, 1]",
+        "passed": true,
+        "detail": "13 predictors"
+      },
+      {
+        "name": "total score equals sum(weight * module score) for every predictor",
+        "passed": true,
+        "detail": "max deviation 5.55e-17"
+      },
+      {
+        "name": "bootstrap CIs bracket their point estimate",
+        "passed": true,
+        "detail": "256 intervals"
+      },
+      {
+        "name": "test predictions cover exactly the required sample_IDs, in order",
+        "passed": true,
+        "detail": "4226 samples"
+      },
+      {
+        "name": "test prediction matrix has the full protein width",
+        "passed": true,
+        "detail": "shape (4226, 5243)"
+      },
+      {
+        "name": "no missing value in the test predictions",
+        "passed": true,
+        "detail": "0 non-finite cells"
+      },
+      {
+        "name": "predicted abundances lie in a plausible log2 range",
+        "passed": true,
+        "detail": "[9.07, 32.75]"
+      },
+      {
+        "name": "test-prediction CSV parses with the expected header",
+        "passed": true,
+        "detail": "5244 columns"
+      },
+      {
+        "name": "test-prediction CSV agrees with the parquet mirror",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "feature importance sums to 1 per fitted booster",
+        "passed": true,
+        "detail": "24 boosters, max dev 1.78e-15"
+      },
+      {
+        "name": "importance covers the full declared feature set",
+        "passed": true,
+        "detail": "37 of 37 features"
+      },
+      {
+        "name": "results/gbdt_model_scores.json is strict RFC-8259 JSON",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "results/gbdt_feature_audit.json is strict RFC-8259 JSON",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "results/gbdt_training_report.json is strict RFC-8259 JSON",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "results/gbdt_round_sensitivity.json is strict RFC-8259 JSON",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "results/gbdt_feature_availability.json is strict RFC-8259 JSON",
+        "passed": true,
+        "detail": ""
+      }
+    ]
+  },
+  "success_criteria": {
+    "n_criteria": 5,
+    "n_met": 4,
+    "all_met": false,
+    "note": "a failure here is a scientific result, not a defect; it is reported rather than raised so it cannot be mistaken for a broken pipeline",
+    "criteria": [
+      {
+        "name": "SUCCESS CRITERION: best model total score > 0.4454",
+        "met": false,
+        "detail": "blend_ens_delta_benchmark_w0.5 = 0.436172 vs benchmark 0.445443 (-0.009271)"
+      },
+      {
+        "name": "best model significantly beats the benchmark on >=3 of 4 splits (paired bootstrap CI excludes 0)",
+        "met": true,
+        "detail": "3/4 splits: ['val_both', 'val_strain_only', 'val_time']"
+      },
+      {
+        "name": "regime routing improves the novel-strain (S2) module at matched capacity",
+        "met": true,
+        "detail": "routed 0.2827 vs full-only 0.2451 (+0.0376)"
+      },
+      {
+        "name": "benchmark's S1 residual score is essentially all batch, not chemistry",
+        "met": true,
+        "detail": "batch-blind 0.4528 -> batch-aware 0.0004"
+      },
+      {
+        "name": "a GBDT retains genuine non-batch signal on S1 where the benchmark has none",
+        "met": true,
+        "detail": "xgb_delta batch-aware residual PCC = 0.1716"
+      }
+    ]
+  }
+}

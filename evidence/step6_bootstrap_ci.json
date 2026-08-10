@@ -1,0 +1,48 @@
+{
+  "hier_cluster_vs_scalar": {
+    "n_boot": 1000,
+    "component_weight_of_total": 0.5875,
+    "point_a": 0.25529813673117874,
+    "point_b": 0.2481523818873669,
+    "point_diff": 0.00714575484381183,
+    "diff_mean": 0.007140270684226188,
+    "diff_sd": 0.00014493637311987676,
+    "diff_ci95": [
+      0.006847137649739794,
+      0.007435445799451953
+    ],
+    "frac_bootstrap_replicates_favouring_a": 1.0,
+    "a_ci95": [
+      0.2543829574938074,
+      0.25906250305083167
+    ],
+    "b_ci95": [
+      0.24716859002075295,
+      0.25206378625365855
+    ],
+    "scope_note": "the bootstrap covers only the submetrics that are literally means over samples (0.5875 of the 1.0 module weight). Pooled and per-protein-mean submetrics are not sample means, so resampling samples does not yield a valid bootstrap distribution for them and they are excluded rather than approximated. The CI is therefore a CI on that component of the margin, not on the full total."
+  },
+  "hier_cluster_vs_step5_frozen": {
+    "n_boot": 1000,
+    "component_weight_of_total": 0.5875,
+    "point_a": 0.25529813673117874,
+    "point_b": 0.2548688456366304,
+    "point_diff": 0.00042929109454831194,
+    "diff_mean": 0.0004296866595901472,
+    "diff_sd": 7.58508194823048e-05,
+    "diff_ci95": [
+      0.00028238541436598484,
+      0.0005863506328395343
+    ],
+    "frac_bootstrap_replicates_favouring_a": 1.0,
+    "a_ci95": [
+      0.2543829574938074,
+      0.25906250305083167
+    ],
+    "b_ci95": [
+      0.25394183428767053,
+      0.25864842348911576
+    ],
+    "scope_note": "the bootstrap covers only the submetrics that are literally means over samples (0.5875 of the 1.0 module weight). Pooled and per-protein-mean submetrics are not sample means, so resampling samples does not yield a valid bootstrap distribution for them and they are excluded rather than approximated. The CI is therefore a CI on that component of the margin, not on the full total."
+  }
+}

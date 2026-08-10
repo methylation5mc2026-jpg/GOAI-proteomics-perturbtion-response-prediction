@@ -1,0 +1,41 @@
+{
+  "step": "4d_inner_members",
+  "seed": 42,
+  "purpose": "out-of-fold member predictions on a cohort no member was fitted on, so stacking weights are not fitted on in-sample predictions",
+  "n_inner_fit_samples": 2378,
+  "n_inner_dev_samples": 2700,
+  "n_design_rows": 2700054,
+  "subsample_frac": 0.3,
+  "regime_routing_agreement": 1.0,
+  "members": [
+    "inner_lgb_delta",
+    "inner_lgb_rdkit_delta",
+    "inner_bench_delta"
+  ],
+  "inner_split_info": {
+    "held_out_chemicals": [
+      "4-Hydroxytamoxifen",
+      "Amiodarone hydrochloride",
+      "CHX",
+      "EDTA",
+      "LY 294002 hydrochloride",
+      "Nocodazole",
+      "Oligomycin",
+      "Sorbitol",
+      "Trifluoperazine dihydrochloride"
+    ],
+    "held_out_strain": "BAH",
+    "n_train_chemicals": 37,
+    "n_train_strains": 4,
+    "random_frac_for_full_regime": 0.08,
+    "n_inner_fit": 2378,
+    "dev_sizes": {
+      "chem_novel": 1227,
+      "strain_novel": 856,
+      "both_novel": 410,
+      "full": 207
+    },
+    "limitation": "train contains only 5 strains, so the novel-strain axis can be probed one strain at a time; the strain_novel dev set is a single-strain estimate and its selection signal is noisier than the chemical one"
+  },
+  "caveat": "inner_fit has ~2378 rows vs ~5078 for the full train split, so inner members are weaker than the final members; weights calibrated here are biased toward the analytic baseline, i.e. conservative rather than optimistic"
+}

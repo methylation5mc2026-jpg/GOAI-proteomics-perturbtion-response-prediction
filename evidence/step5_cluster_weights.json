@@ -1,0 +1,1082 @@
+{
+  "step": "5_4_cluster_stacking",
+  "seed": 42,
+  "benchmark_total": 0.445442994,
+  "step4_val_total": 0.477376776,
+  "roles": [
+    "gbdt_tab",
+    "gbdt_mol",
+    "gbdt_mol3d",
+    "bench",
+    "gnn",
+    "dl"
+  ],
+  "roles_dropped": [],
+  "role_sources": {
+    "gbdt_tab": {
+      "oof": "oof_lgb_tab",
+      "val": "val_lgb_tab",
+      "test": "test_lgb_tab"
+    },
+    "gbdt_mol": {
+      "oof": "oof_lgb_mol",
+      "val": "val_lgb_mol",
+      "test": "test_lgb_mol"
+    },
+    "gbdt_mol3d": {
+      "oof": "oof_lgb_mol3d",
+      "val": "val_lgb_mol3d",
+      "test": "test_lgb_mol3d"
+    },
+    "bench": {
+      "oof": "oof_bench",
+      "val": "val_bench",
+      "test": "test_bench"
+    },
+    "gnn": {
+      "oof": "oof_gnn",
+      "val": "val_gnn",
+      "test": "test_gnn"
+    },
+    "dl": {
+      "oof": "oof_dl",
+      "val": "val_dl",
+      "test": "test_dl"
+    }
+  },
+  "graph_source": "STRING_v12.0_PPI_bulk_links",
+  "selected": {
+    "cluster_column": "k16",
+    "n_clusters": 15,
+    "alpha": 0.0,
+    "selected_on": "the train-OOF cohort only; val was not consulted"
+  },
+  "protocol": {
+    "weight_space": "non-negative, per (availability regime x member role x protein cluster), NOT constrained to sum to one: the shortfall from one is a shrinkage toward the control anchor, which buys the scale-sensitive R^2 terms of Module 1 without costing the scale-invariant Pearson terms of Module 2. Making that shrinkage per-cluster is the point of Step 5, because R^2 is dominated by per-protein dynamic range",
+    "fitted_on": "the 5-fold LCGO out-of-fold cohort: all 5,078 train rows, every member prediction produced by a model that never saw the row, with encoders and both residual baselines refitted per fold",
+    "evaluated_on": "val_* once, with the OOF-fitted weights frozen",
+    "cluster_index": "K-means on STRING spectral coordinates plus train-only abundance and response statistics, rank-transformed; fitted on train rows only so the index transfers to the test set the same way the regime routing does",
+    "optimiser": "coordinate ascent on a coarse-to-fine grid, warm-started from the scalar optimum broadcast across clusters, non-negativity by construction",
+    "objective_implementation": "modules 1-3 (0.95 of the weight) are evaluated by the cluster co-moment factorisation in step5_clusterscore, algebraically identical to the harness; module 4 is not a polynomial in the weights so it is held constant during the search and every reported total comes from the real harness",
+    "fast_objective_validation_scalar": {
+      "max_abs_deviation": 2.575463620146934e-09,
+      "n_trials": 5,
+      "tol": 1e-06,
+      "trial_names": [
+        "all_zero",
+        "cluster_constant",
+        "one_cluster_zeroed",
+        "fully_random",
+        "alternating_0_and_1.2"
+      ]
+    }
+  },
+  "ablation_ladder": {
+    "rung0_step4_scalar_inner_cohort": 0.477376776,
+    "rung1_scalar_oof_cohort": 0.4999019749309705,
+    "rung2_cluster_oof_cohort": 0.5085515642054328,
+    "gain_from_cross_fitting_alone": 0.02252519893097049,
+    "gain_from_the_cluster_extension": 0.0086495892744623,
+    "note": "rung 0 is the published Step-4 number, which used a different (weaker) member set as well as a smaller calibration cohort, so the first gain is not purely attributable to cross-fitting; rung 1 -> rung 2 is a clean A/B, since only the weight space changes"
+  },
+  "cluster_ladder": {
+    "k4": {
+      "n_clusters": 4,
+      "cluster_sizes": [
+        2256,
+        191,
+        2532,
+        264
+      ],
+      "fast_validation": {
+        "max_abs_deviation": 2.575463620146934e-09,
+        "n_trials": 5,
+        "tol": 1e-06,
+        "trial_names": [
+          "all_zero",
+          "cluster_constant",
+          "one_cluster_zeroed",
+          "fully_random",
+          "alternating_0_and_1.2"
+        ]
+      },
+      "by_alpha": {
+        "0.0": {
+          "oof_total_exact": 0.456481342238583,
+          "fast_objective_at_optimum": 0.45580434813620796,
+          "optimiser": {
+            "n_evaluations": 15481,
+            "seconds": 55.1,
+            "truncated": false,
+            "alpha": 0.0
+          },
+          "weight_spread_across_clusters": 0.02557703860000711
+        },
+        "0.02": {
+          "oof_total_exact": 0.4564715265676363,
+          "fast_objective_at_optimum": 0.4556564515828841,
+          "optimiser": {
+            "n_evaluations": 13277,
+            "seconds": 46.7,
+            "truncated": false,
+            "alpha": 0.02
+          },
+          "weight_spread_across_clusters": 0.010154401110841864
+        }
+      }
+    },
+    "k8": {
+      "n_clusters": 8,
+      "cluster_sizes": [
+        524,
+        958,
+        1100,
+        308,
+        191,
+        713,
+        1185,
+        264
+      ],
+      "fast_validation": {
+        "max_abs_deviation": 2.575463620146934e-09,
+        "n_trials": 5,
+        "tol": 1e-06,
+        "trial_names": [
+          "all_zero",
+          "cluster_constant",
+          "one_cluster_zeroed",
+          "fully_random",
+          "alternating_0_and_1.2"
+        ]
+      },
+      "by_alpha": {
+        "0.0": {
+          "oof_total_exact": 0.4608176144808679,
+          "fast_objective_at_optimum": 0.45995802503226874,
+          "optimiser": {
+            "n_evaluations": 37705,
+            "seconds": 127.3,
+            "truncated": false,
+            "alpha": 0.0
+          },
+          "weight_spread_across_clusters": 0.03398403639486681
+        },
+        "0.02": {
+          "oof_total_exact": 0.46077524031091954,
+          "fast_objective_at_optimum": 0.4595718261144337,
+          "optimiser": {
+            "n_evaluations": 37185,
+            "seconds": 122.5,
+            "truncated": false,
+            "alpha": 0.02
+          },
+          "weight_spread_across_clusters": 0.018201603538172583
+        }
+      }
+    },
+    "k12": {
+      "n_clusters": 12,
+      "cluster_sizes": [
+        486,
+        820,
+        819,
+        253,
+        321,
+        191,
+        212,
+        159,
+        308,
+        495,
+        915,
+        264
+      ],
+      "fast_validation": {
+        "max_abs_deviation": 2.575463620146934e-09,
+        "n_trials": 5,
+        "tol": 1e-06,
+        "trial_names": [
+          "all_zero",
+          "cluster_constant",
+          "one_cluster_zeroed",
+          "fully_random",
+          "alternating_0_and_1.2"
+        ]
+      },
+      "by_alpha": {
+        "0.0": {
+          "oof_total_exact": 0.46225251339661383,
+          "fast_objective_at_optimum": 0.46113457130388774,
+          "optimiser": {
+            "n_evaluations": 54844,
+            "seconds": 181.2,
+            "truncated": false,
+            "alpha": 0.0
+          },
+          "weight_spread_across_clusters": 0.03278683211454982
+        },
+        "0.02": {
+          "oof_total_exact": 0.4622306257726478,
+          "fast_objective_at_optimum": 0.46077537313070444,
+          "optimiser": {
+            "n_evaluations": 50118,
+            "seconds": 169.8,
+            "truncated": false,
+            "alpha": 0.02
+          },
+          "weight_spread_across_clusters": 0.017965169833756178
+        }
+      }
+    },
+    "k16": {
+      "n_clusters": 15,
+      "cluster_sizes": [
+        135,
+        834,
+        177,
+        833,
+        251,
+        106,
+        313,
+        191,
+        210,
+        164,
+        285,
+        286,
+        429,
+        765,
+        264
+      ],
+      "fast_validation": {
+        "max_abs_deviation": 2.575463620146934e-09,
+        "n_trials": 5,
+        "tol": 1e-06,
+        "trial_names": [
+          "all_zero",
+          "cluster_constant",
+          "one_cluster_zeroed",
+          "fully_random",
+          "alternating_0_and_1.2"
+        ]
+      },
+      "by_alpha": {
+        "0.0": {
+          "oof_total_exact": 0.4630666558361347,
+          "fast_objective_at_optimum": 0.462107682464647,
+          "optimiser": {
+            "n_evaluations": 78444,
+            "seconds": 253.7,
+            "truncated": false,
+            "alpha": 0.0
+          },
+          "weight_spread_across_clusters": 0.03326474420939477
+        },
+        "0.02": {
+          "oof_total_exact": 0.4630350609886251,
+          "fast_objective_at_optimum": 0.46172225598911243,
+          "optimiser": {
+            "n_evaluations": 74009,
+            "seconds": 243.4,
+            "truncated": false,
+            "alpha": 0.02
+          },
+          "weight_spread_across_clusters": 0.018322447487202072
+        }
+      }
+    }
+  },
+  "frozen_weights": {
+    "full": {
+      "gbdt_tab": [
+        0.4047,
+        0.3207,
+        0.4087,
+        0.4067,
+        0.3727,
+        0.3927,
+        0.3927,
+        0.3407,
+        0.3307,
+        0.3747,
+        0.2967,
+        0.2727,
+        0.2587,
+        0.3127,
+        0.2627
+      ],
+      "gbdt_mol": [
+        0.0407,
+        0.0827,
+        0.0567,
+        0.0507,
+        0.0567,
+        0.0807,
+        0.0607,
+        0.0787,
+        0.0807,
+        0.0987,
+        0.0787,
+        0.0807,
+        0.0587,
+        0.1027,
+        0.0427
+      ],
+      "gbdt_mol3d": [
+        0.0167,
+        0.0507,
+        0.018,
+        0.012,
+        0.0347,
+        0.0,
+        0.0047,
+        0.0127,
+        0.0,
+        0.0,
+        0.0,
+        0.014,
+        0.014,
+        0.0,
+        0.0
+      ],
+      "bench": [
+        0.2607,
+        0.1367,
+        0.2107,
+        0.2047,
+        0.1727,
+        0.1787,
+        0.1587,
+        0.1407,
+        0.1707,
+        0.1687,
+        0.1707,
+        0.1107,
+        0.0787,
+        0.1127,
+        0.1007
+      ],
+      "gnn": [
+        0.1167,
+        0.1147,
+        0.1107,
+        0.1367,
+        0.1467,
+        0.1167,
+        0.1447,
+        0.1287,
+        0.1317,
+        0.1147,
+        0.1257,
+        0.1547,
+        0.1347,
+        0.1167,
+        0.1327
+      ],
+      "dl": [
+        0.2367,
+        0.3307,
+        0.2447,
+        0.2567,
+        0.2707,
+        0.2727,
+        0.2887,
+        0.3347,
+        0.3167,
+        0.2887,
+        0.3407,
+        0.3867,
+        0.4647,
+        0.3827,
+        0.4767
+      ]
+    },
+    "chem_novel": {
+      "gbdt_tab": [
+        0.2127,
+        0.2047,
+        0.2387,
+        0.2327,
+        0.2707,
+        0.2587,
+        0.2807,
+        0.2727,
+        0.2147,
+        0.2807,
+        0.2367,
+        0.1967,
+        0.2567,
+        0.2727,
+        0.1887
+      ],
+      "gbdt_mol": [
+        0.076,
+        0.024,
+        0.0,
+        0.012,
+        0.0,
+        0.014,
+        0.0,
+        0.0,
+        0.01,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gbdt_mol3d": [
+        0.0,
+        0.028,
+        0.016,
+        0.0,
+        0.0,
+        0.006,
+        0.004,
+        0.0,
+        0.006,
+        0.008,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1
+      ],
+      "bench": [
+        0.4997,
+        0.5157,
+        0.5117,
+        0.5317,
+        0.4777,
+        0.4497,
+        0.4377,
+        0.4557,
+        0.4917,
+        0.4437,
+        0.4837,
+        0.4237,
+        0.4577,
+        0.3717,
+        0.3667
+      ],
+      "gnn": [
+        0.03,
+        0.004,
+        0.03,
+        0.022,
+        0.02,
+        0.0,
+        0.006,
+        0.0,
+        0.018,
+        0.012,
+        0.006,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dl": [
+        0.1027,
+        0.1147,
+        0.1207,
+        0.1167,
+        0.1407,
+        0.1467,
+        0.1627,
+        0.1467,
+        0.1547,
+        0.1587,
+        0.1607,
+        0.1947,
+        0.1147,
+        0.1927,
+        0.1427
+      ]
+    },
+    "strain_novel": {
+      "gbdt_tab": [
+        0.012,
+        0.104,
+        0.006,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.01,
+        0.0,
+        0.002,
+        0.0,
+        0.004
+      ],
+      "gbdt_mol": [
+        0.1447,
+        0.1187,
+        0.1377,
+        0.2107,
+        0.1687,
+        0.1827,
+        0.1987,
+        0.2087,
+        0.1907,
+        0.1807,
+        0.1507,
+        0.2187,
+        0.2327,
+        0.1467,
+        0.1247
+      ],
+      "gbdt_mol3d": [
+        0.0607,
+        0.0687,
+        0.0407,
+        0.0087,
+        0.0187,
+        0.0267,
+        0.0,
+        0.0447,
+        0.056,
+        0.0,
+        0.0547,
+        0.0,
+        0.0,
+        0.0327,
+        0.1067
+      ],
+      "bench": [
+        0.3287,
+        0.1707,
+        0.2847,
+        0.1787,
+        0.2607,
+        0.1867,
+        0.1707,
+        0.1247,
+        0.1527,
+        0.2207,
+        0.1767,
+        0.1427,
+        0.0387,
+        0.1127,
+        0.0627
+      ],
+      "gnn": [
+        0.1807,
+        0.2367,
+        0.2507,
+        0.2267,
+        0.2267,
+        0.2367,
+        0.2587,
+        0.2547,
+        0.2487,
+        0.2427,
+        0.2607,
+        0.2987,
+        0.2907,
+        0.2647,
+        0.2687
+      ],
+      "dl": [
+        0.0507,
+        0.0787,
+        0.0767,
+        0.0787,
+        0.0967,
+        0.0967,
+        0.1107,
+        0.1027,
+        0.0747,
+        0.1087,
+        0.0947,
+        0.1367,
+        0.1507,
+        0.1587,
+        0.1547
+      ]
+    },
+    "both_novel": {
+      "gbdt_tab": [
+        0.0,
+        0.0,
+        0.0,
+        0.024,
+        0.024,
+        0.044,
+        0.042,
+        0.0,
+        0.01,
+        0.038,
+        0.004,
+        0.0,
+        0.014,
+        0.012,
+        0.066
+      ],
+      "gbdt_mol": [
+        0.118,
+        0.036,
+        0.124,
+        0.11,
+        0.076,
+        0.06,
+        0.086,
+        0.106,
+        0.122,
+        0.08,
+        0.114,
+        0.0,
+        0.1,
+        0.086,
+        0.054
+      ],
+      "gbdt_mol3d": [
+        0.0,
+        0.1227,
+        0.0,
+        0.0,
+        0.0,
+        0.0127,
+        0.0,
+        0.0627,
+        0.0,
+        0.0,
+        0.0,
+        0.0887,
+        0.07,
+        0.0227,
+        0.026
+      ],
+      "bench": [
+        0.3307,
+        0.1827,
+        0.2867,
+        0.1787,
+        0.2627,
+        0.1867,
+        0.1707,
+        0.1267,
+        0.1627,
+        0.2327,
+        0.1887,
+        0.1627,
+        0.0487,
+        0.1167,
+        0.0487
+      ],
+      "gnn": [
+        0.0767,
+        0.0647,
+        0.0827,
+        0.0967,
+        0.0787,
+        0.0807,
+        0.0787,
+        0.0827,
+        0.0927,
+        0.0887,
+        0.0947,
+        0.0687,
+        0.0647,
+        0.0767,
+        0.0807
+      ],
+      "dl": [
+        0.0,
+        0.01,
+        0.02,
+        0.02,
+        0.024,
+        0.022,
+        0.0407,
+        0.0227,
+        0.0247,
+        0.026,
+        0.0307,
+        0.0927,
+        0.0227,
+        0.0527,
+        0.0
+      ]
+    }
+  },
+  "frozen_weights_scalar_rung": {
+    "full": {
+      "gbdt_tab": [
+        0.3407
+      ],
+      "gbdt_mol": [
+        0.0787
+      ],
+      "gbdt_mol3d": [
+        0.0127
+      ],
+      "bench": [
+        0.1407
+      ],
+      "gnn": [
+        0.1287
+      ],
+      "dl": [
+        0.3347
+      ]
+    },
+    "chem_novel": {
+      "gbdt_tab": [
+        0.2727
+      ],
+      "gbdt_mol": [
+        0.0
+      ],
+      "gbdt_mol3d": [
+        0.0
+      ],
+      "bench": [
+        0.4557
+      ],
+      "gnn": [
+        0.0
+      ],
+      "dl": [
+        0.1467
+      ]
+    },
+    "strain_novel": {
+      "gbdt_tab": [
+        0.0
+      ],
+      "gbdt_mol": [
+        0.2087
+      ],
+      "gbdt_mol3d": [
+        0.0447
+      ],
+      "bench": [
+        0.1247
+      ],
+      "gnn": [
+        0.2547
+      ],
+      "dl": [
+        0.1027
+      ]
+    },
+    "both_novel": {
+      "gbdt_tab": [
+        0.0
+      ],
+      "gbdt_mol": [
+        0.106
+      ],
+      "gbdt_mol3d": [
+        0.0627
+      ],
+      "bench": [
+        0.1267
+      ],
+      "gnn": [
+        0.0827
+      ],
+      "dl": [
+        0.0227
+      ]
+    }
+  },
+  "oof_total_at_frozen_weights": 0.4630666558361347,
+  "val_total_at_frozen_weights": 0.5085515642054328,
+  "val_total_val_tuned_OPTIMISTIC": 0.5192289586135587,
+  "generalisation_gap_oof_to_val": 0.04548490836929808,
+  "beats_benchmark": true,
+  "margin_vs_benchmark": 0.06310857020543281,
+  "beats_step4": true,
+  "margin_vs_step4": 0.03117478820543279,
+  "target_0_4850_met": true,
+  "bootstrap": {
+    "cluster_vs_scalar": {
+      "n_boot": 1000,
+      "component_weight_of_total": 0.5875,
+      "point_a": 0.2548688456366304,
+      "point_b": 0.24811364840352595,
+      "point_diff": 0.006755197233104471,
+      "diff_mean": 0.006757346805520914,
+      "diff_sd": 0.00012245985058975138,
+      "diff_ci95": [
+        0.006511875506397388,
+        0.007006228202808905
+      ],
+      "frac_bootstrap_replicates_favouring_a": 1.0,
+      "a_ci95": [
+        0.25394183428767053,
+        0.25864842348911576
+      ],
+      "b_ci95": [
+        0.2470746363311504,
+        0.25198706095455
+      ],
+      "scope_note": "the bootstrap covers only the submetrics that are literally means over samples (0.5875 of the 1.0 module weight). Pooled and per-protein-mean submetrics are not sample means, so resampling samples does not yield a valid bootstrap distribution for them and they are excluded rather than approximated. The CI is therefore a CI on that component of the margin, not on the full total."
+    },
+    "cluster_vs_benchmark_member": {
+      "n_boot": 1000,
+      "component_weight_of_total": 0.5875,
+      "point_a": 0.2548688456366304,
+      "point_b": 0.2150099546684238,
+      "point_diff": 0.039858890968206634,
+      "diff_mean": 0.0397786730687529,
+      "diff_sd": 0.0010170193169128565,
+      "diff_ci95": [
+        0.037840448997544004,
+        0.041796201105578336
+      ],
+      "frac_bootstrap_replicates_favouring_a": 1.0,
+      "a_ci95": [
+        0.25394183428767053,
+        0.25864842348911576
+      ],
+      "b_ci95": [
+        0.21414750451930145,
+        0.2189301832459204
+      ],
+      "scope_note": "the bootstrap covers only the submetrics that are literally means over samples (0.5875 of the 1.0 module weight). Pooled and per-protein-mean submetrics are not sample means, so resampling samples does not yield a valid bootstrap distribution for them and they are excluded rather than approximated. The CI is therefore a CI on that component of the margin, not on the full total."
+    }
+  },
+  "chemical_support_stratification_FD1": {
+    "metric": "per-sample context-residual PCC on val_chem_only, the Module-3 S1 submetric",
+    "bins": [
+      {
+        "max_tanimoto_to_train_bin": "0.0-0.2",
+        "n_val_chem_only_samples": 568,
+        "n_compounds": 2,
+        "mean_residual_ctx_pcc_per_sample": 0.5330198915804242
+      },
+      {
+        "max_tanimoto_to_train_bin": "0.2-0.3",
+        "n_val_chem_only_samples": 191,
+        "n_compounds": 2,
+        "mean_residual_ctx_pcc_per_sample": 0.35002182657203584
+      },
+      {
+        "max_tanimoto_to_train_bin": "0.3-0.5",
+        "n_val_chem_only_samples": 24,
+        "n_compounds": 1,
+        "mean_residual_ctx_pcc_per_sample": 0.2785769004949407
+      },
+      {
+        "max_tanimoto_to_train_bin": "0.5-1.0",
+        "n_val_chem_only_samples": 282,
+        "n_compounds": 1,
+        "mean_residual_ctx_pcc_per_sample": 0.4765723500274762
+      }
+    ],
+    "threshold_basis": "the ~0.3 ECFP4 Tanimoto mark separating 'structurally dissimilar' is a virtual-screening convention, not a published threshold for this task"
+  },
+  "module_scores": {
+    "oof:gbdt_tab": {
+      "m1_abundance": 0.770358288057466,
+      "m2_fold_change": 0.3342937404837184,
+      "m3_s1_chem": 0.3307284724426361,
+      "m3_s2_strain": 0.23079294886249946,
+      "m3_s3_both": 0.17392423803267687,
+      "m3_time": 0.5383613027449489,
+      "m4_dep": 0.26602433429426137
+    },
+    "oof:gbdt_mol": {
+      "m1_abundance": 0.7755022681883218,
+      "m2_fold_change": 0.33690457973812005,
+      "m3_s1_chem": 0.31656124616148107,
+      "m3_s2_strain": 0.2377538667445548,
+      "m3_s3_both": 0.17561327127443035,
+      "m3_time": 0.5355405473893967,
+      "m4_dep": 0.25915565351551983
+    },
+    "oof:gbdt_mol3d": {
+      "m1_abundance": 0.7769191846705725,
+      "m2_fold_change": 0.338287336369322,
+      "m3_s1_chem": 0.3227991450693669,
+      "m3_s2_strain": 0.23472678255576102,
+      "m3_s3_both": 0.17836875240279215,
+      "m3_time": 0.5339000440014339,
+      "m4_dep": 0.26048757044298876
+    },
+    "oof:bench": {
+      "m1_abundance": 0.7082776327677158,
+      "m2_fold_change": 0.31315922857635636,
+      "m3_s1_chem": 0.33665169729547084,
+      "m3_s2_strain": 0.2350847207390911,
+      "m3_s3_both": 0.21624059271657936,
+      "m3_time": 0.4352560566101719,
+      "m4_dep": 0.2176551567951665
+    },
+    "oof:gnn": {
+      "m1_abundance": 0.7592000837554191,
+      "m2_fold_change": 0.22813328820786205,
+      "m3_s1_chem": 0.15704844278714547,
+      "m3_s2_strain": 0.1933961204345112,
+      "m3_s3_both": 0.11502916633033303,
+      "m3_time": 0.37877165473166297,
+      "m4_dep": 0.19945610056663152
+    },
+    "oof:dl": {
+      "m1_abundance": 0.7444839054845463,
+      "m2_fold_change": 0.2929951188256365,
+      "m3_s1_chem": 0.2772936459175344,
+      "m3_s2_strain": 0.16377833141617096,
+      "m3_s3_both": 0.08116252428076375,
+      "m3_time": 0.5335369849090879,
+      "m4_dep": 0.2395738866079562
+    },
+    "oof:control_anchor": {
+      "m1_abundance": 0.7666089941064768,
+      "m2_fold_change": 0.0,
+      "m3_s1_chem": 0.10386557157619905,
+      "m3_s2_strain": 0.1592193690855806,
+      "m3_s3_both": 0.12767263528132297,
+      "m3_time": 0.07390182614967464,
+      "m4_dep": 0.030397668332087707
+    },
+    "val:gbdt_tab": {
+      "m1_abundance": 0.7473600179333237,
+      "m2_fold_change": 0.31829711430343843,
+      "m3_s1_chem": 0.33921604820065565,
+      "m3_s2_strain": 0.28269674633387193,
+      "m3_s3_both": 0.18701054893406419,
+      "m3_time": 0.5422478389378944,
+      "m4_dep": 0.2595676619639761
+    },
+    "val:gbdt_mol": {
+      "m1_abundance": 0.8108677347553945,
+      "m2_fold_change": 0.3474634222009062,
+      "m3_s1_chem": 0.4011467884023675,
+      "m3_s2_strain": 0.2842096963618102,
+      "m3_s3_both": 0.18411077320961997,
+      "m3_time": 0.5403334952394411,
+      "m4_dep": 0.26592177087453983
+    },
+    "val:gbdt_mol3d": {
+      "m1_abundance": 0.8085056759204707,
+      "m2_fold_change": 0.34340808936236894,
+      "m3_s1_chem": 0.3982310784592757,
+      "m3_s2_strain": 0.2837870629016821,
+      "m3_s3_both": 0.1834733619328039,
+      "m3_time": 0.5380114003912071,
+      "m4_dep": 0.26512781915849215
+    },
+    "val:bench": {
+      "m1_abundance": 0.788994687067148,
+      "m2_fold_change": 0.3463629587498308,
+      "m3_s1_chem": 0.4518275129973695,
+      "m3_s2_strain": 0.3108386594062728,
+      "m3_s3_both": 0.2645250075455387,
+      "m3_time": 0.4135949457074307,
+      "m4_dep": 0.2079245888880343
+    },
+    "val:gnn": {
+      "m1_abundance": 0.8120787976317868,
+      "m2_fold_change": 0.2545625591902555,
+      "m3_s1_chem": 0.27084108357904446,
+      "m3_s2_strain": 0.24107617008552873,
+      "m3_s3_both": 0.1619597867879956,
+      "m3_time": 0.3985325748745179,
+      "m4_dep": 0.21906066395441237
+    },
+    "val:dl": {
+      "m1_abundance": 0.764366367524343,
+      "m2_fold_change": 0.278592672963716,
+      "m3_s1_chem": 0.3247566358638337,
+      "m3_s2_strain": 0.14310884711586205,
+      "m3_s3_both": 0.1174692752308816,
+      "m3_time": 0.5192575102109231,
+      "m4_dep": 0.2187539610220278
+    },
+    "val:control_anchor": {
+      "m1_abundance": 0.8172335138043081,
+      "m2_fold_change": 0.0,
+      "m3_s1_chem": 0.23525408228522657,
+      "m3_s2_strain": 0.15878520086322284,
+      "m3_s3_both": 0.11141437478951802,
+      "m3_time": 0.05708716230226249,
+      "m4_dep": 0.015575645821045524
+    },
+    "oof:scalar_frozen": {
+      "m1_abundance": 0.7962297817511396,
+      "m2_fold_change": 0.3951052249294527,
+      "m3_s1_chem": 0.3743438686353223,
+      "m3_s2_strain": 0.33059800284259333,
+      "m3_s3_both": 0.2712305803934388,
+      "m3_time": 0.5752691031518757,
+      "m4_dep": 0.2844706742772294
+    },
+    "val:scalar_oof_frozen": {
+      "m1_abundance": 0.8362310865370477,
+      "m2_fold_change": 0.42495316416467754,
+      "m3_s1_chem": 0.45993096464248184,
+      "m3_s2_strain": 0.37303335753617023,
+      "m3_s3_both": 0.308807370607153,
+      "m3_time": 0.5762979455354253,
+      "m4_dep": 0.31138672679064483
+    },
+    "val:cluster_oof_frozen": {
+      "m1_abundance": 0.8381425852853837,
+      "m2_fold_change": 0.4366457359339204,
+      "m3_s1_chem": 0.46455792533373835,
+      "m3_s2_strain": 0.3909460108090756,
+      "m3_s3_both": 0.33063784235324895,
+      "m3_time": 0.5772168485349003,
+      "m4_dep": 0.3053618278381134
+    },
+    "oof:cluster_frozen": {
+      "m1_abundance": 0.7970299953066892,
+      "m2_fold_change": 0.4054914717009446,
+      "m3_s1_chem": 0.37625972171037,
+      "m3_s2_strain": 0.34665789272757896,
+      "m3_s3_both": 0.29199708943560443,
+      "m3_time": 0.576884424975911,
+      "m4_dep": 0.2852038048279032
+    },
+    "val:cluster_val_tuned_OPTIMISTIC": {
+      "m1_abundance": 0.8432901185959711,
+      "m2_fold_change": 0.44841213543830283,
+      "m3_s1_chem": 0.4879034076549576,
+      "m3_s2_strain": 0.40408070184250733,
+      "m3_s3_both": 0.34502067545059184,
+      "m3_time": 0.5779367884626436,
+      "m4_dep": 0.2784641187926784
+    }
+  },
+  "module_weights": {
+    "m1_abundance": 0.2,
+    "m2_fold_change": 0.25,
+    "m3_s1_chem": 0.2,
+    "m3_s2_strain": 0.2,
+    "m3_s3_both": 0.05,
+    "m3_time": 0.05,
+    "m4_dep": 0.05
+  },
+  "totals": {
+    "oof:gbdt_tab": 0.3988648707470443,
+    "oof:gbdt_mol": 0.39870509476236893,
+    "oof:gbdt_mol3d": 0.40009867489383133,
+    "oof:bench": 0.3777502076106405,
+    "oof:gnn": 0.31362509752881207,
+    "oof:dl": 0.35307362605994985,
+    "oof:control_anchor": 0.2175373934418056,
+    "val:gbdt_tab": 0.4028701435612267,
+    "val:gbdt_mol": 0.43562900142032107,
+    "val:gbdt_mol3d": 0.4332874148710032,
+    "val:bench": 0.441225138688666,
+    "val:gnn": 0.3674175013376822,
+    "val:dl": 0.35886857566492836,
+    "val:control_anchor": 0.25145841853619283,
+    "oof:scalar_frozen": 0.4555591547693014,
+    "val:scalar_oof_frozen": 0.4999019749309705,
+    "val:cluster_oof_frozen": 0.5085515642054328,
+    "oof:cluster_frozen": 0.4630666558361347,
+    "val:cluster_val_tuned_OPTIMISTIC": 0.5192289586135587
+  },
+  "caveats": [
+    "the LCGO fit sets hold ~3,000 rows against 5,078 for the members the frozen weights are applied to, so a member-strength mismatch remains; it is roughly half the Step-4 gap but it is not zero",
+    "the val-tuned total quantifies headroom in the weight space and must not be read as an achieved score",
+    "the bootstrap CI covers the per-sample-mean submetrics only; its scope is stated on the interval itself"
+  ]
+}

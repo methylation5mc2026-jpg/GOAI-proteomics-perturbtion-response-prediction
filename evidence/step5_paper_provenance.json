@@ -1,0 +1,356 @@
+{
+  "source": "converted/proteintalksv1_full_pdf/ProteinTalksv1.full.pdf.md",
+  "n_lines": 1834,
+  "bibliographic_anchors": {
+    "title": {
+      "found": true,
+      "pattern": "virtual cell construction",
+      "n_hits": 1,
+      "lines": [
+        3
+      ],
+      "quotes": [
+        "# 1 **A perturbation proteomics-based foundation** 2 **model for virtual cell construction**"
+      ]
+    },
+    "doi": {
+      "found": true,
+      "pattern": "10\\.1101/2025\\.02\\.07\\.637070",
+      "n_hits": 45,
+      "lines": [
+        1,
+        73,
+        157,
+        233,
+        317,
+        387
+      ],
+      "quotes": [
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission."
+      ]
+    },
+    "peer_review_status": {
+      "found": true,
+      "pattern": "not certified by peer review",
+      "n_hits": 45,
+      "lines": [
+        1,
+        73,
+        157,
+        233,
+        317,
+        387
+      ],
+      "quotes": [
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+        "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission."
+      ]
+    },
+    "senior_authors": {
+      "found": true,
+      "pattern": "Tiannan Guo",
+      "n_hits": 1,
+      "lines": [
+        33
+      ],
+      "quotes": [
+        "- 21 *Corresponding authors: Tiannan Guo (guotiannan@westlake.edu.cn), Yi Zhu"
+      ]
+    },
+    "n_protein_measurements": {
+      "found": true,
+      "pattern": "38 million",
+      "n_hits": 5,
+      "lines": [
+        47,
+        119,
+        183,
+        345,
+        569
+      ],
+      "quotes": [
+        "- 28 38 million perturbed protein measurements in breast cancer cell lines and develop a neural",
+        "- 62 and subsequently obtained over 38 million perturbed protein measurements, as well as cell",
+        "- 94 16,311 perturbation proteomic DIA-MS data files with approximately 6668 hours of mass 95 spectrometry instrument time, yielding over 38 million high-quality perturbed protein 96 measurements ( **Figure 1A** ). With DIA-NN analyses, the data led to the relative quantification",
+        "- 180 aware neural network. We pretrained ProteinTalks using a dataset of 38 million protein",
+        "- 369 serves as a milestone towards constructing a virtual cell. The over 38 million protein"
+      ]
+    },
+    "n_proteins_modelled": {
+      "found": true,
+      "pattern": "5585|5530 protein groups",
+      "n_hits": 2,
+      "lines": [
+        185,
+        789
+      ],
+      "quotes": [
+        "- 97 of 5530 protein groups, corresponding to 5143 unique proteins ( **Table S2A** ). Data quality",
+        "- 534 normalization on each sample. Ultimately, this process yielded the expression levels of 5585"
+      ]
+    }
+  },
+  "absence_survey": {
+    "yeast_or_cerevisiae": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "genetic_perturbation_strain_or_knockout": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "lightgbm_or_xgboost": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "graph_neural_network": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "ppi_adjacency_in_model": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "gene_ontology_analysis": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "protein_co_regulation": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "hyper_abundant_stratification": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "learning_rate_reported": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    },
+    "per_protein_prediction_accuracy": {
+      "present": false,
+      "n_hits": 0,
+      "lines": [],
+      "quotes": []
+    }
+  },
+  "named_proteins": {
+    "n_named": 17,
+    "n_verified_in_source": 17,
+    "n_string_overlap_with_yeast_proteome": 3,
+    "overlap_interpretation": "the paper's symbols are human and the measured proteome is S. cerevisiae. A matching gene name does not establish orthology: some names are shared because the gene family is conserved and was named in yeast first, others collide by coincidence between independent nomenclatures. This script does not attempt to tell those apart -- no ortholog mapping was performed -- so the named protein set is recorded as context only and is never used as a yeast feature set or prior either way.",
+    "proteins": [
+      {
+        "symbol": "AKR1C3",
+        "reported_role": "top SHAP protein for hormonal agents (#1) and kinase inhibitors (#2); estrogen biosynthesis",
+        "verified_in_source": true,
+        "source_lines": [
+          479,
+          589,
+          1123
+        ],
+        "source_quote": "- 293 For instance, aldo-keto reductase 1C3 (AKR1C3) emerged as the most important protein for 294 hormonal agents and the second-most important for kinase inhibitors ( **Figures S7A-B** ). 295 Remarkably, AKR1C3 had the highest SHAP value in MDA-MB-453 cells treated with 296 toremifene, an ER modulator, and also ranked first in terms of SHAP value in the context of 297 treatment with afatinib, an",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "ATG3",
+        "reported_role": "differentially dynamic under 5-fluorouracil; autophagy",
+        "verified_in_source": true,
+        "source_lines": [
+          301,
+          1240
+        ],
+        "source_quote": "- 160 two groups in response to 5-Fluorouracil, an anti-metabolic agent ( **Figure 2D** ). ATG3 has",
+        "string_match_in_measured_yeast_proteome": true
+      },
+      {
+        "symbol": "BTF3",
+        "reported_role": "differentially dynamic under docetaxel; stemness",
+        "verified_in_source": true,
+        "source_lines": [
+          305,
+          307
+        ],
+        "source_quote": "- 162 processes<sup>18</sup> . BTF3 also exhibited a distinct pattern in expression between two groups treated",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CDK4",
+        "reported_role": "among the top-30 SHAP proteins; cell cycle",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CDK6",
+        "reported_role": "among the top-30 SHAP proteins; cell cycle",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CKS2",
+        "reported_role": "inverse dynamics (up in sensitive); PI3K/Akt antagonism",
+        "verified_in_source": true,
+        "source_lines": [
+          331,
+          335
+        ],
+        "source_quote": "- 172 Conversely, the expression of CKS2 was elevated in the sensitive group while decreased in",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CMPK1",
+        "reported_role": "7th-ranked SHAP protein; nucleic-acid biosynthesis; siRNA knockdown sensitised HCC70",
+        "verified_in_source": true,
+        "source_lines": [
+          483,
+          485,
+          589
+        ],
+        "source_quote": "- 308 Within the alkylating agents category, TYMS was identified as the third most significant 309 protein ( **Figure S7C** ), with its role in drug sensitivity corroborated in **Figures S2B-C** . 310 Another protein involved in nucleic acid biosynthesis, CMPK1, ranked seventh. Knockdown",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "DHFR",
+        "reported_role": "drug target absent from training -> unseen-compound failure",
+        "verified_in_source": true,
+        "source_lines": [
+          395
+        ],
+        "source_quote": "- 224 hydrochloride, and pemetrexed disodium hydrate, modulate protein targets (SMO, TOP1, and 225 DHFR, respectively) that are absent in the training set. 226 We further generated a dataset to independently assess the model ( **Figure S3,** model setting 3 227 in **Methods** ). Here, we extended the perturbation to 98 additional anti-cancer small-molecular 228 compounds, with the baseline proteom",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "ELAVL2",
+        "reported_role": "differentially dynamic under talazoparib; glycolysis-linked resistance",
+        "verified_in_source": true,
+        "source_lines": [
+          325,
+          329,
+          1252
+        ],
+        "source_quote": "- 169 influence the efficacy of the EGFR inhibitor Erlotinib ( **Figure 2D** ). ELAVL2 responded",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "ERBB2",
+        "reported_role": "among the top-30 SHAP proteins; HER2/RTK signalling",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "NDE1",
+        "reported_role": "differentially dynamic under erlotinib; interacts with EGFR",
+        "verified_in_source": true,
+        "source_lines": [
+          311,
+          321,
+          323
+        ],
+        "source_quote": "- 165 have shown chemotherapy resistance<sup>20</sup> . PAK1 and NDE1 manifested this different dynamic",
+        "string_match_in_measured_yeast_proteome": true
+      },
+      {
+        "symbol": "PAK1",
+        "reported_role": "differentially dynamic under erlotinib; TKI resistance",
+        "verified_in_source": true,
+        "source_lines": [
+          311,
+          319
+        ],
+        "source_quote": "- 165 have shown chemotherapy resistance<sup>20</sup> . PAK1 and NDE1 manifested this different dynamic",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "SMO",
+        "reported_role": "drug target absent from training -> unseen-compound failure",
+        "verified_in_source": true,
+        "source_lines": [
+          395
+        ],
+        "source_quote": "- 224 hydrochloride, and pemetrexed disodium hydrate, modulate protein targets (SMO, TOP1, and 225 DHFR, respectively) that are absent in the training set. 226 We further generated a dataset to independently assess the model ( **Figure S3,** model setting 3 227 in **Methods** ). Here, we extended the perturbation to 98 additional anti-cancer small-molecular 228 compounds, with the baseline proteom",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "SRC",
+        "reported_role": "among the top-30 SHAP proteins; tyrosine-kinase signalling",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "TOP1",
+        "reported_role": "drug target absent from training -> unseen-compound failure",
+        "verified_in_source": true,
+        "source_lines": [
+          395
+        ],
+        "source_quote": "- 224 hydrochloride, and pemetrexed disodium hydrate, modulate protein targets (SMO, TOP1, and 225 DHFR, respectively) that are absent in the training set. 226 We further generated a dataset to independently assess the model ( **Figure S3,** model setting 3 227 in **Methods** ). Here, we extended the perturbation to 98 additional anti-cancer small-molecular 228 compounds, with the baseline proteom",
+        "string_match_in_measured_yeast_proteome": true
+      },
+      {
+        "symbol": "TOP2A",
+        "reported_role": "among the top-30 SHAP proteins; DNA topoisomerase",
+        "verified_in_source": true,
+        "source_lines": [
+          469
+        ],
+        "source_quote": "- 291 mTOR, and TOP2A, thereby validating the biological relevance of our model ( **Figure S7** ).",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "TYMS",
+        "reported_role": "3rd-ranked SHAP protein for alkylating agents; thymidylate synthetase, nucleotide biosynthesis",
+        "verified_in_source": true,
+        "source_lines": [
+          213,
+          217,
+          483
+        ],
+        "source_quote": "- 114 Intriguingly, in cells resistant to capecitabine, thymidylate synthetase (TYMS) – a known",
+        "string_match_in_measured_yeast_proteome": false
+      }
+    ]
+  }
+}

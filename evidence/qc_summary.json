@@ -1,0 +1,568 @@
+{
+  "task": "GOAI Track 3 Virtual Cell - Step 1: QC and EDA of the WAYB/WAYC yeast perturbation proteomics dataset",
+  "generated_by": "workflow/01..08 scripts (see README.md)",
+  "random_seed": 42,
+  "software_versions": {
+    "python": "3.12.10",
+    "platform": "Linux-6.12.85+-x86_64-with-glibc2.36",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5"
+  },
+  "dataset_shapes": {
+    "metadata_train_val": [
+      8958,
+      15
+    ],
+    "metadata_test": [
+      4454,
+      15
+    ],
+    "proteome_train_val": [
+      8958,
+      5243
+    ],
+    "proteome_test": [
+      4454,
+      5243
+    ],
+    "n_proteins": 5243
+  },
+  "alignment_checks": {
+    "sample_id_sets_match_metadata": true,
+    "protein_column_order_identical": true,
+    "n_duplicate_protein_columns": 0,
+    "sample_id_overlap_train_val_test": 0,
+    "duplicated_sample_ids_train_val": 0,
+    "duplicated_sample_ids_test": 0
+  },
+  "value_encoding": {
+    "raw_scale": "linear MS intensity (not log2)",
+    "max_raw_intensity_observed_in_probe": 23850799100.0,
+    "missing_encoding": "NaN only; zero exact-count is 0 in both files, so NaN (not detected) is never confounded with a true zero",
+    "transform_applied": "log2(intensity), NaN preserved, no imputation in the exported matrices"
+  },
+  "missingness": {
+    "train_val": {
+      "n_samples": 8958,
+      "n_proteins": 5243,
+      "n_cells": 46966794,
+      "n_missing_nan": 12847022,
+      "pct_missing_nan": 27.353,
+      "n_exact_zero": 0,
+      "pct_exact_zero": 0.0,
+      "detected_per_sample_median": 3891.0,
+      "detected_per_sample_min": 336,
+      "detected_per_sample_max": 4330,
+      "protein_detection_rate_median": 0.9431792810895289,
+      "n_proteins_detected_in_all": 263,
+      "n_proteins_never_detected": 186
+    },
+    "test": {
+      "n_samples": 4454,
+      "n_proteins": 5243,
+      "n_cells": 23352322,
+      "n_missing_nan": 6503872,
+      "pct_missing_nan": 27.851,
+      "n_exact_zero": 0,
+      "pct_exact_zero": 0.0,
+      "detected_per_sample_median": 3832.0,
+      "detected_per_sample_min": 733,
+      "detected_per_sample_max": 4319,
+      "protein_detection_rate_median": 0.9411764705882353,
+      "n_proteins_detected_in_all": 517,
+      "n_proteins_never_detected": 189
+    },
+    "n_proteins_detrate_ge_0.5_both": 3839,
+    "n_proteins_detrate_ge_0.7_both": 3442,
+    "n_proteins_detrate_ge_0.9_both": 2807,
+    "n_proteins_detrate_ge_0.95_both": 2489,
+    "n_proteins_detrate_ge_0.99_both": 1479,
+    "n_proteins_detrate_ge_1_both": 261
+  },
+  "normalisation": {
+    "method": "per-sample median centring of log2, re-centred on train-split reference offset",
+    "reference_offset_log2": 21.328601837158203,
+    "frozen_on": "split_final == 'train' of train_val"
+  },
+  "detection_outliers_flagged": 414,
+  "split_structure": {
+    "split_novelty_vs_train": {
+      "train_val:train": {
+        "n_samples": 5920,
+        "n_strains": 4,
+        "n_novel_strains": 0,
+        "n_chems": 40,
+        "n_novel_chems": 0
+      },
+      "train_val:val_both": {
+        "n_samples": 269,
+        "n_strains": 1,
+        "n_novel_strains": 1,
+        "n_chems": 6,
+        "n_novel_chems": 6
+      },
+      "train_val:val_chem_only": {
+        "n_samples": 1065,
+        "n_strains": 4,
+        "n_novel_strains": 0,
+        "n_chems": 6,
+        "n_novel_chems": 6
+      },
+      "train_val:val_strain_only": {
+        "n_samples": 1547,
+        "n_strains": 1,
+        "n_novel_strains": 1,
+        "n_chems": 40,
+        "n_novel_chems": 0
+      },
+      "train_val:val_time": {
+        "n_samples": 157,
+        "n_strains": 4,
+        "n_novel_strains": 0,
+        "n_chems": 39,
+        "n_novel_chems": 0
+      },
+      "test:test_both": {
+        "n_samples": 1129,
+        "n_strains": 2,
+        "n_novel_strains": 2,
+        "n_chems": 17,
+        "n_novel_chems": 17
+      },
+      "test:test_chem_only": {
+        "n_samples": 1640,
+        "n_strains": 4,
+        "n_novel_strains": 0,
+        "n_chems": 11,
+        "n_novel_chems": 11
+      },
+      "test:test_strain_only": {
+        "n_samples": 1534,
+        "n_strains": 1,
+        "n_novel_strains": 1,
+        "n_chems": 40,
+        "n_novel_chems": 0
+      },
+      "test:test_time": {
+        "n_samples": 151,
+        "n_strains": 4,
+        "n_novel_strains": 0,
+        "n_chems": 38,
+        "n_novel_chems": 0
+      }
+    },
+    "entity_visibility": {
+      "n_strains_train_val": 5,
+      "n_strains_test": 6,
+      "n_strains_shared": 5,
+      "n_strains_test_only": 1,
+      "n_strains_in_train_split": 4,
+      "n_chems_train_val": 46,
+      "n_chems_test": 57,
+      "n_chems_shared": 46,
+      "n_chems_test_only": 11,
+      "n_chems_in_train_split": 40
+    },
+    "note": "S1 = *_chem_only (novel chemical, seen strain); S2 = *_strain_only (novel strain, seen chemical); S3 = *_both (novel strain AND novel chemical); *_time is an additional time-generalisation split."
+  },
+  "control_structure": {
+    "control_counts": {
+      "train_val": {
+        "controls": {
+          "Water": 486,
+          "DMSO": 470
+        },
+        "qc": {
+          "Quality Control": 118
+        },
+        "n_treatment": 7884,
+        "n_total": 8958
+      },
+      "test": {
+        "controls": {
+          "Water": 103,
+          "DMSO": 99
+        },
+        "qc": {
+          "Quality Control": 26
+        },
+        "n_treatment": 4226,
+        "n_total": 4454
+      }
+    },
+    "pert_id_is_globally_unique_per_chemical": false,
+    "pert_id_unique_within_data_source": true,
+    "pert_id_warning": "pert_id is a batch-local plate/dose slot code; it is NOT a chemical identity. Use 'perturbation_no_concentration' as the entity key.",
+    "l3_vehicle_composition": {
+      "('DMSO', 'Water')": 324,
+      "('DMSO',)": 44,
+      "('Water',)": 13
+    }
+  },
+  "delta": {
+    "matching_rule": {
+      "anchor_chemicals": [
+        "Water",
+        "DMSO"
+      ],
+      "excluded_from_anchors": [
+        "Quality Control"
+      ],
+      "hierarchy": [
+        {
+          "level": "L1_full_ctx",
+          "keys": [
+            "data_source",
+            "Strains",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ]
+        },
+        {
+          "level": "L2_drop_time",
+          "keys": [
+            "data_source",
+            "Strains",
+            "Medium",
+            "Temperature"
+          ]
+        },
+        {
+          "level": "L3_drop_batch",
+          "keys": [
+            "Strains",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ]
+        },
+        {
+          "level": "L4_strain_media",
+          "keys": [
+            "Strains",
+            "Medium",
+            "Temperature"
+          ]
+        },
+        {
+          "level": "L5_strain",
+          "keys": [
+            "Strains"
+          ]
+        },
+        {
+          "level": "L6_global",
+          "keys": []
+        }
+      ],
+      "replicate_aggregation": "median",
+      "primary_vehicle_policy": "pooled (DMSO + Water)",
+      "plate_excluded_reason": "Yeast_cell_plate is a deterministic function of the L1 key; adds no resolution",
+      "test_anchor_pool": "in-file test controls + train_val controls"
+    },
+    "match_level_counts": {
+      "test:L1_full_ctx": 4226,
+      "train_val:L1_full_ctx": 7884
+    },
+    "n_unmatched": 0,
+    "delta_statistics": {
+      "train_val": {
+        "n_samples": 7884,
+        "n_defined_cells": 29377690,
+        "pct_defined": 71.071,
+        "mean": -0.05486,
+        "median": -0.01472,
+        "sd": 0.45004,
+        "mad": 0.1631,
+        "pct_abs_gt_1": 3.812,
+        "percentiles": {
+          "0.1": -3.4523,
+          "1": -1.7286,
+          "5": -0.721,
+          "25": -0.1889,
+          "50": -0.0147,
+          "75": 0.1391,
+          "95": 0.4896,
+          "99": 0.9755,
+          "99.9": 2.1277
+        }
+      },
+      "test": {
+        "n_samples": 4226,
+        "n_defined_cells": 15648673,
+        "pct_defined": 70.627,
+        "mean": -0.01919,
+        "median": -0.00282,
+        "sd": 0.39697,
+        "mad": 0.16181,
+        "pct_abs_gt_1": 2.843,
+        "percentiles": {
+          "0.1": -2.7597,
+          "1": -1.2719,
+          "5": -0.611,
+          "25": -0.1696,
+          "50": -0.0028,
+          "75": 0.1545,
+          "95": 0.5248,
+          "99": 1.0175,
+          "99.9": 2.0213
+        }
+      }
+    },
+    "vehicle_sensitivity": {
+      "DMSO": {
+        "n_samples_compared": 7884,
+        "pcc_vs_pooled_median": 0.8956,
+        "pcc_vs_pooled_q05": 0.7554,
+        "pcc_vs_pooled_q95": 1.0,
+        "level_distribution": {
+          "L1_full_ctx": 7743,
+          "L2_drop_time": 141
+        }
+      },
+      "Water": {
+        "n_samples_compared": 7884,
+        "pcc_vs_pooled_median": 0.905,
+        "pcc_vs_pooled_q05": 0.6312,
+        "pcc_vs_pooled_q95": 0.9816,
+        "level_distribution": {
+          "L1_full_ctx": 7434,
+          "L2_drop_time": 450
+        }
+      }
+    },
+    "aggregation_sensitivity_median_vs_mean": {
+      "median_abs_diff": 0.0,
+      "q95_abs_diff": 0.06975,
+      "corr_all_cells": 0.99585
+    }
+  },
+  "pca_batch_effects": {
+    "n_proteins_used": 2807,
+    "detection_threshold": 0.9,
+    "n_samples": 13412,
+    "pca_fitted_on": "split_final == 'train' of train_val only",
+    "explained_variance_ratio": [
+      0.2976599931716919,
+      0.13062000274658203,
+      0.1063700020313263,
+      0.07169000059366226,
+      0.04307999834418297,
+      0.028960000723600388,
+      0.025529999285936356,
+      0.020899999886751175,
+      0.015069999732077122,
+      0.012149999849498272
+    ],
+    "cumulative_variance_ratio": [
+      0.2976599931716919,
+      0.4282799959182739,
+      0.5346500277519226,
+      0.6063399910926819,
+      0.6494200229644775,
+      0.678380012512207,
+      0.7039099931716919,
+      0.724810004234314,
+      0.739870011806488,
+      0.752020001411438
+    ],
+    "variance_attribution_eta2": [
+      {
+        "factor": "Yeast_cell_plate",
+        "n_levels": 144,
+        "eta2_PC1": 0.9774,
+        "eta2_PC2": 0.7358,
+        "eta2_PC3": 0.2736,
+        "eta2_PC4": 0.9189,
+        "eta2_PC5": 0.5499
+      },
+      {
+        "factor": "data_source",
+        "n_levels": 4,
+        "eta2_PC1": 0.9445,
+        "eta2_PC2": 0.0247,
+        "eta2_PC3": 0.0504,
+        "eta2_PC4": 0.0261,
+        "eta2_PC5": 0.0468
+      },
+      {
+        "factor": "instrument",
+        "n_levels": 7,
+        "eta2_PC1": 0.9139,
+        "eta2_PC2": 0.0271,
+        "eta2_PC3": 0.0902,
+        "eta2_PC4": 0.8769,
+        "eta2_PC5": 0.0099
+      },
+      {
+        "factor": "perturbation_no_concentration",
+        "n_levels": 57,
+        "eta2_PC1": 0.4417,
+        "eta2_PC2": 0.0342,
+        "eta2_PC3": 0.2776,
+        "eta2_PC4": 0.0147,
+        "eta2_PC5": 0.0437
+      },
+      {
+        "factor": "split_final",
+        "n_levels": 9,
+        "eta2_PC1": 0.0211,
+        "eta2_PC2": 0.0436,
+        "eta2_PC3": 0.026,
+        "eta2_PC4": 0.0113,
+        "eta2_PC5": 0.0171
+      },
+      {
+        "factor": "Medium",
+        "n_levels": 2,
+        "eta2_PC1": 0.014,
+        "eta2_PC2": 0.5966,
+        "eta2_PC3": 0.0006,
+        "eta2_PC4": 0.0002,
+        "eta2_PC5": 0.3117
+      },
+      {
+        "factor": "Strains",
+        "n_levels": 6,
+        "eta2_PC1": 0.0093,
+        "eta2_PC2": 0.209,
+        "eta2_PC3": 0.1571,
+        "eta2_PC4": 0.0414,
+        "eta2_PC5": 0.4604
+      },
+      {
+        "factor": "Temperature",
+        "n_levels": 2,
+        "eta2_PC1": 0.0004,
+        "eta2_PC2": 0.0003,
+        "eta2_PC3": 0.0002,
+        "eta2_PC4": 0.0007,
+        "eta2_PC5": 0.0005
+      },
+      {
+        "factor": "pert_time",
+        "n_levels": 6,
+        "eta2_PC1": 0.0003,
+        "eta2_PC2": 0.0089,
+        "eta2_PC3": 0.0027,
+        "eta2_PC4": 0.0439,
+        "eta2_PC5": 0.005
+      }
+    ],
+    "imputation_sensitivity": {
+      "cross_abs_corr_matrix": [
+        [
+          0.986,
+          0.201,
+          0.045,
+          0.065
+        ],
+        [
+          0.022,
+          0.384,
+          0.961,
+          0.051
+        ],
+        [
+          0.197,
+          0.887,
+          0.223,
+          0.117
+        ],
+        [
+          0.01,
+          0.006,
+          0.02,
+          0.992
+        ]
+      ],
+      "PC1_best_match": {
+        "matches": "PC1",
+        "abs_corr": 0.986
+      },
+      "PC2_best_match": {
+        "matches": "PC3",
+        "abs_corr": 0.9606
+      },
+      "PC3_best_match": {
+        "matches": "PC2",
+        "abs_corr": 0.8872
+      },
+      "PC4_best_match": {
+        "matches": "PC4",
+        "abs_corr": 0.992
+      },
+      "subspace_principal_angles_deg": [
+        2.450000047683716,
+        3.9000000953674316,
+        5.619999885559082,
+        10.210000038146973
+      ],
+      "mean_subspace_overlap": 0.994,
+      "evr_train_p01": [
+        0.28619998693466187,
+        0.1987999975681305,
+        0.12430000305175781,
+        0.0722000002861023,
+        0.04010000079870224,
+        0.0272000003606081,
+        0.022199999541044235,
+        0.019500000402331352,
+        0.012600000016391277,
+        0.012400000356137753
+      ]
+    }
+  },
+  "export_validation": {
+    "processed_train_val_proteome.parquet": {
+      "exists": true,
+      "n_rows": 8958,
+      "n_cols": 5244,
+      "expected_rows": 8958,
+      "expected_cols": 5244,
+      "shape_ok": true,
+      "unique_ids": 8958,
+      "size_mb": 199.6
+    },
+    "processed_test_proteome.parquet": {
+      "exists": true,
+      "n_rows": 4454,
+      "n_cols": 5244,
+      "expected_rows": 4454,
+      "expected_cols": 5244,
+      "shape_ok": true,
+      "unique_ids": 4454,
+      "size_mb": 97.9
+    },
+    "processed_delta_matrix.parquet": {
+      "exists": true,
+      "n_rows": 7884,
+      "n_cols": 5247,
+      "expected_rows": 7884,
+      "expected_cols": 5247,
+      "shape_ok": true,
+      "unique_ids": 7884,
+      "size_mb": 168.9
+    },
+    "processed_delta_matrix_test.parquet": {
+      "exists": true,
+      "n_rows": 4226,
+      "n_cols": 5247,
+      "expected_rows": 4226,
+      "expected_cols": 5247,
+      "shape_ok": true,
+      "unique_ids": 4226,
+      "size_mb": 90.7
+    },
+    "delta_ids_subset_of_proteome": true
+  },
+  "known_limitations": [
+    "No per-chemical vehicle annotation is released, so the primary Delta pools DMSO and Water controls. DMSO-only and Water-only variants correlate with the pooled Delta at per-sample PCC ~0.90 (median), so vehicle choice is a real but bounded source of Delta uncertainty.",
+    "A Delta cell is defined only where the protein is observed in BOTH the treated sample and its matched control, giving ~71% per-sample Delta coverage. Remaining cells are NaN by construction, not imputed.",
+    "186 (train_val) / 189 (test) proteins are never detected in the respective file and carry no usable signal.",
+    "PC1 (29.8% of variance) is overwhelmingly technical (batch eta2=0.94, instrument eta2=0.91), so batch/instrument covariates or explicit correction are required before cross-batch generalisation.",
+    "Missingness is strongly abundance-dependent (left-censoring), so mean/median imputation biases low-abundance proteins upward; the exported matrices therefore preserve NaN.",
+    "The 'Quality Control' injections are excluded from vehicle-control anchors; they are instrument QC, not biological vehicle controls."
+  ]
+}

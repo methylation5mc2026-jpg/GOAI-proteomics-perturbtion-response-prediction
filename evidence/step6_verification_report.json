@@ -1,0 +1,204 @@
+{
+  "step": "6_5_verification",
+  "seed": 42,
+  "headline_val_total": 0.5086545699181719,
+  "step5_val_total": 0.5085515642054328,
+  "benchmark_total": 0.445442994,
+  "step6_target": 0.515,
+  "step6_target_met": false,
+  "selected_configuration": {
+    "cluster_column": "k32",
+    "n_clusters": 31,
+    "alpha": 0.0,
+    "selected_on": "the train-OOF cohort only; val was not consulted"
+  },
+  "test_predictions": {
+    "artefact_integrity": {
+      "n_checks": 8,
+      "n_passed": 8,
+      "n_fatal_checks": 7,
+      "n_fatal_failed": 0,
+      "n_diagnostics_unsatisfied": 0,
+      "all_fatal_passed": true,
+      "checks": [
+        {
+          "name": "test predictions cover the treated test sample_IDs exactly once",
+          "passed": true,
+          "detail": "4226 samples, 4226 unique",
+          "fatal": true
+        },
+        {
+          "name": "prediction matrix has the full protein width",
+          "passed": true,
+          "detail": "shape (4226, 5243)",
+          "fatal": true
+        },
+        {
+          "name": "no non-finite value in the submitted abundance matrix",
+          "passed": true,
+          "detail": "0 non-finite cells",
+          "fatal": true
+        },
+        {
+          "name": "no non-finite value in the fold-change matrix",
+          "passed": true,
+          "detail": "0 non-finite cells",
+          "fatal": true
+        },
+        {
+          "name": "predicted abundances lie within the observed train dynamic range (diagnostic, non-fatal)",
+          "passed": true,
+          "detail": "predicted [10.22, 33.10] vs observed train [10.16, 33.45]; excursion below 0.00, above 0.00 log2 units (0.00% of the observed span)",
+          "fatal": false
+        },
+        {
+          "name": "predicted abundances lie within the observed train range widened by 2.0 log2 units (integrity gate)",
+          "passed": true,
+          "detail": "predicted [10.22, 33.10] vs permitted [8.16, 35.45]",
+          "fatal": true
+        },
+        {
+          "name": "test-prediction CSV parses with the expected header",
+          "passed": true,
+          "detail": "5244 columns",
+          "fatal": true
+        },
+        {
+          "name": "CSV agrees with the parquet mirror",
+          "passed": true,
+          "detail": "",
+          "fatal": true
+        }
+      ]
+    },
+    "n_samples": 4226,
+    "n_proteins": 5243,
+    "roles_used": [
+      "gbdt_tab",
+      "gbdt_mol",
+      "gbdt_mol3d",
+      "bench",
+      "gnn",
+      "dl",
+      "xattn"
+    ],
+    "n_clusters": 31,
+    "split_counts": {
+      "test_chem_only": 1640,
+      "test_strain_only": 1322,
+      "test_both": 1129,
+      "test_time": 135
+    },
+    "routing_vs_split": {
+      "test_both": {
+        "both_novel": 1129,
+        "chem_novel": 0,
+        "full": 0,
+        "strain_novel": 0
+      },
+      "test_chem_only": {
+        "both_novel": 0,
+        "chem_novel": 1640,
+        "full": 0,
+        "strain_novel": 0
+      },
+      "test_strain_only": {
+        "both_novel": 0,
+        "chem_novel": 0,
+        "full": 0,
+        "strain_novel": 1322
+      },
+      "test_time": {
+        "both_novel": 0,
+        "chem_novel": 0,
+        "full": 135,
+        "strain_novel": 0
+      }
+    },
+    "y_pred_summary": {
+      "mean": 20.565696716308594,
+      "sd": 2.9887747764587402,
+      "min": 10.215758323669434,
+      "max": 33.09903335571289
+    },
+    "delta_pred_summary": {
+      "mean": -0.05229342356324196,
+      "sd": 0.20829513669013977,
+      "min": -6.041069507598877,
+      "max": 5.271308422088623
+    },
+    "observed_train_range": [
+      10.162742614746094,
+      33.44898223876953
+    ],
+    "indicative_fold_change_pcc_per_sample_mean": 0.38442762970478345,
+    "indicative_note": "the released test delta matrix permits an indicative fold-change PCC; it is NOT the official score, whose mu_ctx / mu_drug baselines and test-side control matching are held by the organisers",
+    "chemical_domain_shift": {
+      "similarity_column": "max_tanimoto_to_train",
+      "threshold": 0.3,
+      "n_test_compounds_assessed": 56,
+      "n_below_threshold": 46,
+      "compounds_below_threshold": [
+        "Cisplatin",
+        "Water",
+        "NaCl",
+        "DMSO",
+        "Sorbitol",
+        "FCCP",
+        "H2O2",
+        "1-10 Phenanthroline monohydrate",
+        "Tunicamycin",
+        "Hydroxyurea",
+        "Clotrimazole",
+        "Staurosporine",
+        "Trichostatin A",
+        "Valinomycin",
+        "Fluconazole",
+        "Emodin",
+        "Neomycin B",
+        "Nigericin",
+        "LY 294002 hydrochloride",
+        "(S)-(+)-Camptothecin",
+        "Cyclopiazonic acid",
+        "(1R, 2S, 5R) - (-) - Menthol",
+        "CHX",
+        "EDTA",
+        "Geldanamycin",
+        "Doxycycline hyclate",
+        "Harmine hydrochloride",
+        "Abietic acid",
+        "G418",
+        "Rapamycin",
+        "SDS",
+        "Hygromycin B",
+        "U-73122",
+        "Parthenolide",
+        "Artemisinin",
+        "Anisomycin",
+        "Wortmannin",
+        "Brefeldin A",
+        "Sulfometuron methyl",
+        "Oligomycin",
+        "Nocodazole",
+        "Hoechst 33258",
+        "MMS",
+        "Pentamidine isethionate",
+        "Amiodarone hydrochloride",
+        "Plumbagin"
+      ],
+      "median_max_similarity": 0.18330000000000002,
+      "note": "test compounds whose maximum ECFP4 Tanimoto similarity to any training compound is below 0.30 sit outside the structural support of the training set; their predictions carry materially higher extrapolation risk and should be read with that caveat"
+    },
+    "files": {
+      "csv": "results/step6_test_predictions.csv",
+      "parquet": "data/step6_test_predictions.parquet",
+      "delta_parquet": "data/step6_test_delta_predictions.parquet"
+    }
+  },
+  "compute_scaling_summary": {
+    "mean_seconds_per_epoch": 2.636,
+    "total_measured_training_gpu_hours": 1.098,
+    "epoch_budget_verdict": "Training from 150 to 300 epochs improved mean dev PCC by +0.0108, consistently across 4/5 folds, at a cost of 0.55 extra GPU-hours."
+  },
+  "runtime_seconds": 138.3
+}

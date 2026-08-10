@@ -1,0 +1,25 @@
+{
+  "step": "6_3b_attention_rank_diagnostics",
+  "checkpoint": "workflow/models_step5/xattn_fold0.pt",
+  "n_modes": 8,
+  "n_compounds": 43,
+  "mean_mixture_entropy": 1.2148629426956177,
+  "uniform_mixture_entropy": 2.0794415416798357,
+  "between_compound_alpha_sd": 0.10283699631690979,
+  "participation_ratio": 1.2836869955062866,
+  "normalised_singular_spectrum": [
+    0.8775299787521362,
+    0.09233313798904419,
+    0.019524501636624336,
+    0.005178441759198904,
+    0.002760988660156727,
+    0.0024729566648602486,
+    0.00020007319108117372,
+    2.2341146199201557e-15
+  ],
+  "max_attention_deviation_from_panel_mean": 0.04343270882964134,
+  "baseline_attention_weight": 0.08333333333333333,
+  "modulation_collapsed_to_single_mode": true,
+  "verdict": "The chemical modulation spans an effective 1.28 independent directions across 43 compounds. That is close to one, so the attention modulation has largely collapsed to a single shared departure from static attention: it is chemistry-gated in magnitude more than in pattern, and the architecture is doing less than the formula allows.",
+  "method_note": "alpha(M) = softmax(MLP(M)) over R modes, averaged across heads. The participation ratio of the compound-centred alpha matrix's singular spectrum measures how many independent chemical directions the attention genuinely responds to; a value near 1 indicates collapse to a single shared pattern."
+}

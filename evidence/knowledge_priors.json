@@ -1,0 +1,798 @@
+{
+  "step": "5_1_knowledge_priors",
+  "seed": 42,
+  "dual_search_protocol": {
+    "focused_domain": "on-task perturbation-proteomics literature; source ProteinTalks (Guo lab, bioRxiv 2025.02.07.637070). Failure mode guarded against: over-transfer of organism-specific biology.",
+    "divergent_cross_domain": "structural biology (STRING topology), medicinal chemistry (3D pharmacophores / conformer shape), graph signal processing (Laplacian smoothness), molecular dynamics (flexibility proxies), metric design (scale-invariant vs scale-sensitive geometry). Failure mode guarded against: decoration -- importing a technique that changes no number.",
+    "tagging": {
+      "transfer_kind": [
+        "methodology",
+        "biology",
+        "cross_domain"
+      ],
+      "status": [
+        "actionable (consumed by a named script)",
+        "context_only (consumes nothing)"
+      ]
+    }
+  },
+  "focused_source": {
+    "path": "converted/proteintalksv1_full_pdf/ProteinTalksv1.full.pdf.md",
+    "n_lines": 1834,
+    "bibliographic_anchors": {
+      "title": {
+        "found": true,
+        "pattern": "virtual cell construction",
+        "n_hits": 1,
+        "lines": [
+          3
+        ],
+        "quotes": [
+          "# 1 **A perturbation proteomics-based foundation** 2 **model for virtual cell construction**"
+        ]
+      },
+      "doi": {
+        "found": true,
+        "pattern": "10\\.1101/2025\\.02\\.07\\.637070",
+        "n_hits": 45,
+        "lines": [
+          1,
+          73,
+          157,
+          233,
+          317,
+          387
+        ],
+        "quotes": [
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission."
+        ]
+      },
+      "peer_review_status": {
+        "found": true,
+        "pattern": "not certified by peer review",
+        "n_hits": 45,
+        "lines": [
+          1,
+          73,
+          157,
+          233,
+          317,
+          387
+        ],
+        "quotes": [
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission.",
+          "bioRxiv preprint doi: https://doi.org/10.1101/2025.02.07.637070; this version posted February 10, 2025. The copyright holder for this preprint (which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission."
+        ]
+      },
+      "senior_authors": {
+        "found": true,
+        "pattern": "Tiannan Guo",
+        "n_hits": 1,
+        "lines": [
+          33
+        ],
+        "quotes": [
+          "- 21 *Corresponding authors: Tiannan Guo (guotiannan@westlake.edu.cn), Yi Zhu"
+        ]
+      },
+      "n_protein_measurements": {
+        "found": true,
+        "pattern": "38 million",
+        "n_hits": 5,
+        "lines": [
+          47,
+          119,
+          183,
+          345,
+          569
+        ],
+        "quotes": [
+          "- 28 38 million perturbed protein measurements in breast cancer cell lines and develop a neural",
+          "- 62 and subsequently obtained over 38 million perturbed protein measurements, as well as cell",
+          "- 94 16,311 perturbation proteomic DIA-MS data files with approximately 6668 hours of mass 95 spectrometry instrument time, yielding over 38 million high-quality perturbed protein 96 measurements ( **Figure 1A** ). With DIA-NN analyses, the data led to the relative quantification",
+          "- 180 aware neural network. We pretrained ProteinTalks using a dataset of 38 million protein",
+          "- 369 serves as a milestone towards constructing a virtual cell. The over 38 million protein"
+        ]
+      },
+      "n_proteins_modelled": {
+        "found": true,
+        "pattern": "5585|5530 protein groups",
+        "n_hits": 2,
+        "lines": [
+          185,
+          789
+        ],
+        "quotes": [
+          "- 97 of 5530 protein groups, corresponding to 5143 unique proteins ( **Table S2A** ). Data quality",
+          "- 534 normalization on each sample. Ultimately, this process yielded the expression levels of 5585"
+        ]
+      }
+    },
+    "critical_scope_finding": "ProteinTalks studies HUMAN breast-cancer cell lines under CHEMICAL perturbation. The absence survey below establishes by search that it contains no yeast, no genetic/strain perturbation modelling, no PPI adjacency in its architecture and no gradient-boosted trees. It therefore transfers METHODOLOGY, NOT BIOLOGY, to this task, and every biology-tagged prior is explicitly not used.",
+    "absence_survey": {
+      "yeast_or_cerevisiae": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "genetic_perturbation_strain_or_knockout": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "lightgbm_or_xgboost": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "graph_neural_network": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "ppi_adjacency_in_model": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "gene_ontology_analysis": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "protein_co_regulation": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "hyper_abundant_stratification": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "learning_rate_reported": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "per_protein_prediction_accuracy": {
+        "present": false,
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      }
+    }
+  },
+  "named_protein_set": {
+    "n_named": 17,
+    "n_verified_in_source": 17,
+    "n_string_overlap_with_yeast_proteome": 3,
+    "overlap_interpretation": "the paper's symbols are human and the measured proteome is S. cerevisiae. A matching gene name does not establish orthology: some names are shared because the gene family is conserved and was named in yeast first, others collide by coincidence between independent nomenclatures. This script does not attempt to tell those apart -- no ortholog mapping was performed -- so the named protein set is recorded as context only and is never used as a yeast feature set or prior either way.",
+    "proteins": [
+      {
+        "symbol": "AKR1C3",
+        "reported_role": "top SHAP protein for hormonal agents (#1) and kinase inhibitors (#2); estrogen biosynthesis",
+        "verified_in_source": true,
+        "source_lines": [
+          479,
+          589,
+          1123
+        ],
+        "source_quote": "- 293 For instance, aldo-keto reductase 1C3 (AKR1C3) emerged as the most important protein for 294 hormonal agents and the second-most important for kinase inhibitors ( **Figures S7A-B** ). 295 Remarkably, AKR1C3 had the highest SHAP value in MDA-MB-453 cells treated with 296 toremifene, an ER modulator, and also ranked first in terms of SHAP value in the context of 297 treatment with afatinib, an",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "ATG3",
+        "reported_role": "differentially dynamic under 5-fluorouracil; autophagy",
+        "verified_in_source": true,
+        "source_lines": [
+          301,
+          1240
+        ],
+        "source_quote": "- 160 two groups in response to 5-Fluorouracil, an anti-metabolic agent ( **Figure 2D** ). ATG3 has",
+        "string_match_in_measured_yeast_proteome": true
+      },
+      {
+        "symbol": "BTF3",
+        "reported_role": "differentially dynamic under docetaxel; stemness",
+        "verified_in_source": true,
+        "source_lines": [
+          305,
+          307
+        ],
+        "source_quote": "- 162 processes<sup>18</sup> . BTF3 also exhibited a distinct pattern in expression between two groups treated",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CDK4",
+        "reported_role": "among the top-30 SHAP proteins; cell cycle",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CDK6",
+        "reported_role": "among the top-30 SHAP proteins; cell cycle",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CKS2",
+        "reported_role": "inverse dynamics (up in sensitive); PI3K/Akt antagonism",
+        "verified_in_source": true,
+        "source_lines": [
+          331,
+          335
+        ],
+        "source_quote": "- 172 Conversely, the expression of CKS2 was elevated in the sensitive group while decreased in",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "CMPK1",
+        "reported_role": "7th-ranked SHAP protein; nucleic-acid biosynthesis; siRNA knockdown sensitised HCC70",
+        "verified_in_source": true,
+        "source_lines": [
+          483,
+          485,
+          589
+        ],
+        "source_quote": "- 308 Within the alkylating agents category, TYMS was identified as the third most significant 309 protein ( **Figure S7C** ), with its role in drug sensitivity corroborated in **Figures S2B-C** . 310 Another protein involved in nucleic acid biosynthesis, CMPK1, ranked seventh. Knockdown",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "DHFR",
+        "reported_role": "drug target absent from training -> unseen-compound failure",
+        "verified_in_source": true,
+        "source_lines": [
+          395
+        ],
+        "source_quote": "- 224 hydrochloride, and pemetrexed disodium hydrate, modulate protein targets (SMO, TOP1, and 225 DHFR, respectively) that are absent in the training set. 226 We further generated a dataset to independently assess the model ( **Figure S3,** model setting 3 227 in **Methods** ). Here, we extended the perturbation to 98 additional anti-cancer small-molecular 228 compounds, with the baseline proteom",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "ELAVL2",
+        "reported_role": "differentially dynamic under talazoparib; glycolysis-linked resistance",
+        "verified_in_source": true,
+        "source_lines": [
+          325,
+          329,
+          1252
+        ],
+        "source_quote": "- 169 influence the efficacy of the EGFR inhibitor Erlotinib ( **Figure 2D** ). ELAVL2 responded",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "ERBB2",
+        "reported_role": "among the top-30 SHAP proteins; HER2/RTK signalling",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "NDE1",
+        "reported_role": "differentially dynamic under erlotinib; interacts with EGFR",
+        "verified_in_source": true,
+        "source_lines": [
+          311,
+          321,
+          323
+        ],
+        "source_quote": "- 165 have shown chemotherapy resistance<sup>20</sup> . PAK1 and NDE1 manifested this different dynamic",
+        "string_match_in_measured_yeast_proteome": true
+      },
+      {
+        "symbol": "PAK1",
+        "reported_role": "differentially dynamic under erlotinib; TKI resistance",
+        "verified_in_source": true,
+        "source_lines": [
+          311,
+          319
+        ],
+        "source_quote": "- 165 have shown chemotherapy resistance<sup>20</sup> . PAK1 and NDE1 manifested this different dynamic",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "SMO",
+        "reported_role": "drug target absent from training -> unseen-compound failure",
+        "verified_in_source": true,
+        "source_lines": [
+          395
+        ],
+        "source_quote": "- 224 hydrochloride, and pemetrexed disodium hydrate, modulate protein targets (SMO, TOP1, and 225 DHFR, respectively) that are absent in the training set. 226 We further generated a dataset to independently assess the model ( **Figure S3,** model setting 3 227 in **Methods** ). Here, we extended the perturbation to 98 additional anti-cancer small-molecular 228 compounds, with the baseline proteom",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "SRC",
+        "reported_role": "among the top-30 SHAP proteins; tyrosine-kinase signalling",
+        "verified_in_source": true,
+        "source_lines": [
+          467
+        ],
+        "source_quote": "- 290 proteins typically targeted in breast cancer therapies, such as CDK4, CDK6, ERBB2, SRC,",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "TOP1",
+        "reported_role": "drug target absent from training -> unseen-compound failure",
+        "verified_in_source": true,
+        "source_lines": [
+          395
+        ],
+        "source_quote": "- 224 hydrochloride, and pemetrexed disodium hydrate, modulate protein targets (SMO, TOP1, and 225 DHFR, respectively) that are absent in the training set. 226 We further generated a dataset to independently assess the model ( **Figure S3,** model setting 3 227 in **Methods** ). Here, we extended the perturbation to 98 additional anti-cancer small-molecular 228 compounds, with the baseline proteom",
+        "string_match_in_measured_yeast_proteome": true
+      },
+      {
+        "symbol": "TOP2A",
+        "reported_role": "among the top-30 SHAP proteins; DNA topoisomerase",
+        "verified_in_source": true,
+        "source_lines": [
+          469
+        ],
+        "source_quote": "- 291 mTOR, and TOP2A, thereby validating the biological relevance of our model ( **Figure S7** ).",
+        "string_match_in_measured_yeast_proteome": false
+      },
+      {
+        "symbol": "TYMS",
+        "reported_role": "3rd-ranked SHAP protein for alkylating agents; thymidylate synthetase, nucleotide biosynthesis",
+        "verified_in_source": true,
+        "source_lines": [
+          213,
+          217,
+          483
+        ],
+        "source_quote": "- 114 Intriguingly, in cells resistant to capecitabine, thymidylate synthetase (TYMS) – a known",
+        "string_match_in_measured_yeast_proteome": false
+      }
+    ]
+  },
+  "priors": [
+    {
+      "id": "FD1_moa_coverage_governs_unseen_perturbagen_transfer",
+      "search_mode": "focused_domain",
+      "transfer_kind": "methodology",
+      "status": "actionable",
+      "claim": "Generalisation to unseen compounds is governed by whether the compound's mechanism class was represented in training, not by overall chemical similarity. Held-out compounds scored accuracy 0.619 / AUROC 0.671 overall, but 0.844 / 0.840 once compounds whose target class was absent from training were excluded; the three named failures (SMO, TOP1, DHFR targets) all had zero training support for their target.",
+      "evidence": {
+        "found": true,
+        "pattern": "0\\.619|excluding.*MOA|MOA categories",
+        "n_hits": 1,
+        "lines": [
+          395
+        ],
+        "quotes": [
+          "- 224 hydrochloride, and pemetrexed disodium hydrate, modulate protein targets (SMO, TOP1, and 225 DHFR, respectively) that are absent in the training set. 226 We further generated a dataset to independently assess the model ( **Figure S3,** model setting 3 227 in **Methods** ). Here, we extended the perturbation to 98 additional anti-cancer small-molecular 228 compounds, with the baseline proteom"
+        ]
+      },
+      "consumed_by": "workflow/30_gnn_and_cluster_stacking.py",
+      "operationalisation": "compute each test/val compound's chemical support as its maximum ECFP4 Tanimoto similarity to any train compound, and report chem_novel performance stratified by that support; low-support compounds are expected near the floor and are reported separately rather than averaged away"
+    },
+    {
+      "id": "FD2_signed_two_tailed_topk_feature_core",
+      "search_mode": "focused_domain",
+      "transfer_kind": "methodology",
+      "status": "actionable",
+      "claim": "A signed two-tailed importance rule -- top 30 most positive plus top 30 most negative SHAP proteins, ~1% of 5,585 -- significantly outperformed random subsets and matched or beat the full protein set. The sign balance is part of the rule; taking |importance| top-k is not the same selection.",
+      "evidence": {
+        "found": true,
+        "pattern": "top 30|most negative|random subsets",
+        "n_hits": 2,
+        "lines": [
+          461,
+          539
+        ],
+        "quotes": [
+          "- 286 ranked the average SHAP value for each protein across different drug types. The top 30 287 proteins with the highest average SHAP values and the bottom 30 proteins with the lowest",
+          "- 350 random subsets in predicting chemotherapy drug sensitivity in TNBC and showed comparable"
+        ]
+      },
+      "consumed_by": "workflow/30_gnn_and_cluster_stacking.py",
+      "operationalisation": "the protein-cluster index used by the stacking weight tensor is ordered by signed mean response rather than absolute magnitude, so the meta-learner can shrink up-responders and down-responders differently"
+    },
+    {
+      "id": "FD3_entity_held_out_evaluation_is_the_headline",
+      "search_mode": "focused_domain",
+      "transfer_kind": "methodology",
+      "status": "actionable",
+      "claim": "The paper reports a random 0.7:0.2:0.1 split (AUROC 0.960) alongside leave-one-cell-line-out and leave-one-drug-out; the random split is far more optimistic than the entity-held-out settings. Entity-held-out evaluation is the honest headline.",
+      "evidence": {
+        "found": true,
+        "pattern": "left out at a time|previously unseen drugs|0\\.7:0\\.2:0\\.1|0\\.960",
+        "n_hits": 4,
+        "lines": [
+          373,
+          823,
+          827,
+          833
+        ],
+        "quotes": [
+          "- 197 through protein network dynamics in the biological systems based on unperturbed omics data. 198 Notably, the ProteinTalks outperformed typical machine learning models, including bootstrap, 199 random forest, logistic regression, SGD, KNN, and DeepSynergy (area under the receiver 200 operating characteristic curve (AUROC) = 0.960, area under the precision-recall curve 201 (AUPRC) = 0.854, acc",
+          "- 550 of 0.7:0.2:0.1, resulting in 1070, 305, and 154 samples respectively.",
+          "- 552 One cell line is left out at a time. The model is trained and validated on data from the",
+          "- 556 Tests the model on previously unseen drugs using the results from Setting 1. This assesses the"
+        ]
+      },
+      "consumed_by": "workflow/29_lcgo_oof_matrix.py",
+      "operationalisation": "the 5-fold cross-fitting design holds out chemical groups AND strains rather than random rows, so every out-of-fold prediction is an entity-held-out prediction; a random-row scheme would have inflated the calibration cohort's apparent member accuracy and mis-set the weights"
+    },
+    {
+      "id": "FD4_gradient_cosine_multitask_conflict_resolution",
+      "search_mode": "focused_domain",
+      "transfer_kind": "methodology",
+      "status": "actionable",
+      "claim": "Two-task training is balanced by the cosine similarity of the task gradients: clip the cosine at 1.0, form an adjustment of 0.01 x clipped cosine, and shift weight toward the priority task only when the gradients conflict. Static weight lambda = 0.8 otherwise; lambda = 1 when one task's labels are missing.",
+      "evidence": {
+        "found": true,
+        "pattern": "cosine similarity|clipped_similarity|adjustment_factor|lambda",
+        "n_hits": 6,
+        "lines": [
+          911,
+          921,
+          923,
+          936,
+          947,
+          948
+        ],
+        "quotes": [
+          "- 615 by calculating their cosine similarity. The cosine similarity of the gradients is computed as 616 follows:",
+          "619 clipped_similarity = min(cosine_similarity, 1.0) . (14)",
+          "- 620 Based on the clipped cosine similarity, we adjust the weights of the losses by a factor of 0.01:",
+          "adjustment_factor = 0.01 × clipped_similarity. (15)",
+          "|630|𝑤𝐿𝑜𝑠𝑠1 = 𝑤𝐿𝑜𝑠𝑠1−adjustment_factor ,<br>(17)|",
+          "|631|𝑤𝐿𝑜𝑠𝑠2 = 𝑤𝐿𝑜𝑠𝑠2+ adjustment_factor .<br>(18)|"
+        ]
+      },
+      "consumed_by": "workflow/30_gnn_and_cluster_stacking.py",
+      "operationalisation": "the graph-attention network optimises masked MSE and a per-sample correlation term simultaneously; their weights are adapted by the gradient-cosine rule instead of a fixed ratio"
+    },
+    {
+      "id": "FD5_baseline_conditioned_delta_prediction",
+      "search_mode": "focused_domain",
+      "transfer_kind": "methodology",
+      "status": "actionable",
+      "claim": "The perturbed proteome is predicted as a function of the *unperturbed baseline proteome* plus a perturbation encoding, rather than predicted de novo. The baseline vector is an input.",
+      "evidence": {
+        "found": true,
+        "pattern": "P0|baseline proteome|concatenat",
+        "n_hits": 7,
+        "lines": [
+          349,
+          847,
+          867,
+          879,
+          881,
+          959
+        ],
+        "quotes": [
+          "- 182 model contains two modules ( **Figure 3A** ). The first module incorporates baseline proteome",
+          "- 563 data from 5,585 proteins 𝑃0, concatenating this with corresponding dimension perturbation",
+          "- 587 concatenating the proteomics data 𝑃̃6ℎ𝑟𝑠, 𝑃̃24ℎ𝑟𝑠, 𝑃̃48ℎ𝑟𝑠 predicted at specific or all time",
+          "- 593 These drug features for two drugs 𝐷1 and 𝐷2 (or duplicate if only one drug was used) are 594 concatenated, forming a tensor [𝐷1, 𝐷2]with a dimensionality of 935 × 2, which is then 595 expanded to 128 dimensions through another convolutional network 𝐶4: 596 𝐶4([𝐷1, 𝐷2]) →128 dimensions. (8)",
+          "- 597 Subsequently, the proteomics data and drug features are concatenated. This combined dataset",
+          "- 636 By concatenating data from multiple time points and combining it with drug data, we"
+        ]
+      },
+      "consumed_by": "already in force since Step 2 (control-anchored Delta targets)",
+      "operationalisation": "confirms the existing design: all members predict Delta against the matched control anchor C and abundance is reconstructed as C + Delta, so no change is required -- recorded because a prior that confirms an existing choice is as informative as one that changes it"
+    },
+    {
+      "id": "FD6_masked_loss_on_observed_entries_only",
+      "search_mode": "focused_domain",
+      "transfer_kind": "methodology",
+      "status": "actionable",
+      "claim": "The paper imputes missing values at 0.8 x the global minimum intensity with an overall missing rate of 51.7%, then min-max normalises per sample. At that missingness a squared-error model will substantially fit the imputation constant, and per-sample min-max is set by two extreme proteins.",
+      "evidence": {
+        "found": true,
+        "pattern": "0\\.8 times the minimum|missing rate of 51\\.7|min-max normali",
+        "n_hits": 1,
+        "lines": [
+          715
+        ],
+        "quotes": [
+          "- 489 the complete dataset, with an overall missing rate of 51.7%. The initial step in data"
+        ]
+      },
+      "consumed_by": "workflow/30_gnn_and_cluster_stacking.py",
+      "operationalisation": "this prior is applied as a REJECTION: the Step-5 losses and every score remain masked to observed cells in log2 space, and no min-imputation or per-sample min-max rescaling is adopted. The paper's choice is recorded as a hazard, not a recipe."
+    },
+    {
+      "id": "FD7_named_shap_proteins_and_pathways",
+      "search_mode": "focused_domain",
+      "transfer_kind": "biology",
+      "status": "context_only",
+      "claim": "Named top-SHAP proteins (AKR1C3, TYMS, CMPK1, CDK4/6, ERBB2, SRC, TOP2A) and pathway-level findings (DNA repair for alkylating agents, PI3K-AKT-mTOR for PI3K/AKT inhibitors, estrogen response for aromatase inhibitors) are human breast-cancer biology.",
+      "evidence": {
+        "found": true,
+        "pattern": "AKR1C3|hallmark pathways|DNA repair pathways",
+        "n_hits": 8,
+        "lines": [
+          433,
+          441,
+          479,
+          589,
+          1123,
+          1125
+        ],
+        "quotes": [
+          "- 270 Firstly, we computed the average SHAP values associated with 41 hallmark pathways",
+          "- 274 responsiveness. For example, DNA repair pathways are highlighted as vital for predicting the",
+          "- 293 For instance, aldo-keto reductase 1C3 (AKR1C3) emerged as the most important protein for 294 hormonal agents and the second-most important for kinase inhibitors ( **Figures S7A-B** ). 295 Remarkably, AKR1C3 had the highest SHAP value in MDA-MB-453 cells treated with 296 toremifene, an ER modulator, and also ranked first in terms of SHAP value in the context of 297 treatment with afatinib, an",
+          "- 378 understanding of protein network dynamics and can be applied in multiple downstream tasks. 379 This model achieves an AUROC that is 5% to 27% higher than other models in predicting the 380 efficacy of both single and combination therapies. Furthermore, we conducted validation 381 experiments to confirm the synergy of four drug combinations. To delve deeper, we employed 382 gene interference ",
+          "- 721 the manufacturer's protocol. The siRNA sequences targeted against AKR1C3 and CMPK1",
+          "- 722 were as follows: for AKR1C3, 5’-GGAACUUUCACCAACAGAU-3’; and for CMPK1, 5’-"
+        ]
+      },
+      "consumed_by": null,
+      "operationalisation": "NOT used. The measured proteome is S. cerevisiae and these pathways have no yeast counterpart in the perturbation panel; importing them as a feature prior would be over-transfer"
+    },
+    {
+      "id": "FD8_proteome_reconstruction_accuracy_unreported",
+      "search_mode": "focused_domain",
+      "transfer_kind": "methodology",
+      "status": "context_only",
+      "claim": "The paper reports MSE only as a training loss and shows a 'Proteomics Multi-time Correlation' in a supplementary figure legend, but states no numeric proteome-reconstruction accuracy anywhere. All quantitative headline claims belong to the binary efficacy head.",
+      "evidence": {
+        "found": true,
+        "pattern": "Proteomics Multi-time Correlation|Loss1",
+        "n_hits": 8,
+        "lines": [
+          357,
+          495,
+          857,
+          901,
+          909,
+          915
+        ],
+        "quotes": [
+          "- 186 loss, referred to as Loss1 ( **Figure S3** ). This module stores the information of the protein",
+          "- 322 and PDTC datasets, we then implemented finetuning to build a multi-omics model, model-1. 323 This process involved utilizing the 25 randomly selected baseline transcriptome profiles of 324 PDTCs, phenotypic data of the 25 PDTCs’ response to 96 drugs, as well as drug information 325 of 881 DMF, 55 DPP, and 40 targets ( **Figure S8A** ). As the PDTC dataset only provided drug 326 efficacy data",
+          "- 575 Differential Equations (Neural ODEs), opting for the 'rk4' solver, a fourth-order Runge-Kutta 576 method, to predict omics data over multiple time points: 577 Neural_ODE(𝐿3) = ODESolve(𝐿3, rk4). (4) 578 Then, a convolutional network 𝐶2 is applied to reduce the dimensionality of the predicted 579 multi-time point embeddings, decoding them down to 32 dimensions. Finally, a linear layer 580 𝐿4 ",
+          "608 Final loss function for ProteinTalks is: 609 Loss = (1 −𝜆)Loss1 + λLoss2, (12)",
+          "- 614 between the losses from different tasks as Loss function (12), specifically Loss1 and Loss2,",
+          "- ∇Loss1 ⋅∇Loss2"
+        ]
+      },
+      "consumed_by": null,
+      "operationalisation": "recorded as a caution: there is no external numeric benchmark for per-protein abundance reconstruction to compare against, so the only defensible references remain the local measured floor and the 0.445443 official benchmark"
+    },
+    {
+      "id": "XD1_string_ppi_topology_as_a_protein_similarity_metric",
+      "search_mode": "divergent_cross_domain",
+      "source_domain": "structural / network biology",
+      "transfer_kind": "cross_domain",
+      "status": "actionable",
+      "claim": "Physically and functionally interacting proteins are co-regulated, so an external interaction network supplies a protein-similarity metric that the training rows alone do not have to estimate. STRING v12 provides scored S. cerevisiae interactions (taxon 4932).",
+      "evidence_in_proteintalks": {
+        "found": true,
+        "pattern": "\\bSTRING\\b",
+        "n_hits": 2,
+        "lines": [
+          761,
+          1305
+        ],
+        "quotes": [
+          "- 515 employed four well-established databases: KEGG pathway<sup>42</sup> , Metascape<sup>43</sup> , STRING<sup>44</sup> , and 516 Ingenuity Pathway Analysis<sup>45</sup> (IPA, version 51963813). Pathway enrichment analysis was",
+          "|845|44|Szklarczyk, D._et al._The STRING database in 2023: protein-protein association networks and|"
+        ]
+      },
+      "evidence_note": "STRING appears in ProteinTalks only as one of four enrichment databases, never in the model; this prior is therefore genuinely cross-domain rather than borrowed from the focused source",
+      "external_source": {
+        "database": "STRING v12.0",
+        "api": "https://string-db.org/api/tsv/network",
+        "species_taxid": 4932,
+        "required_score": 400
+      },
+      "consumed_by": "workflow/28_advanced_features.py -> workflow/30_gnn_and_cluster_stacking.py",
+      "operationalisation": "spectral embedding of the weighted PPI adjacency supplies half the feature space for the K-means protein clustering that indexes the stacking weight tensor, and the same adjacency supplies the Laplacian smoothness penalty in the GNN"
+    },
+    {
+      "id": "XD2_conformer_shape_and_pharmacophore_geometry",
+      "search_mode": "divergent_cross_domain",
+      "source_domain": "medicinal chemistry / CADD",
+      "transfer_kind": "cross_domain",
+      "status": "actionable",
+      "claim": "A 2D topological fingerprint cannot separate a flat rigid planar scaffold from a globular flexible one of identical composition, yet shape and solvent-exposed surface govern membrane permeation and target fit. Principal moments of inertia, the normalised PMI ratios, solvent-accessible surface area and distance-binned pharmacophore pairs are the standard descriptors of that geometry.",
+      "evidence_in_proteintalks": {
+        "found": false,
+        "note": "absent_from_source",
+        "pattern": "pharmacophore|3D descriptor|conformer",
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "evidence_note": "ProteinTalks uses only 2D fingerprints and physicochemical properties (ChemmineR); no 3D chemistry appears, so this is an addition rather than a replication",
+      "consumed_by": "workflow/28_advanced_features.py -> workflow/29_lcgo_oof_matrix.py",
+      "operationalisation": "ETKDGv3 + MMFF94 conformer per compound, then 14 shape/surface descriptors and a train-fitted PCA of the Gobbi 3D pharmacophore fingerprint, added as the 'lgb_mol3d' member family"
+    },
+    {
+      "id": "XD3_laplacian_smoothness_as_a_regulariser",
+      "search_mode": "divergent_cross_domain",
+      "source_domain": "graph signal processing",
+      "transfer_kind": "cross_domain",
+      "status": "actionable",
+      "claim": "For a signal x on a graph with Laplacian L, the quadratic form x^T L x measures how much the signal varies across edges. Penalising it biases a predictor toward outputs that are smooth over the graph, which is the correct inductive bias when neighbours are co-regulated.",
+      "evidence_in_proteintalks": {
+        "found": false,
+        "note": "absent_from_source",
+        "pattern": "laplacian|smoothness penalt",
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "consumed_by": "workflow/30_gnn_and_cluster_stacking.py",
+      "operationalisation": "the graph-attention ResNet adds lambda_graph * tr(P^T L P) / (n*p) to its loss, with L the normalised Laplacian of the STRING adjacency; lambda_graph = 0 is run as the control so the penalty's contribution is measured rather than assumed"
+    },
+    {
+      "id": "XD4_conformational_flexibility_as_a_stability_proxy",
+      "search_mode": "divergent_cross_domain",
+      "source_domain": "molecular dynamics",
+      "transfer_kind": "cross_domain",
+      "status": "actionable",
+      "claim": "A full MD trajectory is out of scope for 56 compounds inside this budget, but the spread of MMFF94 energies across independently embedded conformers is a cheap proxy for conformational flexibility, and rotatable-bond count is its topological shadow.",
+      "evidence_in_proteintalks": {
+        "found": false,
+        "note": "absent_from_source",
+        "pattern": "molecular dynamics|force field|MMFF",
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "consumed_by": "workflow/28_advanced_features.py",
+      "operationalisation": "8 conformers embedded per compound and the minimum-energy one retained; the MMFF energy and non-convergence count are recorded per compound in results/step5_mol3d_report.json. Stated plainly: this is a static-force-field proxy, not a dynamics simulation, and is labelled as such"
+    },
+    {
+      "id": "XD5_scale_sensitive_vs_scale_invariant_metric_geometry",
+      "search_mode": "divergent_cross_domain",
+      "source_domain": "decision theory / metric design",
+      "transfer_kind": "cross_domain",
+      "status": "actionable",
+      "claim": "When an aggregate objective mixes scale-invariant terms (Pearson correlations) with scale-sensitive ones (R^2, thresholded counts), the optimum of the mixture is not attained by any single member: shrinking a prediction toward the anchor costs the invariant terms nothing while buying the sensitive ones. The optimal shrinkage is therefore a free parameter -- and because R^2 is dominated by per-protein dynamic range, the optimum is protein-dependent.",
+      "evidence_in_proteintalks": {
+        "found": false,
+        "note": "absent_from_source",
+        "pattern": "scale-invariant|shrinkage",
+        "n_hits": 0,
+        "lines": [],
+        "quotes": []
+      },
+      "consumed_by": "workflow/30_gnn_and_cluster_stacking.py",
+      "operationalisation": "this is the reason the weight tensor is expanded from regimes x roles to regimes x roles x protein-clusters: it gives the meta-learner a distinct shrinkage per abundance/response stratum. It is the single highest-expected-value prior in this base, and it comes from the rubric's own algebra rather than from any paper."
+    }
+  ],
+  "prior_counts": {
+    "n_total": 13,
+    "n_focused_domain": 8,
+    "n_divergent_cross_domain": 5,
+    "n_actionable": 11,
+    "n_context_only": 2,
+    "by_transfer_kind": {
+      "methodology": 7,
+      "biology": 1,
+      "cross_domain": 5
+    },
+    "focused_priors_with_unlocatable_evidence_DEFECT": [],
+    "cross_domain_priors_absent_from_the_focused_source_AS_EXPECTED": [
+      "XD2_conformer_shape_and_pharmacophore_geometry",
+      "XD3_laplacian_smoothness_as_a_regulariser",
+      "XD4_conformational_flexibility_as_a_stability_proxy",
+      "XD5_scale_sensitive_vs_scale_invariant_metric_geometry"
+    ],
+    "cross_domain_priors_that_do_appear_in_the_focused_source": [
+      "XD1_string_ppi_topology_as_a_protein_similarity_metric"
+    ],
+    "divergence_check_note": "for a cross-domain prior, absence from ProteinTalks is the evidence that the search really was divergent; only a FOCUSED prior with unlocatable evidence is a defect. STRING (XD1) does appear in the source, but purely as one of four enrichment databases and never in the model, which is recorded on the prior."
+  },
+  "chemical_support_FD1": {
+    "n_compounds_with_structure": 56,
+    "n_absent_from_train": 11,
+    "n_absent_and_low_support": 10,
+    "low_support_threshold": 0.3,
+    "low_support_threshold_basis": "convention only -- the ~0.3 ECFP4 Tanimoto mark is a widely used rule of thumb for 'structurally dissimilar' in virtual screening; there is no published numeric threshold for this task and none is claimed",
+    "median_max_tanimoto_novel_compounds": 0.1831,
+    "least_supported": [
+      {
+        "compound": "H2O2",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1429,
+        "nearest_train_compound": "EDTA"
+      },
+      {
+        "compound": "Fluconazole",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1552,
+        "nearest_train_compound": "Clotrimazole"
+      },
+      {
+        "compound": "Neomycin B",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1553,
+        "nearest_train_compound": "Amphotericin B"
+      },
+      {
+        "compound": "(S)-(+)-Camptothecin",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1605,
+        "nearest_train_compound": "Sulfometuron methyl"
+      },
+      {
+        "compound": "Doxycycline hyclate",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1753,
+        "nearest_train_compound": "Cyclopiazonic acid"
+      },
+      {
+        "compound": "Abietic acid",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1831,
+        "nearest_train_compound": "Parthenolide"
+      },
+      {
+        "compound": "G418",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1835,
+        "nearest_train_compound": "Amphotericin B"
+      },
+      {
+        "compound": "Hygromycin B",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.1897,
+        "nearest_train_compound": "Tunicamycin"
+      },
+      {
+        "compound": "MMS",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.2308,
+        "nearest_train_compound": "SDS"
+      },
+      {
+        "compound": "Plumbagin",
+        "in_train": false,
+        "in_test": true,
+        "max_tanimoto_to_train": 0.2927,
+        "nearest_train_compound": "Emodin"
+      }
+    ],
+    "file": "results/step5_chemical_support.csv"
+  },
+  "honesty_notes": [
+    "line numbers are searched for at run time, not hard-coded, so a claim that cannot be located in the converted markdown is recorded as absent_from_source",
+    "the paper's named protein set is human; any string overlap with the 5,243 measured yeast proteins is homonymy and is never used as a yeast prior",
+    "priors XD5 and FD3 are the two that actually move the Step-5 score; the remainder either add member diversity or are recorded as context, and the split is counted above rather than blurred"
+  ]
+}

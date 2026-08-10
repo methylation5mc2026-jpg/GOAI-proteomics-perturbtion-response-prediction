@@ -1,0 +1,1377 @@
+{
+  "step": "7_1_test_selfscore",
+  "seed": 42,
+  "spec_version": "1.0.0",
+  "provenance": {
+    "why": "the 2026-08-11 handbook revision releases the test proteome truth for self-evaluation (item 2.2 #7); the final ranking uses a separate internal evaluation set held by the organisers",
+    "predictions_scored": "results/step6_test_predictions.csv (frozen 2026-08-07)",
+    "truth": "workflow/processed_test_proteome.parquet and workflow/processed_delta_matrix_test.parquet",
+    "baselines_fitted_on": "split_final == 'train' rows of train_val only",
+    "not_the_official_score": true,
+    "caveat": "the organisers' aggregation convention and test-side control matching are not published; this is our offline rubric applied to the released truth, and the test truth was used for scoring only -- never for model, weight or hyper-parameter selection"
+  },
+  "cohort": {
+    "n_test_treated_rows": 4226,
+    "n_proteins": 5243,
+    "n_fit_rows": 5078,
+    "split_sizes": {
+      "test_both": 1129,
+      "test_chem_only": 1640,
+      "test_strain_only": 1322,
+      "test_time": 135
+    },
+    "delta_defined_fraction": 0.706266,
+    "match_levels": {
+      "L1_full_ctx": 4226
+    }
+  },
+  "baseline_diagnostics": {
+    "mu_ctx": {
+      "levels": [
+        {
+          "level": "CTX1_strain_medium_temp_time",
+          "keys": [
+            "Strains",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 96,
+          "n_groups_kept": 96,
+          "n_samples_resolved_here": 8057
+        },
+        {
+          "level": "CTX2_strain_medium_temp",
+          "keys": [
+            "Strains",
+            "Medium",
+            "Temperature"
+          ],
+          "n_groups_total": 16,
+          "n_groups_kept": 16,
+          "n_samples_resolved_here": 0
+        },
+        {
+          "level": "CTX3_medium_temp_time",
+          "keys": [
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 24,
+          "n_groups_kept": 24,
+          "n_samples_resolved_here": 4053
+        }
+      ],
+      "min_group_n": 3,
+      "n_train_rows": 5078,
+      "level_usage": {
+        "CTX1_strain_medium_temp_time": 8057,
+        "CTX3_medium_temp_time": 4053
+      },
+      "frac_cells_defined": 0.876337
+    },
+    "mu_drug": {
+      "levels": [
+        {
+          "level": "DRUG1_chemical",
+          "keys": [
+            "perturbation_no_concentration"
+          ],
+          "n_groups_total": 37,
+          "n_groups_kept": 37,
+          "n_samples_resolved_here": 8007
+        },
+        {
+          "level": "DRUG2_global",
+          "keys": [],
+          "n_groups_total": 1,
+          "n_groups_kept": 1,
+          "n_samples_resolved_here": 4103
+        }
+      ],
+      "min_group_n": 3,
+      "n_train_rows": 5078,
+      "level_usage": {
+        "DRUG1_chemical": 8007,
+        "DRUG2_global": 4103
+      },
+      "frac_cells_defined": 0.935916
+    },
+    "mu_ctx_batch": {
+      "levels": [
+        {
+          "level": "BCTX1_batch_strain_medium_temp_time",
+          "keys": [
+            "data_source",
+            "Strains",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 383,
+          "n_groups_kept": 383,
+          "n_samples_resolved_here": 8057
+        },
+        {
+          "level": "BCTX2_batch_strain_medium_temp",
+          "keys": [
+            "data_source",
+            "Strains",
+            "Medium",
+            "Temperature"
+          ],
+          "n_groups_total": 64,
+          "n_groups_kept": 64,
+          "n_samples_resolved_here": 0
+        },
+        {
+          "level": "BCTX3_batch_medium_temp_time",
+          "keys": [
+            "data_source",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 96,
+          "n_groups_kept": 96,
+          "n_samples_resolved_here": 4053
+        }
+      ],
+      "min_group_n": 3,
+      "n_train_rows": 5078,
+      "level_usage": {
+        "BCTX1_batch_strain_medium_temp_time": 8057,
+        "BCTX3_batch_medium_temp_time": 4053
+      },
+      "frac_cells_defined": 0.796473
+    },
+    "abund_ctx": {
+      "levels": [
+        {
+          "level": "CTX1_strain_medium_temp_time",
+          "keys": [
+            "Strains",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 96,
+          "n_groups_kept": 96,
+          "n_samples_resolved_here": 8057
+        },
+        {
+          "level": "CTX2_strain_medium_temp",
+          "keys": [
+            "Strains",
+            "Medium",
+            "Temperature"
+          ],
+          "n_groups_total": 16,
+          "n_groups_kept": 16,
+          "n_samples_resolved_here": 0
+        },
+        {
+          "level": "CTX3_medium_temp_time",
+          "keys": [
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 24,
+          "n_groups_kept": 24,
+          "n_samples_resolved_here": 4053
+        }
+      ],
+      "min_group_n": 3,
+      "n_train_rows": 5078,
+      "level_usage": {
+        "CTX1_strain_medium_temp_time": 8057,
+        "CTX3_medium_temp_time": 4053
+      },
+      "frac_cells_defined": 0.918284
+    },
+    "abund_ctx_batch": {
+      "levels": [
+        {
+          "level": "BCTX1_batch_strain_medium_temp_time",
+          "keys": [
+            "data_source",
+            "Strains",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 383,
+          "n_groups_kept": 383,
+          "n_samples_resolved_here": 8057
+        },
+        {
+          "level": "BCTX2_batch_strain_medium_temp",
+          "keys": [
+            "data_source",
+            "Strains",
+            "Medium",
+            "Temperature"
+          ],
+          "n_groups_total": 64,
+          "n_groups_kept": 64,
+          "n_samples_resolved_here": 0
+        },
+        {
+          "level": "BCTX3_batch_medium_temp_time",
+          "keys": [
+            "data_source",
+            "Medium",
+            "Temperature",
+            "pert_time"
+          ],
+          "n_groups_total": 96,
+          "n_groups_kept": 96,
+          "n_samples_resolved_here": 4053
+        }
+      ],
+      "min_group_n": 3,
+      "n_train_rows": 5078,
+      "level_usage": {
+        "BCTX1_batch_strain_medium_temp_time": 8057,
+        "BCTX3_batch_medium_temp_time": 4053
+      },
+      "frac_cells_defined": 0.85136
+    },
+    "leakage_guard_bit_identical": true
+  },
+  "scores": {
+    "step3_gbdt": {
+      "total_score": 0.3930826299137199,
+      "module_scores": {
+        "m1_abundance": 0.7253563201710915,
+        "m2_fold_change": 0.339061182396398,
+        "m3_s1_chem": 0.2935082286106714,
+        "m3_s2_strain": 0.29350170608476783,
+        "m3_s3_both": 0.24946133822797875,
+        "m3_time": 0.4957299460170296,
+        "m4_dep": 0.17169038258127725
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.1450712640342183,
+        "m2_fold_change": 0.0847652955990995,
+        "m3_s1_chem": 0.05870164572213428,
+        "m3_s2_strain": 0.05870034121695357,
+        "m3_s3_both": 0.012473066911398939,
+        "m3_time": 0.02478649730085148,
+        "m4_dep": 0.008584519129063863
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.9846349294847828,
+          "pcc_per_protein_mean": 0.7220613878917108,
+          "r2_pooled": 0.9596321772140438,
+          "r2_per_protein_mean": 0.23509678609382884
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": 0.3474044592521987,
+          "pcc_pooled": 0.31403135182899594
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.29045174385918804,
+          "resid_pcc_pooled": 0.3026776828651213
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.29207318283846784,
+          "resid_pcc_pooled": 0.29778727582366776
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": 0.24793507593026776,
+          "resid_ctx_pcc_per_sample_mean": 0.25768048575519803,
+          "resid_drug_pcc_per_sample_mean": 0.24276845299847052
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": 0.540118619530854,
+          "resid_ctx_pcc_per_sample_mean": 0.44281862731745364,
+          "resid_drug_pcc_per_sample_mean": 0.5042525912027812
+        },
+        "m4_dep": {
+          "precision_macro": 0.2303012414501448,
+          "recall_at_k_macro": 0.1812245481529474,
+          "f1_macro": 0.14324885778915292,
+          "auprc_macro": 0.13198688293286395
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.3930826299137199,
+          "m1_abundance": 0.7253563201710915,
+          "m2_fold_change": 0.339061182396398,
+          "m3_s1_chem": 0.2935082286106714,
+          "m3_s2_strain": 0.29350170608476783,
+          "m3_s3_both": 0.24946133822797875,
+          "m3_time": 0.4957299460170296,
+          "m4_dep": 0.17169038258127725
+        },
+        "pooled_only": {
+          "total_score": 0.4409853665316387,
+          "m1_abundance": 0.9721335533494133,
+          "m2_fold_change": 0.31403135182899594,
+          "m3_s1_chem": 0.3026776828651213,
+          "m3_s2_strain": 0.29778727582366776,
+          "m3_s3_both": 0.24519412550456193,
+          "m3_time": 0.5408891881729476,
+          "m4_dep": 0.173073209657475
+        },
+        "per_sample_only": {
+          "total_score": 0.44375788876520733,
+          "m1_abundance": 0.9727885263565609,
+          "m2_fold_change": 0.3474044592521987,
+          "m3_s1_chem": 0.29045174385918804,
+          "m3_s2_strain": 0.29207318283846784,
+          "m3_s3_both": 0.24946133822797875,
+          "m3_time": 0.4957299460170296,
+          "m4_dep": 0.17169038258127725
+        },
+        "per_protein_primary": {
+          "total_score": 0.36248856003870206,
+          "m1_abundance": 0.47857908699276985,
+          "m2_fold_change": 0.3282176374330108,
+          "m3_s1_chem": 0.32640338295668675,
+          "m3_s2_strain": 0.3505767858980469,
+          "m3_s3_both": 0.2847349579104993,
+          "m3_time": 0.5300206497271955,
+          "m4_dep": 0.17169038258127725
+        }
+      }
+    },
+    "step4_chem_stacking": {
+      "total_score": 0.4410124877171224,
+      "module_scores": {
+        "m1_abundance": 0.8249048225795655,
+        "m2_fold_change": 0.35667172341799225,
+        "m3_s1_chem": 0.3564056056300489,
+        "m3_s2_strain": 0.30190881619344445,
+        "m3_s3_both": 0.2705706427050131,
+        "m3_time": 0.5661669055890772,
+        "m4_dep": 0.26727661134615976
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.16498096451591313,
+        "m2_fold_change": 0.08916793085449806,
+        "m3_s1_chem": 0.07128112112600979,
+        "m3_s2_strain": 0.06038176323868889,
+        "m3_s3_both": 0.013528532135250654,
+        "m3_time": 0.02830834527945386,
+        "m4_dep": 0.013363830567307989
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.9880251889908275,
+          "pcc_per_protein_mean": 0.7735271361076712,
+          "r2_pooled": 0.9759242990861063,
+          "r2_per_protein_mean": 0.5621426661336569
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": 0.3610421983358747,
+          "pcc_pooled": 0.3435602986643448
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.3772651601717961,
+          "resid_pcc_pooled": 0.29382694200480747
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.29234352940986813,
+          "resid_pcc_pooled": 0.3306046765441734
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": 0.23105566165790747,
+          "resid_ctx_pcc_per_sample_mean": 0.32010567600519046,
+          "resid_drug_pcc_per_sample_mean": 0.26055059045194134
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": 0.5913278671301919,
+          "resid_ctx_pcc_per_sample_mean": 0.5400001695444581,
+          "resid_drug_pcc_per_sample_mean": 0.567172680092582
+        },
+        "m4_dep": {
+          "precision_macro": 0.5485490677744962,
+          "recall_at_k_macro": 0.23557159147167742,
+          "f1_macro": 0.09509633062950287,
+          "auprc_macro": 0.18988945550896275
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.4410124877171224,
+          "m1_abundance": 0.8249048225795655,
+          "m2_fold_change": 0.35667172341799225,
+          "m3_s1_chem": 0.3564056056300489,
+          "m3_s2_strain": 0.30190881619344445,
+          "m3_s3_both": 0.2705706427050131,
+          "m3_time": 0.5661669055890772,
+          "m4_dep": 0.26727661134615976
+        },
+        "pooled_only": {
+          "total_score": 0.4622387268692648,
+          "m1_abundance": 0.981974744038467,
+          "m2_fold_change": 0.3435602986643448,
+          "m3_s1_chem": 0.29382694200480747,
+          "m3_s2_strain": 0.3306046765441734,
+          "m3_s3_both": 0.21772762519548652,
+          "m3_time": 0.6576962438493579,
+          "m4_dep": 0.22592372466893568
+        },
+        "per_sample_only": {
+          "total_score": 0.4756233986654188,
+          "m1_abundance": 0.9812020159155239,
+          "m2_fold_change": 0.3610421983358747,
+          "m3_s1_chem": 0.3772651601717961,
+          "m3_s2_strain": 0.29234352940986813,
+          "m3_s3_both": 0.2705706427050131,
+          "m3_time": 0.5661669055890772,
+          "m4_dep": 0.26727661134615976
+        },
+        "per_protein_primary": {
+          "total_score": 0.39702394137640584,
+          "m1_abundance": 0.6678349011206641,
+          "m2_fold_change": 0.3400380703049825,
+          "m3_s1_chem": 0.28268513679121265,
+          "m3_s2_strain": 0.3322719584931215,
+          "m3_s3_both": 0.2057682353344193,
+          "m3_time": 0.636075643702632,
+          "m4_dep": 0.26727661134615976
+        }
+      }
+    },
+    "step5_knowledge_stacking": {
+      "total_score": 0.4630467200157114,
+      "module_scores": {
+        "m1_abundance": 0.8346179793093039,
+        "m2_fold_change": 0.3815597762494935,
+        "m3_s1_chem": 0.39002240418349676,
+        "m3_s2_strain": 0.32658874092118206,
+        "m3_s3_both": 0.31262532940367965,
+        "m3_time": 0.5584456936672169,
+        "m4_dep": 0.2771479983399326
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.16692359586186079,
+        "m2_fold_change": 0.09538994406237337,
+        "m3_s1_chem": 0.07800448083669936,
+        "m3_s2_strain": 0.06531774818423641,
+        "m3_s3_both": 0.015631266470183983,
+        "m3_time": 0.027922284683360846,
+        "m4_dep": 0.01385739991699663
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.9886652650032569,
+          "pcc_per_protein_mean": 0.7844628255604694,
+          "r2_pooled": 0.9773648863390904,
+          "r2_per_protein_mean": 0.5879789403343989
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": 0.3831328542442928,
+          "pcc_pooled": 0.37684054226509583
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.4005282930088916,
+          "resid_pcc_pooled": 0.3585047377073122
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.32606375948207966,
+          "resid_pcc_pooled": 0.3281636852384893
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": 0.27440223014329784,
+          "resid_ctx_pcc_per_sample_mean": 0.35928386265669465,
+          "resid_drug_pcc_per_sample_mean": 0.30418989541104646
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": 0.5831478636415683,
+          "resid_ctx_pcc_per_sample_mean": 0.5302950525547081,
+          "resid_drug_pcc_per_sample_mean": 0.5618941648053742
+        },
+        "m4_dep": {
+          "precision_macro": 0.5836155834448086,
+          "recall_at_k_macro": 0.24814580639888786,
+          "f1_macro": 0.079056088497857,
+          "auprc_macro": 0.19777451501817694
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.4630467200157114,
+          "m1_abundance": 0.8346179793093039,
+          "m2_fold_change": 0.3815597762494935,
+          "m3_s1_chem": 0.39002240418349676,
+          "m3_s2_strain": 0.32658874092118206,
+          "m3_s3_both": 0.31262532940367965,
+          "m3_time": 0.5584456936672169,
+          "m4_dep": 0.2771479983399326
+        },
+        "pooled_only": {
+          "total_score": 0.48760965433552705,
+          "m1_abundance": 0.9830150756711736,
+          "m2_fold_change": 0.37684054226509583,
+          "m3_s1_chem": 0.3585047377073122,
+          "m3_s2_strain": 0.3281636852384893,
+          "m3_s3_both": 0.29286098716452014,
+          "m3_time": 0.6601985769180615,
+          "m4_dep": 0.23619681683457816
+        },
+        "per_sample_only": {
+          "total_score": 0.4949160311924659,
+          "m1_abundance": 0.9820172803132847,
+          "m2_fold_change": 0.3831328542442928,
+          "m3_s1_chem": 0.4005282930088916,
+          "m3_s2_strain": 0.32606375948207966,
+          "m3_s3_both": 0.31262532940367965,
+          "m3_time": 0.5584456936672169,
+          "m4_dep": 0.2771479983399326
+        },
+        "per_protein_primary": {
+          "total_score": 0.4277770793240532,
+          "m1_abundance": 0.6862208829474341,
+          "m2_fold_change": 0.3778665879548623,
+          "m3_s1_chem": 0.33717927464486847,
+          "m3_s2_strain": 0.3395412561694371,
+          "m3_s3_both": 0.29737526402208364,
+          "m3_time": 0.6399197292977767,
+          "m4_dep": 0.2771479983399326
+        }
+      }
+    },
+    "step6_submitted": {
+      "total_score": 0.4636384634006561,
+      "module_scores": {
+        "m1_abundance": 0.8348496593094924,
+        "m2_fold_change": 0.3824360005546133,
+        "m3_s1_chem": 0.39002412860133756,
+        "m3_s2_strain": 0.3277529325146148,
+        "m3_s3_both": 0.3143121236919774,
+        "m3_time": 0.5598533360584184,
+        "m4_dep": 0.27591692378788146
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.16696993186189849,
+        "m2_fold_change": 0.09560900013865332,
+        "m3_s1_chem": 0.07800482572026751,
+        "m3_s2_strain": 0.06555058650292296,
+        "m3_s3_both": 0.01571560618459887,
+        "m3_time": 0.02799266680292092,
+        "m4_dep": 0.013795846189394074
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.988662165741044,
+          "pcc_per_protein_mean": 0.7846804406922363,
+          "r2_pooled": 0.9773549628859971,
+          "r2_per_protein_mean": 0.5887010679186919
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": 0.3844276295607025,
+          "pcc_pooled": 0.37646111353634576
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.4006205951841097,
+          "resid_pcc_pooled": 0.35823472885302127
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.3286410277726107,
+          "resid_pcc_pooled": 0.32508864674062693
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": 0.27644505388851065,
+          "resid_ctx_pcc_per_sample_mean": 0.36055380676194676,
+          "resid_drug_pcc_per_sample_mean": 0.3059375104254749
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": 0.5843560778193653,
+          "resid_ctx_pcc_per_sample_mean": 0.5317334363460439,
+          "resid_drug_pcc_per_sample_mean": 0.5634704940098462
+        },
+        "m4_dep": {
+          "precision_macro": 0.5764987423760511,
+          "recall_at_k_macro": 0.24845871466476802,
+          "f1_macro": 0.08027773722212428,
+          "auprc_macro": 0.1984325008885824
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.4636384634006561,
+          "m1_abundance": 0.8348496593094924,
+          "m2_fold_change": 0.3824360005546133,
+          "m3_s1_chem": 0.39002412860133756,
+          "m3_s2_strain": 0.3277529325146148,
+          "m3_s3_both": 0.3143121236919774,
+          "m3_time": 0.5598533360584184,
+          "m4_dep": 0.27591692378788146
+        },
+        "pooled_only": {
+          "total_score": 0.4870034523063138,
+          "m1_abundance": 0.9830085643135206,
+          "m2_fold_change": 0.37646111353634576,
+          "m3_s1_chem": 0.35823472885302127,
+          "m3_s2_strain": 0.32508864674062693,
+          "m3_s3_both": 0.2927777492814088,
+          "m3_time": 0.662571642287403,
+          "m4_dep": 0.23708632724706014
+        },
+        "per_sample_only": {
+          "total_score": 0.4958678124762786,
+          "m1_abundance": 0.9820223065892252,
+          "m2_fold_change": 0.3844276295607025,
+          "m3_s1_chem": 0.4006205951841097,
+          "m3_s2_strain": 0.3286410277726107,
+          "m3_s3_both": 0.3143121236919774,
+          "m3_time": 0.5598533360584184,
+          "m4_dep": 0.27591692378788146
+        },
+        "per_protein_primary": {
+          "total_score": 0.4272122787154903,
+          "m1_abundance": 0.6866907543054641,
+          "m2_fold_change": 0.37738643781491554,
+          "m3_s1_chem": 0.33686697424808076,
+          "m3_s2_strain": 0.3372629055753109,
+          "m3_s3_both": 0.2961816444048902,
+          "m3_time": 0.6419322805270327,
+          "m4_dep": 0.27591692378788146
+        }
+      }
+    },
+    "global_mean": {
+      "total_score": 0.21069543964279885,
+      "module_scores": {
+        "m1_abundance": 0.4632276697073381,
+        "m2_fold_change": 0.16378575042028562,
+        "m3_s1_chem": 0.07428644801462476,
+        "m3_s2_strain": 0.21302544705753937,
+        "m3_s3_both": 0.16433580467764947,
+        "m3_time": 0.14289947625283345,
+        "m4_dep": 0.08558650070605676
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.09264553394146763,
+        "m2_fold_change": 0.040946437605071405,
+        "m3_s1_chem": 0.014857289602924954,
+        "m3_s2_strain": 0.042605089411507875,
+        "m3_s3_both": 0.008216790233882474,
+        "m3_time": 0.0071449738126416725,
+        "m4_dep": 0.004279325035302838
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.9501616671631185,
+          "pcc_per_protein_mean": -5.501292511118258e-09,
+          "r2_pooled": 0.9027490116662338,
+          "r2_per_protein_mean": -0.04606344149509421
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": 0.1643920771216212,
+          "pcc_pooled": 0.16196677031627885
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.0697658687558736,
+          "resid_pcc_pooled": 0.08784818579087829
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.20073216477885547,
+          "resid_pcc_pooled": 0.24990529389359106
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": 0.16171171547205837,
+          "resid_ctx_pcc_per_sample_mean": 0.15874793498569892,
+          "resid_drug_pcc_per_sample_mean": 0.17254776357519114
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": 0.17165891506219483,
+          "resid_ctx_pcc_per_sample_mean": 0.07852358895662269,
+          "resid_drug_pcc_per_sample_mean": 0.1785159247396828
+        },
+        "m4_dep": {
+          "precision_macro": 0.06340541179496494,
+          "recall_at_k_macro": 0.1124584143648875,
+          "f1_macro": 0.089130449226632,
+          "auprc_macro": 0.0773517274377426
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.21069543964279885,
+          "m1_abundance": 0.4632276697073381,
+          "m2_fold_change": 0.16378575042028562,
+          "m3_s1_chem": 0.07428644801462476,
+          "m3_s2_strain": 0.21302544705753937,
+          "m3_s3_both": 0.16433580467764947,
+          "m3_time": 0.14289947625283345,
+          "m4_dep": 0.08558650070605676
+        },
+        "pooled_only": {
+          "total_score": 0.31287400767713147,
+          "m1_abundance": 0.9264553394146762,
+          "m2_fold_change": 0.16196677031627885,
+          "m3_s1_chem": 0.08784818579087829,
+          "m3_s2_strain": 0.24990529389359106,
+          "m3_s3_both": 0.16161200769248535,
+          "m3_time": 0.1441825727709457,
+          "m4_dep": 0.08501644510122135
+        },
+        "per_sample_only": {
+          "total_score": 0.2999377244677823,
+          "m1_abundance": 0.9254950469930209,
+          "m2_fold_change": 0.1643920771216212,
+          "m3_s1_chem": 0.0697658687558736,
+          "m3_s2_strain": 0.20073216477885547,
+          "m3_s3_both": 0.16433580467764947,
+          "m3_time": 0.14289947625283345,
+          "m4_dep": 0.08558650070605676
+        },
+        "per_protein_primary": {
+          "total_score": 0.1574752440232955,
+          "m1_abundance": 0.0,
+          "m2_fold_change": 0.20222133803220957,
+          "m3_s1_chem": 0.11213452805253486,
+          "m3_s2_strain": 0.3075514954978353,
+          "m3_s3_both": 0.20129923261582977,
+          "m3_time": 0.17276836278149452,
+          "m4_dep": 0.08558650070605676
+        }
+      }
+    },
+    "per_context_mean": {
+      "total_score": 0.25783578248493894,
+      "module_scores": {
+        "m1_abundance": 0.6118082844758266,
+        "m2_fold_change": 0.18330461361006337,
+        "m3_s1_chem": 0.11217555392734754,
+        "m3_s2_strain": 0.21951407929071715,
+        "m3_s3_both": 0.17825428031441332,
+        "m3_time": 0.18511707083186893,
+        "m4_dep": 0.10282955972661499
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.12236165689516532,
+        "m2_fold_change": 0.04582615340251584,
+        "m3_s1_chem": 0.02243511078546951,
+        "m3_s2_strain": 0.04390281585814343,
+        "m3_s3_both": 0.008912714015720666,
+        "m3_time": 0.009255853541593447,
+        "m4_dep": 0.00514147798633075
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.960443006752768,
+          "pcc_per_protein_mean": 0.420243845128405,
+          "r2_pooled": 0.9223813931849628,
+          "r2_per_protein_mean": 0.14416489283717038
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": 0.18762702000404347,
+          "pcc_pooled": 0.17033739442812312
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.11211366816545834,
+          "resid_pcc_pooled": 0.11236121121301511
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.20727811161274332,
+          "resid_pcc_pooled": 0.25622198232463866
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": 0.16745291676107638,
+          "resid_ctx_pcc_per_sample_mean": 0.18788009262986533,
+          "resid_drug_pcc_per_sample_mean": 0.17942983155229822
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": 0.22100898047900988,
+          "resid_ctx_pcc_per_sample_mean": 0.11316456372812006,
+          "resid_drug_pcc_per_sample_mean": 0.22117766828847688
+        },
+        "m4_dep": {
+          "precision_macro": 0.08661895584237604,
+          "recall_at_k_macro": 0.12812933156086728,
+          "f1_macro": 0.1084335535703816,
+          "auprc_macro": 0.08813639793283506
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.25783578248493894,
+          "m1_abundance": 0.6118082844758266,
+          "m2_fold_change": 0.18330461361006337,
+          "m3_s1_chem": 0.11217555392734754,
+          "m3_s2_strain": 0.21951407929071715,
+          "m3_s3_both": 0.17825428031441332,
+          "m3_time": 0.18511707083186893,
+          "m4_dep": 0.10282955972661499
+        },
+        "pooled_only": {
+          "total_score": 0.3260199261870319,
+          "m1_abundance": 0.9414121999688654,
+          "m2_fold_change": 0.17033739442812312,
+          "m3_s1_chem": 0.11236121121301511,
+          "m3_s2_strain": 0.25622198232463866,
+          "m3_s3_both": 0.1699692305483261,
+          "m3_time": 0.16274925713411925,
+          "m4_dep": 0.09601148989149948
+        },
+        "per_sample_only": {
+          "total_score": 0.32216885991516814,
+          "m1_abundance": 0.9403685170743601,
+          "m2_fold_change": 0.18762702000404347,
+          "m3_s1_chem": 0.11211366816545834,
+          "m3_s2_strain": 0.20727811161274332,
+          "m3_s3_both": 0.17825428031441332,
+          "m3_time": 0.18511707083186893,
+          "m4_dep": 0.10282955972661499
+        },
+        "per_protein_primary": {
+          "total_score": 0.22830806692657613,
+          "m1_abundance": 0.28220436898278767,
+          "m2_fold_change": 0.22063247498249333,
+          "m3_s1_chem": 0.1318079695969474,
+          "m3_s2_strain": 0.3218324347012968,
+          "m3_s3_both": 0.21508179547036155,
+          "m3_time": 0.2017085152979517,
+          "m4_dep": 0.10282955972661499
+        }
+      }
+    },
+    "per_context_mean_batch": {
+      "total_score": 0.4248834689257231,
+      "module_scores": {
+        "m1_abundance": 0.8064971009504581,
+        "m2_fold_change": 0.3350756053655558,
+        "m3_s1_chem": 0.380564524165071,
+        "m3_s2_strain": 0.2904971331687343,
+        "m3_s3_both": 0.26230828352533275,
+        "m3_time": 0.4377979242948914,
+        "m4_dep": 0.21195011072940417
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.16129942019009164,
+        "m2_fold_change": 0.08376890134138895,
+        "m3_s1_chem": 0.07611290483301421,
+        "m3_s2_strain": 0.05809942663374687,
+        "m3_s3_both": 0.013115414176266639,
+        "m3_time": 0.021889896214744572,
+        "m4_dep": 0.010597505536470209
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.9833681671571413,
+          "pcc_per_protein_mean": 0.7508046231612131,
+          "r2_pooled": 0.9669474763517149,
+          "r2_per_protein_mean": 0.5248681371317635
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": 0.3518357185642216,
+          "pcc_pooled": 0.2847952657695585
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.3805117717692304,
+          "resid_pcc_pooled": 0.38072278135259296
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.2748237958181054,
+          "resid_pcc_pooled": 0.33751714522062115
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": 0.24720183489518782,
+          "resid_ctx_pcc_per_sample_mean": 0.2761048129837568,
+          "resid_drug_pcc_per_sample_mean": 0.26361820269705366
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": 0.4917292788104804,
+          "resid_ctx_pcc_per_sample_mean": 0.3538281731646291,
+          "resid_drug_pcc_per_sample_mean": 0.46783632090956484
+        },
+        "m4_dep": {
+          "precision_macro": 0.2886890409405707,
+          "recall_at_k_macro": 0.2136074036337167,
+          "f1_macro": 0.17583957599843372,
+          "auprc_macro": 0.16966442234489565
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.4248834689257231,
+          "m1_abundance": 0.8064971009504581,
+          "m2_fold_change": 0.3350756053655558,
+          "m3_s1_chem": 0.380564524165071,
+          "m3_s2_strain": 0.2904971331687343,
+          "m3_s3_both": 0.26230828352533275,
+          "m3_time": 0.4377979242948914,
+          "m4_dep": 0.21195011072940417
+        },
+        "pooled_only": {
+          "total_score": 0.45074688384902684,
+          "m1_abundance": 0.9751578217544281,
+          "m2_fold_change": 0.2847952657695585,
+          "m3_s1_chem": 0.38072278135259296,
+          "m3_s2_strain": 0.33751714522062115,
+          "m3_s3_both": 0.2541719489679929,
+          "m3_time": 0.38820757726308236,
+          "m4_dep": 0.17499082859110063
+        },
+        "per_sample_only": {
+          "total_score": 0.45936740910471463,
+          "m1_abundance": 0.973692750093553,
+          "m2_fold_change": 0.3518357185642216,
+          "m3_s1_chem": 0.3805117717692304,
+          "m3_s2_strain": 0.2748237958181054,
+          "m3_s3_both": 0.26230828352533275,
+          "m3_time": 0.4377979242948914,
+          "m4_dep": 0.21195011072940417
+        },
+        "per_protein_primary": {
+          "total_score": 0.4120946660252004,
+          "m1_abundance": 0.6378363801464884,
+          "m2_fold_change": 0.3389203017680842,
+          "m3_s1_chem": 0.34836883632352517,
+          "m3_s2_strain": 0.423316019926476,
+          "m3_s3_both": 0.3180984182916203,
+          "m3_time": 0.37915833705660407,
+          "m4_dep": 0.21195011072940417
+        }
+      }
+    },
+    "control_anchor": {
+      "total_score": 0.25072634664562443,
+      "module_scores": {
+        "m1_abundance": 0.8483923592994416,
+        "m2_fold_change": 0.0,
+        "m3_s1_chem": 0.17526085377645015,
+        "m3_s2_strain": 0.17518360279450199,
+        "m3_s3_both": 0.12603556326112056,
+        "m3_time": 0.07683074877870819,
+        "m4_dep": 0.016313357391084284
+      },
+      "module_weights": {
+        "m1_abundance": 0.2,
+        "m2_fold_change": 0.25,
+        "m3_s1_chem": 0.2,
+        "m3_s2_strain": 0.2,
+        "m3_s3_both": 0.05,
+        "m3_time": 0.05,
+        "m4_dep": 0.05
+      },
+      "module_weighted_contributions": {
+        "m1_abundance": 0.16967847185988832,
+        "m2_fold_change": 0.0,
+        "m3_s1_chem": 0.03505217075529003,
+        "m3_s2_strain": 0.0350367205589004,
+        "m3_s3_both": 0.006301778163056028,
+        "m3_time": 0.0038415374389354096,
+        "m4_dep": 0.0008156678695542142
+      },
+      "primary_submetrics": {
+        "m1_abundance": {
+          "pcc_pooled": 0.9893491341699044,
+          "pcc_per_protein_mean": 0.8056659342362377,
+          "r2_pooled": 0.9786987751155343,
+          "r2_per_protein_mean": 0.6198555936760901
+        },
+        "m2_fold_change": {
+          "pcc_per_sample_mean": NaN,
+          "pcc_pooled": NaN
+        },
+        "m3_s1_chem": {
+          "resid_pcc_per_sample_mean": 0.1804414305504754,
+          "resid_pcc_pooled": 0.1597191234543743
+        },
+        "m3_s2_strain": {
+          "resid_pcc_per_sample_mean": 0.13146555601242751,
+          "resid_pcc_pooled": 0.30633774314072537
+        },
+        "m3_s3_both": {
+          "pcc_per_sample_mean": NaN,
+          "resid_ctx_pcc_per_sample_mean": 0.24275731559477454,
+          "resid_drug_pcc_per_sample_mean": 0.13534937418858717
+        },
+        "m3_time": {
+          "pcc_per_sample_mean": NaN,
+          "resid_ctx_pcc_per_sample_mean": 0.13491632093605777,
+          "resid_drug_pcc_per_sample_mean": 0.09557592540006678
+        },
+        "m4_dep": {
+          "precision_macro": NaN,
+          "recall_at_k_macro": 0.03236079944454175,
+          "f1_macro": 0.0,
+          "auprc_macro": 0.032892630119795374
+        }
+      },
+      "warnings": [],
+      "sensitivity": {
+        "per_sample_primary": {
+          "total_score": 0.25072634664562443,
+          "m1_abundance": 0.8483923592994416,
+          "m2_fold_change": 0.0,
+          "m3_s1_chem": 0.17526085377645015,
+          "m3_s2_strain": 0.17518360279450199,
+          "m3_s3_both": 0.12603556326112056,
+          "m3_time": 0.07683074877870819,
+          "m4_dep": 0.016313357391084284
+        },
+        "pooled_only": {
+          "total_score": 0.30046159151949603,
+          "m1_abundance": 0.9840239546427194,
+          "m2_fold_change": 0.0,
+          "m3_s1_chem": 0.1597191234543743,
+          "m3_s2_strain": 0.30633774314072537,
+          "m3_s3_both": 0.10647318787308269,
+          "m3_time": 0.08612200017447713,
+          "m4_dep": 0.016313357391084284
+        },
+        "per_sample_only": {
+          "total_score": 0.26980323103106535,
+          "m1_abundance": 0.9823142512346954,
+          "m2_fold_change": 0.0,
+          "m3_s1_chem": 0.1804414305504754,
+          "m3_s2_strain": 0.13146555601242751,
+          "m3_s3_both": 0.12603556326112056,
+          "m3_time": 0.07683074877870819,
+          "m4_dep": 0.016313357391084284
+        },
+        "per_protein_primary": {
+          "total_score": 0.23928815704520082,
+          "m1_abundance": 0.712760763956164,
+          "m2_fold_change": 0.0,
+          "m3_s1_chem": 0.15233302088608836,
+          "m3_s2_strain": 0.2884257508573381,
+          "m3_s3_both": 0.0630657092198539,
+          "m3_time": 0.09230593149471614,
+          "m4_dep": 0.016313357391084284
+        }
+      }
+    }
+  },
+  "residual_confound": [
+    {
+      "model": "step3_gbdt",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.29045174385918804,
+      "resid_pcc_batch_aware": -0.06477541655803776,
+      "delta_attributable_to_batch": 0.3552271604172258
+    },
+    {
+      "model": "step3_gbdt",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.314428561922297,
+      "resid_pcc_batch_aware": 0.3267555932353125,
+      "delta_attributable_to_batch": -0.01232703131301549
+    },
+    {
+      "model": "step3_gbdt",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.25768048575519803,
+      "resid_pcc_batch_aware": 0.25696034502213616,
+      "delta_attributable_to_batch": 0.0007201407330618692
+    },
+    {
+      "model": "step3_gbdt",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.44281862731745364,
+      "resid_pcc_batch_aware": 0.3471182391638555,
+      "delta_attributable_to_batch": 0.09570038815359816
+    },
+    {
+      "model": "step4_chem_stacking",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.3772651601717961,
+      "resid_pcc_batch_aware": 0.15075963553058466,
+      "delta_attributable_to_batch": 0.22650552464121146
+    },
+    {
+      "model": "step4_chem_stacking",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.36306380439528774,
+      "resid_pcc_batch_aware": 0.4106104179164413,
+      "delta_attributable_to_batch": -0.04754661352115358
+    },
+    {
+      "model": "step4_chem_stacking",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.32010567600519046,
+      "resid_pcc_batch_aware": 0.38830191854242496,
+      "delta_attributable_to_batch": -0.0681962425372345
+    },
+    {
+      "model": "step4_chem_stacking",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.5400001695444581,
+      "resid_pcc_batch_aware": 0.46255454327384743,
+      "delta_attributable_to_batch": 0.07744562627061063
+    },
+    {
+      "model": "step5_knowledge_stacking",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.4005282930088916,
+      "resid_pcc_batch_aware": 0.19112656157352467,
+      "delta_attributable_to_batch": 0.20940173143536692
+    },
+    {
+      "model": "step5_knowledge_stacking",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.3889981735006213,
+      "resid_pcc_batch_aware": 0.43522294506315684,
+      "delta_attributable_to_batch": -0.046224771562535516
+    },
+    {
+      "model": "step5_knowledge_stacking",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.35928386265669465,
+      "resid_pcc_batch_aware": 0.4245108837750999,
+      "delta_attributable_to_batch": -0.06522702111840523
+    },
+    {
+      "model": "step5_knowledge_stacking",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.5302950525547081,
+      "resid_pcc_batch_aware": 0.4522083455783927,
+      "delta_attributable_to_batch": 0.07808670697631542
+    },
+    {
+      "model": "step6_submitted",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.4006205951841097,
+      "resid_pcc_batch_aware": 0.19244192165460297,
+      "delta_attributable_to_batch": 0.20817867352950672
+    },
+    {
+      "model": "step6_submitted",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.39159540371381635,
+      "resid_pcc_batch_aware": 0.4375422328858688,
+      "delta_attributable_to_batch": -0.04594682917205245
+    },
+    {
+      "model": "step6_submitted",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.36055380676194676,
+      "resid_pcc_batch_aware": 0.4253092720353709,
+      "delta_attributable_to_batch": -0.06475546527342413
+    },
+    {
+      "model": "step6_submitted",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.5317334363460439,
+      "resid_pcc_batch_aware": 0.45386987343673013,
+      "delta_attributable_to_batch": 0.07786356290931373
+    },
+    {
+      "model": "global_mean",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.0697658687558736,
+      "resid_pcc_batch_aware": -0.005533667332918993,
+      "delta_attributable_to_batch": 0.07529953608879258
+    },
+    {
+      "model": "global_mean",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.16858140637992622,
+      "resid_pcc_batch_aware": 0.17477935992041682,
+      "delta_attributable_to_batch": -0.006197953540490603
+    },
+    {
+      "model": "global_mean",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.15874793498569892,
+      "resid_pcc_batch_aware": 0.16789598268926043,
+      "delta_attributable_to_batch": -0.009148047703561507
+    },
+    {
+      "model": "global_mean",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.07852358895662269,
+      "resid_pcc_batch_aware": 0.014440513198259427,
+      "delta_attributable_to_batch": 0.06408307575836326
+    },
+    {
+      "model": "per_context_mean",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.11211366816545834,
+      "resid_pcc_batch_aware": 0.01986672651221922,
+      "delta_attributable_to_batch": 0.09224694165323913
+    },
+    {
+      "model": "per_context_mean",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.19411355030424468,
+      "resid_pcc_batch_aware": 0.20066051477155727,
+      "delta_attributable_to_batch": -0.006546964467312594
+    },
+    {
+      "model": "per_context_mean",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.18788009262986533,
+      "resid_pcc_batch_aware": 0.19705179086234048,
+      "delta_attributable_to_batch": -0.009171698232475156
+    },
+    {
+      "model": "per_context_mean",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.11316456372812006,
+      "resid_pcc_batch_aware": 0.03254806772919216,
+      "delta_attributable_to_batch": 0.0806164959989279
+    },
+    {
+      "model": "per_context_mean_batch",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.3805117717692304,
+      "resid_pcc_batch_aware": 0.013629120770105172,
+      "delta_attributable_to_batch": 0.3668826509991252
+    },
+    {
+      "model": "per_context_mean_batch",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.26584087831879016,
+      "resid_pcc_batch_aware": 0.2730659064719769,
+      "delta_attributable_to_batch": -0.007225028153186763
+    },
+    {
+      "model": "per_context_mean_batch",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.2761048129837568,
+      "resid_pcc_batch_aware": 0.28896423043263897,
+      "delta_attributable_to_batch": -0.012859417448882193
+    },
+    {
+      "model": "per_context_mean_batch",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.3538281731646291,
+      "resid_pcc_batch_aware": 0.03115048397514173,
+      "delta_attributable_to_batch": 0.32267768918948736
+    },
+    {
+      "model": "control_anchor",
+      "split": "val_chem_only",
+      "n_samples": 1640,
+      "resid_pcc_batch_blind": 0.1804414305504754,
+      "resid_pcc_batch_aware": 0.22636572088636694,
+      "delta_attributable_to_batch": -0.04592429033589154
+    },
+    {
+      "model": "control_anchor",
+      "split": "val_strain_only",
+      "n_samples": 1322,
+      "resid_pcc_batch_blind": 0.19638738109328419,
+      "resid_pcc_batch_aware": 0.2805473518913829,
+      "delta_attributable_to_batch": -0.08415997079809873
+    },
+    {
+      "model": "control_anchor",
+      "split": "val_both",
+      "n_samples": 1129,
+      "resid_pcc_batch_blind": 0.24275731559477454,
+      "resid_pcc_batch_aware": 0.34038276188804084,
+      "delta_attributable_to_batch": -0.0976254462932663
+    },
+    {
+      "model": "control_anchor",
+      "split": "val_time",
+      "n_samples": 135,
+      "resid_pcc_batch_blind": 0.13491632093605777,
+      "resid_pcc_batch_aware": 0.21515272932552695,
+      "delta_attributable_to_batch": -0.08023640838946919
+    }
+  ],
+  "runtime_seconds": 344.8
+}

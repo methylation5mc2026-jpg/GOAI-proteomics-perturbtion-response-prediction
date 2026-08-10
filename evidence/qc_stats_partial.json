@@ -1,0 +1,47 @@
+{
+  "missingness": {
+    "train_val": {
+      "n_samples": 8958,
+      "n_proteins": 5243,
+      "n_cells": 46966794,
+      "n_missing_nan": 12847022,
+      "pct_missing_nan": 27.353,
+      "n_exact_zero": 0,
+      "pct_exact_zero": 0.0,
+      "detected_per_sample_median": 3891.0,
+      "detected_per_sample_min": 336,
+      "detected_per_sample_max": 4330,
+      "protein_detection_rate_median": 0.9431792810895289,
+      "n_proteins_detected_in_all": 263,
+      "n_proteins_never_detected": 186
+    },
+    "test": {
+      "n_samples": 4454,
+      "n_proteins": 5243,
+      "n_cells": 23352322,
+      "n_missing_nan": 6503872,
+      "pct_missing_nan": 27.851,
+      "n_exact_zero": 0,
+      "pct_exact_zero": 0.0,
+      "detected_per_sample_median": 3832.0,
+      "detected_per_sample_min": 733,
+      "detected_per_sample_max": 4319,
+      "protein_detection_rate_median": 0.9411764705882353,
+      "n_proteins_detected_in_all": 517,
+      "n_proteins_never_detected": 189
+    },
+    "n_proteins_detrate_ge_0.5_both": 3839,
+    "n_proteins_detrate_ge_0.7_both": 3442,
+    "n_proteins_detrate_ge_0.9_both": 2807,
+    "n_proteins_detrate_ge_0.95_both": 2489,
+    "n_proteins_detrate_ge_0.99_both": 1479,
+    "n_proteins_detrate_ge_1_both": 261
+  },
+  "normalisation": {
+    "method": "per-sample median centring of log2, re-centred on train-split reference offset",
+    "reference_offset_log2": 21.328601837158203,
+    "frozen_on": "split_final == 'train' of train_val"
+  },
+  "detection_outliers_flagged_robust_z_lt_-3.5": 414,
+  "n_proteins": 5243
+}
